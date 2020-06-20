@@ -1,5 +1,7 @@
 from django.db import models
+from .apps import ProjectmanagementConfig
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 import ntpath
 import os
 
@@ -22,7 +24,7 @@ class Classification(models.Model):
 
 
 class Discussion(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="discussions", on_delete=models.CASCADE)
     object = models.CharField(max_length=200)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -35,7 +37,7 @@ class Discussion(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
     discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,16 +50,27 @@ class Comment(models.Model):
 
 
 class Project(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    code_project = models.CharField(max_length=200, primary_key=True)
     designation = models.CharField(max_length=200)
     objective = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    users = models.ManyToManyField(User, through='UserProject')
 
     class Meta:
-        ordering = ['designation']
+        ordering = ['objective']
 
     def __str__(self):
-        return self.designation
+        return self.objective
+
+
+class UserProject(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    is_responsible = models.BooleanField()
+
+    class Meta:
+        db_table = ProjectmanagementConfig.name + "_user_project"
+        unique_together = (("user", "project"),)
 
 
 class Video(models.Model):
@@ -84,7 +97,7 @@ class Document(models.Model):
     path = models.CharField(max_length=500)
     version = models.CharField(max_length=20)
     description = models.CharField(max_length=200)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, related_name="documents", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -97,7 +110,7 @@ class Document(models.Model):
 class Sprint(models.Model):
     name = models.CharField(max_length=500)
     desired_at = models.DateTimeField()
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, related_name="sprints", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['desired_at']
