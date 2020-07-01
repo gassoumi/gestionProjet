@@ -2,6 +2,8 @@ from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
+from django.contrib.auth.models import User
+from rest_framework import filters
 
 
 # Register api
@@ -33,9 +35,20 @@ class LoginApi(generics.GenericAPIView):
         })
 
 
+# Api for getting the authenticated user
 class UserApi(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserSerializer
 
     def get_object(self):
         return self.request.user
+
+
+# Api for retrieve all users
+class UsersList(generics.ListAPIView):
+    queryset = User.objects.filter(is_active__exact=True, is_superuser=False)
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username', 'email']
+    ordering = ['username']
