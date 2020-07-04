@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Project, UserProject
 from django.contrib.auth.models import User
+from rest_framework.validators import UniqueTogetherValidator
 
 
 # User Serializer
@@ -19,7 +20,7 @@ class UserProjectSerializer(serializers.ModelSerializer):
     classification = serializers.ChoiceField(choices=UserProject.Classification)
 
     class Meta:
-        fields = ('username', 'is_responsible', 'classification')  # output fields for json response
+        fields = ('username', 'is_responsible', 'classification',)
         model = UserProject
 
 
@@ -77,7 +78,8 @@ class ProjectSerializer(serializers.ModelSerializer):
                     user_project.save()
                     # raise Exception(user_project)
             except Exception as e:
-                raise Exception(e)
+                pass
+                # raise Exception(e)
         return project
 
     def get_authenticated_user(self):
