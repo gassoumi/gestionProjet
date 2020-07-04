@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Project, UserProject
 from django.contrib.auth.models import User
-from rest_framework.validators import UniqueTogetherValidator
 
 
 # User Serializer
@@ -37,13 +36,9 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         authenticated_user = self.get_authenticated_user()
-
         project_users_data = validated_data.pop('projectUsers')
-
         project = Project.objects.create(**validated_data)
-
         self.save_authenticed_user(authenticated_user, project)
-
         return self.get_saved_project(authenticated_user, project, project_users_data)
 
     def update(self, instance, validated_data):
@@ -70,16 +65,16 @@ class ProjectSerializer(serializers.ModelSerializer):
         for project_user_data in project_users_data:
             username = project_user_data.get('user').get('username')
             classification_input = project_user_data.get('classification')
+
             try:
                 user = User.objects.get(username=username)
                 if user and user.is_active and not user.is_superuser and user.username != authenticated_user.username:
                     user_project = UserProject(user=user, project=project, is_responsible=False,
                                                classification=classification_input)
                     user_project.save()
-                    # raise Exception(user_project)
             except Exception as e:
                 pass
-                # raise Exception(e)
+
         return project
 
     def get_authenticated_user(self):
