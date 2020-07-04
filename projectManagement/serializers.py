@@ -3,7 +3,7 @@ from .models import Project, UserProject
 from django.contrib.auth.models import User
 
 
-# User Serialize
+# User Serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -12,36 +12,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 # UserProject Serializer
 class UserProjectSerializer(serializers.ModelSerializer):
-    user_id = serializers.Field()
-    is_responsible = serializers.BooleanField()
-    username = serializers.ReadOnlyField(source='user.username')
-    classification = serializers.CharField()
-
-    def to_internal_value(self, data):
-        user_id = data.get('user_id')
-        is_responsible = data.get('is_responsible')
-        classification = data.get('classification')
-        # Perform the data validation.
-        if not user_id:
-            raise serializers.ValidationError({
-                'user_id': 'This field is required.'
-            })
-        return {
-            'user_id': int(user_id),
-            'is_responsible': bool(is_responsible),
-            'classification': classification
-        }
-
-    def to_representation(self, instance):
-        return {
-            'user_id': instance.user_id,
-            'username': instance.user.username,
-            'is_responsible': instance.is_responsible,
-            'classification': instance.classification
-        }
+    # user_id = serializers.IntegerField()
+    # put it if it is required in json input for creating or updating the UserProjectModel
+    # is_responsible = serializers.BooleanField()
+    username = serializers.CharField(source='user.username')
+    classification = serializers.ChoiceField(choices=UserProject.Classification)
 
     class Meta:
-        fields = ('user_id', 'is_responsible', 'username', 'classification')
+        fields = ('username', 'is_responsible', 'classification')  # output fields for json response
         model = UserProject
 
 
@@ -60,11 +38,10 @@ class ProjectSerializer(serializers.ModelSerializer):
         authenticated_user = self.get_authenticated_user()
 
         project_users_data = validated_data.pop('projectUsers')
+
         project = Project.objects.create(**validated_data)
 
-        if authenticated_user:
-            user_project = UserProject(user=authenticated_user, project=project, is_responsible=True)
-            user_project.save()
+        self.save_authenticed_user(authenticated_user, project)
 
         return self.get_saved_project(authenticated_user, project, project_users_data)
 
@@ -78,23 +55,29 @@ class ProjectSerializer(serializers.ModelSerializer):
 
         user_projects = UserProject.objects.filter(project=instance)
         user_projects.delete()
-        if authenticated_user:
-            user_project = UserProject(user=authenticated_user, project=instance, is_responsible=True)
-            user_project.save()
+        self.save_authenticed_user(authenticated_user, instance)
 
         return self.get_saved_project(authenticated_user, instance, project_users_data)
 
+    def save_authenticed_user(self, authenticated_user, project):
+        if authenticated_user:
+            user_project = UserProject(user=authenticated_user, project=project, is_responsible=True,
+                                       classification=UserProject.Classification.PROJECT_OWNER)
+            user_project.save()
+
     def get_saved_project(self, authenticated_user, project, project_users_data):
         for project_user_data in project_users_data:
-            user_id = project_user_data.get('user_id')
-
+            username = project_user_data.get('user').get('username')
+            classification_input = project_user_data.get('classification')
             try:
-                user = User.objects.get(pk=user_id)
+                user = User.objects.get(username=username)
                 if user and user.is_active and not user.is_superuser and user.username != authenticated_user.username:
-                    user_project = UserProject(user=user, project=project, is_responsible=False)
+                    user_project = UserProject(user=user, project=project, is_responsible=False,
+                                               classification=classification_input)
                     user_project.save()
+                    # raise Exception(user_project)
             except Exception as e:
-                pass
+                raise Exception(e)
         return project
 
     def get_authenticated_user(self):

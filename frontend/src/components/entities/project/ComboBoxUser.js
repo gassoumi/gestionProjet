@@ -9,7 +9,7 @@ import {getMessageError} from "../../account/Login";
 import {connect} from "react-redux";
 import {returnErrors} from "../../../redux/actions/messages";
 
-function sleep(delay = 0) {
+export function sleep(delay = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
     });
@@ -24,6 +24,7 @@ function ComboBoxUser(props) {
     const [options, setOptions] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
+
 
     React.useEffect(() => {
         let active = true;
@@ -66,6 +67,7 @@ function ComboBoxUser(props) {
 
     return (
         <Autocomplete
+            defaultValue={defaultValue}
             onInputChange={(event, newInputValue) => handleInputChange(event, newInputValue)}
             inputValue={inputValue}
             open={open}
@@ -75,8 +77,8 @@ function ComboBoxUser(props) {
             onClose={() => {
                 setOpen(false);
             }}
-            getOptionSelected={(option, value) => option.username === value.username}
-            getOptionLabel={(option) => option.username}
+            getOptionSelected={(option, value) => option.username === value.username || defaultValue}
+            getOptionLabel={(option) => defaultValue !== null ? defaultValue : option.username}
             options={options}
             loading={loading}
             renderInput={(params) => (
@@ -84,9 +86,8 @@ function ComboBoxUser(props) {
                     {...params}
                     label="Username"
                     variant="outlined"
-                    required
                     name={name}
-                    inputRef={register({required: true})}
+                    inputRef={register}
                     error={!!errors[name]}
                     helperText={getMessageError(errors, name)}
                     InputProps={{

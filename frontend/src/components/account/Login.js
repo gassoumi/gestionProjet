@@ -75,8 +75,6 @@ function Login(props) {
 
     // TODO 1 create a custom loading component later
 
-    console.log("login is render");
-    console.log(props.auth);
 
     if (props.auth.isAuthenticated) {
         return <Redirect to="/project"/>;

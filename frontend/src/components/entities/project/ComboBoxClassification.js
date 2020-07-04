@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {getMessageError} from "../../account/Login";
@@ -13,9 +13,8 @@ export default function ComboBoxClassification({register, name, errors, defaultV
             options={classifications2}
             getOptionLabel={(option) => option}
             renderInput={(params) => <TextField {...params} name={name} error={!!errors[name]}
-                                                required
                                                 helperText={getMessageError(errors, name)}
-                                                inputRef={register({required: true,})} label="User Classification"
+                                                inputRef={register} label="User Classification"
                                                 variant="outlined"/>}
         />
     );
@@ -31,9 +30,9 @@ Scrum Master
 
 const classifications2 = [
     'Scrum Master',
-    'Project Owner ',
+    'Project Owner',
     'Team Leader',
-    'Responsible development',
+    'Responsible Development',
     'Responsible',
     'Conception',
     'Executive assistant',

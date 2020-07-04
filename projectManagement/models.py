@@ -56,7 +56,7 @@ class Project(models.Model):
         ordering = ['created_at']
 
     def __str__(self):
-        return self.designation
+        return self.code_project
 
 
 class UserProject(models.Model):
@@ -64,7 +64,7 @@ class UserProject(models.Model):
         SCRUM_MASTER = 'Scrum Master', _('Scrum Master')
         PROJECT_OWNER = 'Project Owner', _('Project Owner')
         TEAM_OWNER = 'Team Leader', _('Team Leader')
-        RESPONSIBLE_DEVELOPMENT = 'Responsible Development', _('Responsible Development')
+        RESPONSIBLE_DEVELOPMENT = 'Responsible Developpment', _('Responsible Developpment')
         RESPONSIBLE = 'Responsible', _('Responsible')
         CONCEPTION = 'Conception', _('Conception')
         EXECUTIVE_ASSISTANT = 'Executive Assistant', _('Executive Assistant')
