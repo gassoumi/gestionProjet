@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Project, UserProject
 from django.contrib.auth.models import User
 
@@ -17,9 +18,10 @@ class UserProjectSerializer(serializers.ModelSerializer):
     # is_responsible = serializers.BooleanField()
     username = serializers.CharField(source='user.username')
     classification = serializers.ChoiceField(choices=UserProject.Classification)
+    code_project = serializers.CharField(source='project.code_project', read_only=True)
 
     class Meta:
-        fields = ('username', 'is_responsible', 'classification',)
+        fields = ('id', 'code_project', 'username', 'is_responsible', 'classification',)
         model = UserProject
 
 

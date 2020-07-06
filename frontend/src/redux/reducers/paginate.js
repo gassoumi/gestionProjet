@@ -3,14 +3,14 @@ import union from "lodash/union";
 // Creates a reducer managing pagination, given the action types to handle,
 // and a function telling how to extract the key from an action.
 const paginate = ({types}) => {
-    if (!Array.isArray(types) || types.length !== 4) {
+    if (!Array.isArray(types) || types.length !== 6) {
         throw new Error("Expected types to be an array of three elements.");
     }
     if (!types.every((t) => typeof t === "string")) {
         throw new Error("Expected types to be strings.");
     }
 
-    const [requestType, successType, failureType, logout,] = types;
+    const [requestType, successType, failureType, logout, updateSuccessType, updateFailureType] = types;
 
     const initialState = {
         updating: false,
@@ -18,6 +18,7 @@ const paginate = ({types}) => {
         nextPageUrl: null,
         page: 0,
         ids: [],
+        updateSuccess: false
     };
 
     return (
@@ -29,6 +30,7 @@ const paginate = ({types}) => {
                 return {
                     ...state,
                     isFetching: true,
+                    updateSuccess: false,
                 };
             case successType:
                 return {
@@ -42,6 +44,16 @@ const paginate = ({types}) => {
                 return {
                     ...state,
                     isFetching: false,
+                };
+            case updateSuccessType:
+                return {
+                    ...state,
+                    updateSuccess: true,
+                };
+            case updateFailureType:
+                return {
+                    ...state,
+                    updateSuccess: false
                 };
             case logout:
                 return initialState;

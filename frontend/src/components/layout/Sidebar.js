@@ -9,9 +9,7 @@ import Divider from "@material-ui/core/Divider";
 import {makeStyles} from '@material-ui/core/styles';
 import MailIcon from '@material-ui/icons/Mail';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import Link from "@material-ui/core/Link";
 import {Link as RouterLink} from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -125,12 +123,6 @@ function Sidebar(props) {
                 <Divider/>
                 <List>
                     <ListItemLink to="#" primary="Sprint"/>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
                 </List>
             </div>
         </Drawer>

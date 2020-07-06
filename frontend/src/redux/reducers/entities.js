@@ -10,10 +10,11 @@ function entities(state, action) {
   return state;
 }
 
-const initialState = { users: {}, projects: {} };
+const initialState = { projectUsers: {}, projects: {} };
 //const initialState = {};
 export default function (state = initialState, action) {
   switch (action.type) {
+    case ActionTypes.FETCH_SUCCESS_PROJECT:
     case ActionTypes.STARRED_SUCCESS_PROJECTS:
       return entities(state, action);
     case ActionTypes.LOGOUT_SUCCESS:

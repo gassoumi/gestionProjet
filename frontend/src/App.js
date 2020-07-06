@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/layout/Header";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {fab} from "@fortawesome/free-brands-svg-icons";
 import {
@@ -9,6 +8,7 @@ import {
     fas,
 } from "@fortawesome/free-solid-svg-icons";
 import Routes from "./routes";
+import LoadingBar from 'react-redux-loading-bar'
 //import { BrowserRouter as Router } from "react-router-dom";
 import {HashRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
@@ -30,6 +30,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
+                <LoadingBar/>
                 <Alerts/>
                 <ToastContainer autoClose={2000}/>
                 <Router>

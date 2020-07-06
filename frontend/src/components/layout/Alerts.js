@@ -31,6 +31,15 @@ class Alerts extends Component {
             if (message.passwordNotMatch) {
                 toast.error(message.passwordNotMatch);
             }
+            if (message.projectDeleted) {
+                toast.success(message.projectDeleted);
+            }
+            if (message.projectAdded) {
+                toast.success(message.projectAdded);
+            }
+            if (message.projectUpdated) {
+                toast.success(message.projectUpdated);
+            }
         }
 
     }

@@ -4,10 +4,10 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {tokenConfig, BASE_API} from "../../../services/api";
 import {getMessageError} from "../../account/Login";
 import {connect} from "react-redux";
-import {returnErrors} from "../../../redux/actions/messages";
+import {returnErrors} from "../index";
+import {tokenConfig} from "../index";
 
 export function sleep(delay = 0) {
     return new Promise((resolve) => {
@@ -19,7 +19,7 @@ const URL = '/api/auth/users';
 const PARAM_SEARCH = "search=";
 
 function ComboBoxUser(props) {
-    const {register, name, errors, returnErrors,defaultValue} = props;
+    const {register, name, errors, returnErrors, defaultValue} = props;
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
@@ -38,7 +38,7 @@ function ComboBoxUser(props) {
                 setLoading(true);
                 await sleep(1e3); // For demo purposes.
                 const url = `${URL}?${PARAM_SEARCH}${inputValue}`;
-                const response = await axios.get(url,tokenConfig());
+                const response = await axios.get(url, tokenConfig());
                 if (active && response.data && response.data.results) {
                     setOptions(response.data.results);
                 }
@@ -78,7 +78,7 @@ function ComboBoxUser(props) {
                 setOpen(false);
             }}
             getOptionSelected={(option, value) => option.username === value.username || defaultValue}
-            getOptionLabel={(option) => defaultValue !== null ? defaultValue : option.username}
+            getOptionLabel={(option) => option.username || defaultValue}
             options={options}
             loading={loading}
             renderInput={(params) => (

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import {tokenConfig, BASE_API} from "../index";
+import {tokenConfig} from "../index";
 import ProjectEditor from './ProjectEditor';
 
 
@@ -13,7 +13,7 @@ function ProjectUpdate(props) {
         //console.log(isNewProject);
         if (!isNewProject) {
             const id = props.match.params.id;
-            axios.get(`${BASE_API}projects/${id}`, tokenConfig())
+            axios.get(`/api/projects/${id}`, tokenConfig())
                 .then(response => setProject(response.data))
                 .catch(error => console.log(error));
         } else {

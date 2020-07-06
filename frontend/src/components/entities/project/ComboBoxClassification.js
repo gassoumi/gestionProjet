@@ -35,7 +35,7 @@ const classifications2 = [
     'Responsible Development',
     'Responsible',
     'Conception',
-    'Executive assistant',
+    'Executive Assistant',
 ];
 
 const classifications = [

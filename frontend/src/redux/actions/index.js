@@ -1,10 +1,14 @@
-import { login, loadUser, logout, register } from "./auth";
-import { fetchProjects } from './entities';
+import {login, loadUser, logout, register} from "./auth";
+import {fetchProjectById,fetchProjects, updateProject, createProject, deleteProject} from './project';
 
 export {
     loadUser,
-    fetchProjects,
     login,
     logout,
     register,
+    deleteProject,
+    createProject,
+    updateProject,
+    fetchProjectById,
+    fetchProjects
 }

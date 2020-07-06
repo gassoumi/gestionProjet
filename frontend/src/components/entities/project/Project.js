@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {fetchProjects} from "../../../redux";
@@ -6,7 +6,6 @@ import ProjectItem from "./ProjectItem";
 import InfiniteScroll from 'react-infinite-scroller';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +41,6 @@ function Project(props) {
 
 
     const loadMore = () => {
-        console.log("load More called");
         const hasMoreItems = nextPageUrl !== null;
         if (hasMoreItems && !props.isFetching) {
             props.fetchProjects(props.page + 1);

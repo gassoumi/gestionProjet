@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
@@ -8,14 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
-import cx from 'clsx';
-import BrandCardHeader from '@mui-treasury/components/cardHeader/brand';
-import TextInfoContent from '@mui-treasury/components/content/textInfo';
-import {useN03TextInfoContentStyles} from '@mui-treasury/styles/textInfoContent/n03';
-import {useLightTopShadowStyles} from '@mui-treasury/styles/shadow/lightTop';
-import InfiniteScroll from "react-infinite-scroller";
 import {Link as RouterLink} from 'react-router-dom';
+import moment from 'moment';
 
+//https://momentjs.com/docs/#/parsing/special-formats/
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -55,15 +50,18 @@ const ProjectItem = ({project, length}) => {
                     <Typography gutterBottom variant="h5" component="h2">
                         {project.designation}
                     </Typography>
-                    <Typography variant="body2" component="p" paragraph>
+                    <Typography variant="subtitle1" color="textSecondary">
+                        {moment(project.created_at).fromNow()}
+                    </Typography>
+                    <Typography variant="body1" component="p">
                         {project.objective}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary">
+                    <Button component={RouterLink} to={`project/${project.code_project}`} size="small" color="primary">
                         View
                     </Button>
-                    <Button  component={RouterLink} to={`project/${project.code_project}/edit`} size="small"
+                    <Button component={RouterLink} to={`project/${project.code_project}/edit`} size="small"
                             color="primary">
                         Edit
                     </Button>

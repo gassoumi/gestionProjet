@@ -1,14 +1,16 @@
 import React from 'react';
 import {Switch, Route, HashRouter as Router, Redirect} from 'react-router-dom';
 import Project from './project';
-import Header from "../layout/Header";
 import Sidebar from '../layout/Sidebar'
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 import MyHeader from "../layout/MyHeader";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
-import {tokenConfig, BASE_API} from "../../services/api";
+import {tokenConfig} from "../../utils";
+import {returnErrors} from "../../redux/actions/messages";
+import * as Selector from "../../redux/selectors";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,6 +44,7 @@ const Routes = (props) => {
     );
 };
 
-export {BASE_API, tokenConfig}
+export { tokenConfig, returnErrors, Selector}
+
 
 export default Routes;

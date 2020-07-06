@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import React, {useState, useRef, useLayoutEffect, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Grid from "@material-ui/core/Grid";
 import ComboBoxUser from "./ComboBoxUser";
 import ComboBoxClassification from "./ComboBoxClassification";
@@ -14,6 +14,9 @@ import Button from "@material-ui/core/Button";
 import SaveIcon from '@material-ui/icons/Save';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
+import {createProject, updateProject} from "../../../redux/actions/project";
+import {connect} from "react-redux";
+import {green} from '@material-ui/core/colors';
 
 
 let id = 0;
@@ -24,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     },
     heroButtons: {
         marginTop: theme.spacing(4),
+    },
+    form: {
+        marginTop: theme.spacing(3),
     },
     cardGrid: {
         paddingTop: theme.spacing(2),
@@ -64,6 +70,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const defaultValue = {
+    code_project: "",
+    designation: "",
+    objective: ""
+};
+
+
 // The following component is Input Component of the user
 const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) => {
     const classes = useStyles();
@@ -84,7 +97,7 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
                 </Grid>
                 <Grid item sm={2}>
                     <IconButton type="button" onClick={addUser} aria-label="add">
-                        <AddCircleIcon fontSize="large"/>
+                        <AddCircleIcon style={{color: green[500]}} fontSize="large"/>
                     </IconButton>
                     {displayMinus &&
                     <IconButton color="secondary" type="button" onClick={() => removeUser(user.user_id)}
@@ -98,20 +111,10 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
     )
 };
 
-const defaultValue = {
-    code_project: "",
-    designation: "",
-    objective: ""
-};
-
-const ProjectEditor = (props) => {
-
-    const project = props.project;
+const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, updateSuccess}) => {
 
     const classes = useStyles();
     const [users, setUsers] = useState([]);
-
-    //const inputEl = useRef(null);
 
     const {register, handleSubmit, errors, control, reset} = useForm({
         mode: "onChange",
@@ -119,9 +122,9 @@ const ProjectEditor = (props) => {
 
     // initialize input fields
     useEffect(() => {
-        console.log(props.isNew);
         console.log(project);
-        if (!props.isNew) {
+        console.log(isNew);
+        if (!isNew) {
             // if we have users for this project
             if (project.projectUsers && project.projectUsers.length > 0) {
                 const projectUsers = project.projectUsers.map(user => ({
@@ -144,8 +147,6 @@ const ProjectEditor = (props) => {
                 designation: project.designation,
                 objective: project.objective
             });
-            // or
-            //setValue('code_project', project.code_project )
         } else {
             setUsers([{
                 user_id: id++,
@@ -155,7 +156,13 @@ const ProjectEditor = (props) => {
             reset(defaultValue);
         }
 
-    }, [project, props.isNew]);
+    }, [project, isNew]);
+
+    useEffect(() => {
+        if (updateSuccess) {
+            cancel();
+        }
+    }, [updateSuccess]);
 
 
     const addUser = () => {
@@ -174,11 +181,15 @@ const ProjectEditor = (props) => {
     const onSubmit = (data) => {
         const {code_project, designation, objective} = data;
         const projectUsers = users.map(user => {
-            return {
-                username: data[`user-${user.user_id}`],
-                classification: data[`class-${user.user_id}`]
-            };
-        });
+            const username = data[`user-${user.user_id}`];
+            const classification = data[`class-${user.user_id}`];
+            if (username && classification) {
+                return {
+                    username,
+                    classification
+                };
+            }
+        }).filter(project => project != null);
         const project = {
             code_project,
             designation,
@@ -186,6 +197,12 @@ const ProjectEditor = (props) => {
             projectUsers
         };
         console.log(project);
+        console.log(isNew);
+        if (isNew) {
+            createProject(project)
+        } else {
+            updateProject(project.code_project, project);
+        }
     };
 
 
@@ -194,9 +211,9 @@ const ProjectEditor = (props) => {
             <Paper className={classes.paper}>
                 <React.Fragment>
                     <Typography variant="h5" gutterBottom>
-                        {props.isNew ? "Create new" : "Edit "} project
+                        {isNew ? "Create new" : "Edit "} project
                     </Typography>
-                    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
                         <Grid container spacing={4}>
                             <Grid item xs={12} sm={6}>
                                 <Controller
@@ -207,11 +224,13 @@ const ProjectEditor = (props) => {
                                         fullWidth
                                         error={!!errors.code_project}
                                         helperText={getMessageError(errors, "code_project")}
+                                        disabled={!isNew}
                                     />}
                                     rules={{required: true, maxLength: 200}}
                                     name="code_project"
                                     control={control}
                                     defaultValue=""
+
                                 />
 
                             </Grid>
@@ -269,7 +288,7 @@ const ProjectEditor = (props) => {
                                 <Button startIcon={<SaveIcon/>} type="submit" variant="contained" color="primary">
                                     Save
                                 </Button>
-                                <Button startIcon={<ArrowBackIcon/>} onClick={props.cancel} variant="contained"
+                                <Button startIcon={<ArrowBackIcon/>} onClick={cancel} variant="contained"
                                         color="secondary">
                                     Back
                                 </Button>
@@ -283,4 +302,8 @@ const ProjectEditor = (props) => {
 
 };
 
-export default ProjectEditor;
+const mapStateToProps = state => ({
+    updateSuccess: state.pagination.project.updateSuccess
+});
+
+export default connect(mapStateToProps, {createProject, updateProject})(ProjectEditor);

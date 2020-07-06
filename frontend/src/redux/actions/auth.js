@@ -30,7 +30,6 @@ export const loadUser = () => async (dispatch, getState) => {
     try {
         const res = await axios.get('/api/auth/user', tokenConfig(getState));
         await sleep(1e2);
-        console.log(res);
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -75,11 +74,7 @@ export const login = (username, password) => dispatch => {
 };
 
 // register user
-export const register = ({
-                             username,
-                             password,
-                             email
-                         }) => dispatch => {
+export const register = ({username, password, email}) => dispatch => {
 
     //Header
     const config = {

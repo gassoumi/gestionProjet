@@ -5,6 +5,7 @@ import auth from "./auth";
 import * as ActionTypes from "../actionTypes";
 import messages from "./messages";
 import errors from "./errors";
+import { loadingBarReducer } from 'react-redux-loading-bar'
 
 // Updates the pagination data for different actions.
 const pagination = combineReducers({
@@ -14,6 +15,8 @@ const pagination = combineReducers({
             ActionTypes.STARRED_SUCCESS_PROJECTS,
             ActionTypes.STARRED_FAILURE_PROJECTS,
             ActionTypes.LOGOUT_SUCCESS,
+            ActionTypes.UPDATE_SUCCESS_PROJECT,
+            ActionTypes.UPDATE_FAILURE_PROJECT
         ],
     }),
 });
@@ -23,5 +26,6 @@ export default combineReducers({
     auth,
     pagination,
     messages,
+    loadingBar: loadingBarReducer,
     errors
 });
