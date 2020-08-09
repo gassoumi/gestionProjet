@@ -70,7 +70,7 @@ function TaskForm(props) {
     };
 
     // you can use setError when start_at date change and it is great than end_at date
-    const {register, handleSubmit, errors, control, getValues, clearError, watch} = useForm({
+    const {register, handleSubmit, errors, control, getValues, clearError,triggerValidation, watch} = useForm({
         mode: "onChange",
         defaultValues: defaultValue,
     });
@@ -86,8 +86,11 @@ function TaskForm(props) {
 
     useEffect(() => {
         const endAtValue = getValues().end_at;
-        if (watchStartAt && endAtValue && isGreatOrEqualThan(endAtValue)) {
-            clearError("end_at");
+        // if (watchStartAt && endAtValue && isGreatOrEqualThan(endAtValue)) {
+        //     clearError("end_at");
+        // }
+        if(watchStartAt && endAtValue){
+             triggerValidation("end_at");
         }
     }, [watchStartAt]);
 
