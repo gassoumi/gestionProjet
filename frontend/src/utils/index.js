@@ -1,6 +1,11 @@
 import {schema, normalize} from "normalizr";
 
-// Define a users schema
+
+// Define a user schema
+export const userSchema = new schema.Entity("users");
+export const usersListSchema = new schema.Array(userSchema);
+
+// Define a projectUsers schema
 export const projectUsersSchema = new schema.Entity("projectUsers");
 export const projectUsersListSchema = new schema.Array(projectUsersSchema);
 
@@ -12,6 +17,18 @@ export const projectSchema = new schema.Entity(
 );
 
 export const projectListSchema = new schema.Array(projectSchema);
+
+// Define a users schema
+export const sprintSchema = new schema.Entity("sprints",
+    {project: projectSchema});
+
+export const sprintListSchema = new schema.Array(sprintSchema);
+
+// Define a users schema
+export const taskSchema = new schema.Entity("tasks",
+    {sprint: sprintSchema});
+
+export const taskListSchema = new schema.Array(taskSchema);
 
 export const tokenConfig = () => {
     // get token from state

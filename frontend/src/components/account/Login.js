@@ -18,6 +18,7 @@ import {useForm} from "react-hook-form";
 import {Link as RouterLink, Redirect} from "react-router-dom";
 import CachedIcon from '@material-ui/icons/Cached';
 import Loader from 'react-loader-spinner';
+import Loading from './Loading';
 
 
 // Messages
@@ -80,16 +81,19 @@ function Login(props) {
         return <Redirect to="/project"/>;
     } else if (props.auth.isLoading) {
         return (
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
-                <Loader timeout={5000} type="Circles"  height="100" width="100"/></div>
+            <>
+            {/*<div*/}
+            {/*    style={{*/}
+            {/*        width: "100%",*/}
+            {/*        height: "100%",*/}
+            {/*        display: "flex",*/}
+            {/*        justifyContent: "center",*/}
+            {/*        alignItems: "center",*/}
+            {/*    }}*/}
+            {/*>*/}
+            {/*    <Loader timeout={5000} type="Circles"  height="100" width="100"/></div>*/}
+            <Loading/>
+            </>
         );
     }
 
@@ -149,13 +153,6 @@ function Login(props) {
                     >
                         Sign In
                     </Button>
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link component={RouterLink} variant="body2" to="/account/register">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
-                        </Grid>
-                    </Grid>
                 </form>
             </div>
             <Box mt={8}>

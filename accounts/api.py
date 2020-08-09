@@ -50,5 +50,13 @@ class UsersList(generics.ListAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter]
-    search_fields = ['username', 'email']
+    search_fields = ['username', ]
     ordering = ['username']
+
+
+# Api for retrieve a user
+# https://medium.com/the-andela-way/creating-a-djangorest-api-using-djangorestframework-part-2-1231fe949795
+class UserRetrieveApi(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserSerializer
+    queryset = User.objects.filter(is_active__exact=True, is_superuser=False)

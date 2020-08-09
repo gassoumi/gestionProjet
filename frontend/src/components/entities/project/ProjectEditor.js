@@ -14,9 +14,11 @@ import Button from "@material-ui/core/Button";
 import SaveIcon from '@material-ui/icons/Save';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
-import {createProject, updateProject} from "../../../redux/actions/project";
+import {createProject, updateProject, deleteProjectById} from "../../../redux/actions";
 import {connect} from "react-redux";
 import {green} from '@material-ui/core/colors';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ProjectDeleteDialog from './ProjectDeleteDialog';
 
 
 let id = 0;
@@ -87,7 +89,7 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
 
     return (
         <React.Fragment>
-            <Grid container item xs={12} spacing={2}>
+            <Grid container item xs={12} spacing={1}>
                 <Grid item xs={12} sm={5}>
                     <ComboBoxUser defaultValue={defaultUsername} register={register} name={userName} errors={errors}/>
                 </Grid>
@@ -95,7 +97,7 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
                     <ComboBoxClassification defaultValue={defaultClassification} register={register} errors={errors}
                                             name={classificationName}/>
                 </Grid>
-                <Grid item sm={2}>
+                <Grid item xs={2} sm={2}>
                     <IconButton type="button" onClick={addUser} aria-label="add">
                         <AddCircleIcon style={{color: green[500]}} fontSize="large"/>
                     </IconButton>
@@ -111,10 +113,19 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
     )
 };
 
-const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, updateSuccess}) => {
+const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, updateSuccess, deleteProjectById}) => {
 
     const classes = useStyles();
     const [users, setUsers] = useState([]);
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const {register, handleSubmit, errors, control, reset} = useForm({
         mode: "onChange",
@@ -122,8 +133,6 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
 
     // initialize input fields
     useEffect(() => {
-        console.log(project);
-        console.log(isNew);
         if (!isNew) {
             // if we have users for this project
             if (project.projectUsers && project.projectUsers.length > 0) {
@@ -196,8 +205,6 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
             objective,
             projectUsers
         };
-        console.log(project);
-        console.log(isNew);
         if (isNew) {
             createProject(project)
         } else {
@@ -207,96 +214,118 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
 
 
     return (
-        <Grid item xs={10}>
-            <Paper className={classes.paper}>
-                <React.Fragment>
-                    <Typography variant="h5" gutterBottom>
-                        {isNew ? "Create new" : "Edit "} project
-                    </Typography>
-                    <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-                        <Grid container spacing={4}>
-                            <Grid item xs={12} sm={6}>
-                                <Controller
-                                    as={<TextField
-                                        required
-                                        variant="outlined"
-                                        label="Code Project"
-                                        fullWidth
-                                        error={!!errors.code_project}
-                                        helperText={getMessageError(errors, "code_project")}
-                                        disabled={!isNew}
-                                    />}
-                                    rules={{required: true, maxLength: 200}}
-                                    name="code_project"
-                                    control={control}
-                                    defaultValue=""
+        <Grid container justify="center" item>
+            <Grid xs={11} item>
+                <ProjectDeleteDialog deleteProjectById={deleteProjectById} handleClickOpen={handleClickOpen}
+                                     handleClose={handleClose} project={project} open={open}/>
+                <Paper className={classes.paper}>
+                    <React.Fragment>
+                        <Typography variant="h5" gutterBottom>
+                            {isNew ? "Creer un nouveau " : "Editer le "} project
+                        </Typography>
+                        <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+                            <Grid container spacing={3}>
+                                <Grid item xs={12} sm={6}>
+                                    <Controller
+                                        as={<TextField
+                                            required
+                                            variant="standard"
+                                            label="Code Project"
+                                            fullWidth
+                                            error={!!errors.code_project}
+                                            helperText={getMessageError(errors, "code_project")}
+                                            disabled={!isNew}
+                                        />}
+                                        rules={{required: true, maxLength: 200}}
+                                        name="code_project"
+                                        control={control}
+                                        defaultValue=""
 
-                                />
+                                    />
 
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Controller
+                                        name="designation"
+                                        variant="standard"
+                                        control={control}
+                                        defaultValue=""
+                                        rules={{required: true, maxLength: 100}}
+                                        as={<TextField
+                                            label="Designation"
+                                            fullWidth
+                                            error={!!errors.designation}
+                                            helperText={getMessageError(errors, "designation")}
+                                            required
+                                        />}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Controller
+                                        defaultValue=""
+                                        variant="standard"
+                                        rules={{required: true}}
+                                        control={control}
+                                        name="objective"
+                                        as={<TextField
+                                            multiline
+                                            rows={5}
+                                            required
+                                            label="Objective"
+                                            fullWidth
+                                            error={!!errors.objective}
+                                            helperText={getMessageError(errors, "objective")}
+                                        />}
+                                    />
+                                </Grid>
+                                <Grid container justify="center" item xs={12}>
+                                    <Typography variant="h5" gutterBottom>
+                                        Team Scrum
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Controller
-                                    name="designation"
-                                    control={control}
-                                    defaultValue=""
-                                    rules={{required: true, maxLength: 100}}
-                                    as={<TextField
-                                        variant="outlined"
-                                        label="Designation"
-                                        fullWidth
-                                        error={!!errors.designation}
-                                        helperText={getMessageError(errors, "designation")}
-                                        required
-                                    />}
-                                />
+                            <Grid container spacing={3} item xs={12}>
+                                {users.map((user, index) => (
+
+                                        <UserInput key={user.user_id} user={user} addUser={addUser}
+                                                   removeUser={removeUser}
+                                                   displayMinus={index !== 0}
+                                                   register={register} errors={errors} required/>
+
+                                    )
+                                )}
                             </Grid>
-                            <Grid item xs={12}>
-                                <Controller
-                                    defaultValue=""
-                                    rules={{required: true}}
-                                    control={control}
-                                    name="objective"
-                                    as={<TextField
-                                        multiline
-                                        rows={5}
-                                        required
-                                        variant="outlined"
-                                        label="Objective"
-                                        fullWidth
-                                        error={!!errors.objective}
-                                        helperText={getMessageError(errors, "objective")}
-                                    />}
-                                />
+                            <Grid container item xs={12}>
+                                <Grid container justify={"flex-start"} item xs={6}>
+                                    {!isNew &&
+                                    (
+                                        <div className={classes.buttons}>
+                                            <Button startIcon={<DeleteIcon/>}
+                                                    onClick={handleClickOpen}
+                                                    variant="contained"
+                                                    color="secondary">
+                                                Delete
+                                            </Button>
+                                        </div>
+                                    )}
+                                </Grid>
+                                <Grid container justify={"flex-end"} item xs={6}>
+                                    <div className={classes.buttons}>
+                                        <Button startIcon={<SaveIcon/>} type="submit" variant="contained"
+                                                color="primary">
+                                            Enregistrer
+                                        </Button>
+                                        <Button startIcon={<ArrowBackIcon/>} onClick={cancel} variant="contained"
+                                        >
+                                            Annuler
+                                        </Button>
+                                    </div>
+                                </Grid>
                             </Grid>
-                            <Grid container justify="center" item xs={12}>
-                                <Typography variant="h5" gutterBottom>
-                                    Team Scrum
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={12}>
-                            {users.map((user, index) => (
-                                    <UserInput key={user.user_id} user={user} addUser={addUser}
-                                               removeUser={removeUser}
-                                               displayMinus={index !== 0}
-                                               register={register} errors={errors} required/>
-                                )
-                            )}
-                        </Grid>
-                        <Grid item xs={12}>
-                            <div className={classes.buttons}>
-                                <Button startIcon={<SaveIcon/>} type="submit" variant="contained" color="primary">
-                                    Save
-                                </Button>
-                                <Button startIcon={<ArrowBackIcon/>} onClick={cancel} variant="contained"
-                                        color="secondary">
-                                    Back
-                                </Button>
-                            </div>
-                        </Grid>
-                    </form>
-                </React.Fragment>
-            </Paper>
+                        </form>
+                    </React.Fragment>
+                </Paper>
+            </Grid>
         </Grid>
     );
 
@@ -306,4 +335,4 @@ const mapStateToProps = state => ({
     updateSuccess: state.pagination.project.updateSuccess
 });
 
-export default connect(mapStateToProps, {createProject, updateProject})(ProjectEditor);
+export default connect(mapStateToProps, {createProject, updateProject, deleteProjectById})(ProjectEditor);

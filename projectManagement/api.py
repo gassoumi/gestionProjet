@@ -1,8 +1,9 @@
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
-from .models import Project, UserProject
-from .serializers import ProjectSerializer
+from .models import Project, UserProject, Sprint, Task
+from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer
 from django.contrib.auth.models import User
+from rest_framework import filters
 
 
 class IsResponsibleOrNot(permissions.BasePermission):
@@ -11,40 +12,95 @@ class IsResponsibleOrNot(permissions.BasePermission):
     Assumes the model instance has an `owner` attribute.
     """
 
-    def has_object_permission(self, request, view, obj):
+    def has_permission(self, request, view):
         # Read permissions are allowed to any request,
-        # so we'll always allow GET, HEAD or OPTIONS requests.
-        if not permissions.IsAuthenticated().has_permission(request, view):
-            return False
-
-        if permissions.IsAdminUser().has_permission(request, view):
+        if permissions.IsAuthenticated().has_permission(
+                request, view):
             return True
 
-        if request.method in permissions.SAFE_METHODS or request.method == 'POST':
-            return True
-        # other method PUT or DELETE , we check if the user is responsible of this project
-        else:
-            try:
-                user_project = UserProject.objects.get(user=request.user, project=obj)
-                if user_project and user_project.is_responsible:
-                    return True
-            except:
-                pass
         return False
 
+    def has_object_permission(self, request, view, obj):
+        # so we'll always allow GET, HEAD or OPTIONS or POST requests.
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        # other method PUT ,DELETE or POST  , we check if the user is responsible of this project
+        return request.user.is_staff
 
-class ProjectViewSet(viewsets.ModelViewSet):
-    serializer_class = ProjectSerializer
+
+# Sprint api for create , delete , update a sprint
+class SprintViewSet(viewsets.ModelViewSet):
+    serializer_class = SprintSerializer
     permission_classes = [IsResponsibleOrNot]
 
     def get_queryset(self):
-        # show all projects
-        return Project.objects.all()
-        # show only projects of specific user
-        # or return a list of all the project for the currently authenticated user.
-        # return self.request.user.project_set.all()
+        user = self.request.user
+        projects = Project.objects.filter(projectUsers__user=user).values('code_project')
+        return Sprint.objects.filter(project__code_project__in=projects)
 
     def create(self, request, *args, **kwargs):
+        # only the user who is staff can create a sprint
+        # so check the permission first
+        self.check_object_permissions(request, None)
+        return super().create(request, args, kwargs)
+
+
+class ActiveSprintList(generics.ListAPIView):
+    serializer_class = SprintSerializer
+    permission_classes = [IsResponsibleOrNot]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', ]
+    ordering = ['name']
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the sprint that planned (planifié)
+        or In progress (En Cours)
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        projects = Project.objects.filter(projectUsers__user=user).values('code_project')
+        return Sprint.objects.filter(project__code_project__in=projects, state__in=['Planifiè', 'En Cours'])
+
+
+class TaskViewSet(viewsets.ModelViewSet):
+    serializer_class = TaskSerializer
+    permission_classes = [IsResponsibleOrNot]
+
+    def get_queryset(self):
+        user = self.request.user
+        # get all projects of this user
+        projects = Project.objects.filter(projectUsers__user=user).values('code_project')
+        # get all sprints related to all of those projects
+        sprints = Sprint.objects.filter(project__code_project__in=projects).values('id')
+        # get all tasks related to all of those sprints
+        tasks = Task.objects.filter(sprint_id__in=sprints)
+        return tasks
+
+    def create(self, request, *args, **kwargs):
+        # only the user who is staff can create a task
+        # so check the permission first
+        self.check_object_permissions(request, None)
+        return super().create(request, args, kwargs)
+
+
+# see also https://www.django-rest-framework.org/tutorial/3-class-based-views/
+# Project api
+class ProjectViewSet(viewsets.ModelViewSet):
+    serializer_class = ProjectSerializer
+    permission_classes = [IsResponsibleOrNot]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['designation', 'code_project']
+    ordering = ['designation']
+    http_method_names = ['get', 'post', 'head', 'put', 'delete', 'options']
+
+    def get_queryset(self):
+        # show only projects of specific authenticated user
+        # or return a list of all the project for the currently authenticated user.
+        return self.request.user.project_set.all()
+
+    def create(self, request, *args, **kwargs):
+        self.check_object_permissions(request, None)
         serializer = self.get_serializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)

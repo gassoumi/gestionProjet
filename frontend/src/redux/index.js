@@ -5,19 +5,29 @@ import {
     loadUser,
     updateProject,
     createProject,
-    deleteProject,
+    deleteProjectById,
     fetchProjects,
-    fetchProjectById
+    fetchProjectById,
+    clearAuthToken,
+    clearAuthentication,
+    fetchTasks,
+    createTask,
+    updateTask,
 } from './actions';
 
 export {
+    updateTask,
+    createTask,
+    clearAuthentication,
+    clearAuthToken,
     loadUser,
     login,
     logout,
     register,
-    deleteProject,
+    deleteProjectById,
     createProject,
     updateProject,
     fetchProjectById,
-    fetchProjects
+    fetchProjects,
+    fetchTasks,
 }

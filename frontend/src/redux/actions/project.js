@@ -2,56 +2,62 @@ import * as ActionTypes from "../actionTypes";
 import {returnErrors} from "./messages";
 import {LOGIN_FAIL} from "../actionTypes";
 import axios from 'axios';
-import {tokenConfig} from "../../utils/";
 import {createMessage} from "./messages";
 import {normalize} from "normalizr";
-import {projectSchema, projectListSchema} from "../../utils/";
+import {projectSchema, projectListSchema} from "../../utils";
 import {showLoading, hideLoading} from 'react-redux-loading-bar'
-
+import {sleep} from "./sprint";
 
 //get list of project projects
-export const fetchProjects = (page = 1) => dispatch => {
+export const fetchProjects = (page = 1) => async dispatch => {
     dispatch(showLoading());
     dispatch({
         type: ActionTypes.STARRED_REQUEST_PROJECTS,
     });
-    axios.get(`/api/projects/?page=${page}`, tokenConfig())
-        .then(res => {
-            const {data: {results, next}} = res;
-            const normalizedData = normalize(results, projectListSchema);
-            dispatch({
-                type: ActionTypes.STARRED_SUCCESS_PROJECTS,
-                response: normalizedData,
-                nextPageUrl: next,
-                page: page
-            });
-        })
-        .catch(err => {
-            const {data, status} = err.response;
-            dispatch(returnErrors(data, status));
-            dispatch({
-                type: ActionTypes.STARRED_FAILURE_PROJECTS,
-            });
-        })
-        .finally(() => dispatch(hideLoading()))
-
+    try {
+        await sleep(1e2); // For demo purposes.
+        const res = await axios.get(`/api/projects/?page=${page}`);
+        const {data: {results, next, count}} = res;
+        const normalizedData = normalize(results, projectListSchema);
+        dispatch({
+            type: ActionTypes.STARRED_SUCCESS_PROJECTS,
+            response: normalizedData,
+            nextPageUrl: next,
+            page: page,
+            count
+        });
+    } catch (e) {
+        const {data, status} = e.response;
+        dispatch(returnErrors(data, status));
+        dispatch({
+            type: ActionTypes.STARRED_FAILURE_PROJECTS,
+        });
+    } finally {
+        dispatch(hideLoading());
+    }
 };
 
 // create a project
 export const createProject = (project) => dispatch => {
     dispatch(showLoading());
-    axios.post('/api/projects/', project, tokenConfig())
+    axios.post('/api/projects/', project)
         .then(response => {
-            dispatch(createMessage({projectAdded: 'Project added'}));
+            const designation = response.data.designation;
+            dispatch(createMessage({
+                added: `le projet ${designation}  a été creé `
+            }));
             dispatch({
-                type: ActionTypes.UPDATE_SUCCESS_PROJECT
+                type: ActionTypes.CLEAR_CACHE_PROJECT
+            });
+            dispatch({
+                type: ActionTypes.ACTION_SUCCESS_PROJECT
             })
         })
         .catch(error => {
             const {data, status} = error.response;
             dispatch(returnErrors(data, status));
             dispatch({
-                type: ActionTypes.UPDATE_FAILURE_PROJECT
+                type: ActionTypes.ACTION_FAILURE_PROJECT
             })
         }).finally(() => dispatch(hideLoading()))
 };
@@ -59,43 +65,94 @@ export const createProject = (project) => dispatch => {
 // update a project
 export const updateProject = (idProject, project) => dispatch => {
     dispatch(showLoading());
-    axios.put(`/api/projects/${idProject}/`, project, tokenConfig())
+    axios.put(`/api/projects/${idProject}/`, project)
         .then(response => {
-            dispatch(createMessage({projectUpdated: 'Project updated'}));
+            const designation = response.data.designation;
+            dispatch(createMessage({
+                updated: `le projet ${designation} a été modifié `
+            }));
             dispatch({
-                type: ActionTypes.UPDATE_SUCCESS_PROJECT
+                type: ActionTypes.CLEAR_CACHE_PROJECT
+            });
+            dispatch({
+                type: ActionTypes.ACTION_SUCCESS_PROJECT
             })
         })
         .catch(error => {
             const {data, status} = error.response;
             dispatch(returnErrors(data, status));
             dispatch({
-                type: ActionTypes.UPDATE_FAILURE_PROJECT
+                type: ActionTypes.ACTION_FAILURE_PROJECT
             })
         }).finally(() => dispatch(hideLoading()))
 };
 
 //Delete Project
-export const deleteProject = id => (dispatch) => {
-    dispatch(showLoading());
-    axios.delete(`/api/projects/${id}/`, tokenConfig())
-        .then(res => {
-            dispatch(createMessage({projectDeleted: 'Project deleted'}));
-        })
-        .catch(error => {
-            const {data, status} = error.response;
-            dispatch(returnErrors(data, status));
-        }).finally(() => dispatch(hideLoading()));
-};
+export const deleteProjectById = project => (dispatch) => {
+        dispatch(showLoading());
+        const id = project.code_project;
+        axios.delete(` /api/projects/${id}/`)
+            .then(res => {
+                dispatch(createMessage({
+                    deleted: `le projet ${project.designation} a été supprimé`
+                }));
+                dispatch({
+                    type: ActionTypes.CLEAR_CACHE_PROJECT
+                });
+                dispatch({
+                    type: ActionTypes.ACTION_SUCCESS_PROJECT
+                })
+            })
+            .catch(error => {
+                const {data, status} = error.response;
+                dispatch(returnErrors(data, status));
+            }).finally(() => dispatch(hideLoading()));
+    }
+;
 
 //get Project
-export const fetchProjectById = id => dispatch => {
+export const fetchProjectById = (id) => async dispatch => {
     dispatch(showLoading());
-    axios.get(`/api/projects/${id}`, tokenConfig())
+    try {
+        const response = await axios.get(`/api/projects/${id}/`);
+        const result = response.data;
+        const normalizedData = normalize(result, projectSchema);
+        dispatch({
+            type: ActionTypes.FETCH_SUCCESS_PROJECT,
+            response: normalizedData,
+        });
+    } catch (error) {
+        const {data, status} = error.response;
+        dispatch(returnErrors(data, status));
+    } finally {
+        dispatch(hideLoading());
+    }
+};
+
+
+//get Project
+// old one
+/*
+export const fetchProjectById = (id) => async dispatch => {
+    dispatch(showLoading());
+    try {
+        const response = await axios.get(`/api/projects/${id}/`);
+        const result = response.data;
+        const normalizedData = normalize(result, projectSchema);
+        dispatch({
+            type: ActionTypes.FETCH_SUCCESS_PROJECT,
+            response: normalizedData,
+        });
+    } catch (error) {
+        const {data, status} = error.response;
+        dispatch(returnErrors(data, status));
+    }finally {
+        dispatch(hideLoading();
+    }
+    axios.get(`/api/projects/${id}/`)
         .then(response => {
             const result = response.data;
             const normalizedData = normalize(result, projectSchema);
-            console.log(normalizedData);
             dispatch({
                 type: ActionTypes.FETCH_SUCCESS_PROJECT,
                 response: normalizedData,
@@ -106,3 +163,4 @@ export const fetchProjectById = id => dispatch => {
             dispatch(returnErrors(data, status));
         }).finally(() => dispatch(hideLoading()))
 };
+*/

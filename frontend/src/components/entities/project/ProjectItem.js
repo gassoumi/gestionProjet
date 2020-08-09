@@ -9,6 +9,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import {Link as RouterLink} from 'react-router-dom';
 import moment from 'moment';
+import {connect} from "react-redux";
+import {Selector} from '../index';
+import EditIcon from '@material-ui/icons/Edit';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 //https://momentjs.com/docs/#/parsing/special-formats/
 
@@ -41,30 +45,32 @@ const getMd = (length) => {
     }
 };
 
-const ProjectItem = ({project, length}) => {
+const ProjectItem = ({project, length, canEdit}) => {
     const classes = useStyles();
+
     return (
-        <Grid item xs={12} sm={getSm(length)} md={getMd(length)}>
+        <Grid item xs={12} sm={6} md={4}>
             <Card className={classes.card}>
                 <CardContent component="div" className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                         {project.designation}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {moment(project.created_at).fromNow()}
                     </Typography>
                     <Typography variant="body1" component="p">
                         {project.objective}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button component={RouterLink} to={`project/${project.code_project}`} size="small" color="primary">
+                    <Button startIcon={<VisibilityIcon/>} component={RouterLink} to={`project/${project.code_project}`}
+                            size="small" color="primary">
                         View
                     </Button>
-                    <Button component={RouterLink} to={`project/${project.code_project}/edit`} size="small"
-                            color="primary">
-                        Edit
-                    </Button>
+                    {canEdit && (
+                        <Button startIcon={<EditIcon/>} component={RouterLink}
+                                to={`project/${project.code_project}/edit`} size="small"
+                                color="primary">
+                            Edit
+                        </Button>
+                    )}
                 </CardActions>
             </Card>
         </Grid>
@@ -74,6 +80,15 @@ const ProjectItem = ({project, length}) => {
 
 ProjectItem.propTypes = {
     project: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state, ownProps) => {
+    const username = state.auth.user.username || null;
+    const idProject = ownProps.project.code_project || null;
+    const canEdit = Selector.canEditProject(state, username, idProject);
+    return {
+        canEdit
+    }
 };
 
 export default ProjectItem;

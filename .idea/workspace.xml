@@ -2,65 +2,172 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46d7f5e5-25ca-40d5-a879-96d62fcc6269" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/utils/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/account/Loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/CustomizedInputBase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/Loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/CalendarSprint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/EnhancedTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTablePaginationServer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintDeleteDialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintsToolbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/dates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/Task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/sprint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/axiosInterceptors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/dateUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestionProjet/pagination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/account/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/account/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxClassification.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxClassification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-delete-dialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectUpdate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/Project.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/Alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layout/Alerts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/Header.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layout/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/entities.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/project.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/project.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/entities.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/entities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/messages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/selectors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.common.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/handlers/click-rail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/handlers/drag-thumb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/handlers/keyboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/handlers/mouse-wheel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/handlers/touch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/lib/class-names.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/lib/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/lib/dom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/lib/event-manager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/lib/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/process-scroll-diff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/src/update-geometry.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/perfect-scrollbar/types/perfect-scrollbar.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionProjet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestionProjet/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionProjet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestionProjet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@material-ui/styles/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@material-ui/styles/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hyphenate-style-name/.nyc_output/f0abf84f-70c3-425c-9716-c5605115059e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hyphenate-style-name/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hyphenate-style-name/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hyphenate-style-name/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hyphenate-style-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hyphenate-style-name/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hyphenate-style-name/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/moment/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/moment/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/constants.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/constants.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.cjs.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.cjs.development.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.cjs.production.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.cjs.production.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.ie11.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.ie11.development.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.ie11.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.ie11.production.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.ie11.production.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.umd.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.umd.development.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.umd.production.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/index.umd.production.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/appendErrors.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/appendErrors.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/assignWatchFields.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/assignWatchFields.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/attachEventListeners.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/attachEventListeners.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/findRemovedFieldAndRemoveListener.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/findRemovedFieldAndRemoveListener.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/focusOnErrorField.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/focusOnErrorField.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getCheckboxValue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getCheckboxValue.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldArrayValueByName.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldArrayValueByName.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldValue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldValue.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldsValues.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getFieldsValues.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getMultipleSelectValue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getMultipleSelectValue.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getRadioValue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getRadioValue.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getValidateError.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getValidateError.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getValueAndMessage.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/getValueAndMessage.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/mapIds.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/mapIds.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/removeAllEventListeners.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/removeAllEventListeners.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/shouldRenderBasedOnError.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/shouldRenderBasedOnError.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/transformToNestObject.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/transformToNestObject.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/validateField.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/logic/validateField.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/types/form.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/types/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/types/props.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/types/utils.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useFieldArray.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useFieldArray.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useForm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useForm.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useFormContext.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useFormContext.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/useWatch.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/fillEmptyArray.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/filterBooleanArray.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/filterBooleanArray.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/getPath.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/getPath.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/insert.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isCheckBoxInput.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isCheckBoxInput.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isDetached.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isDetached.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isEmptyObject.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isEmptyObject.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isFileInput.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isFileInput.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isKey.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isKey.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isMessage.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isMessage.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isMultipleSelect.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isMultipleSelect.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isPrimitive.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isPrimitive.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRadioInput.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRadioInput.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRadioOrCheckbox.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRadioOrCheckbox.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRadioOrCheckbox.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isRegex.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isSameError.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isSameError.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isSelectInput.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/isUndefined.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/onDomRemove.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/onDomRemove.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/set.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/set.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/stringToPath.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/stringToPath.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/stringToPath.test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/unique.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/unset.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/unset.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/validationModeChecker.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/dist/utils/validationModeChecker.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-hook-form/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-hook-form/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/uuid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uuid/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/factories.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/factories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectManagement/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,31 +195,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="215" column="36" selection-start-line="215" selection-start-column="36" selection-end-line="215" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2595">
+              <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/frontend/src/utils/dateUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="28" />
+            <state relative-caret-position="88">
+              <caret line="4" column="48" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            <state relative-caret-position="292">
+              <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -121,10 +225,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/index.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="-724">
+              <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -132,70 +236,70 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/project.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+            <state relative-caret-position="220">
+              <caret line="133" column="50" selection-start-line="133" selection-start-column="50" selection-end-line="133" selection-end-column="50" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-653">
-              <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+            <state relative-caret-position="880">
+              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#72#98#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/index.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-254">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/redux/store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/redux/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+            <state relative-caret-position="735">
+              <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1121">
+              <caret line="312" column="44" selection-start-line="312" selection-start-column="44" selection-end-line="312" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="166" column="98" selection-start-line="166" selection-start-column="47" selection-end-line="166" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -224,7 +328,22 @@
       <find>har</find>
       <find>props</find>
       <find>trash</find>
+      <find>sea</find>
+      <find>selectedUsers</find>
+      <find>h6</find>
+      <find>&gt;F</find>
+      <find>sass</find>
+      <find>Badge</find>
+      <find>fetchSprints</find>
+      <find>toastify</find>
+      <find>margi</find>
     </findStrings>
+    <replaceStrings>
+      <replace>fetchTasks</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\python project\gestionProjet\frontend\src\components\entities\task</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -232,65 +351,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/Header.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/sidebar.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/SideBar.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/AppBar.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/Dashbord.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/Dashboard.js" />
-        <option value="$PROJECT_DIR$/frontend/src/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/project-update.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Classification.js" />
-        <option value="$PROJECT_DIR$/accounts/api.py" />
-        <option value="$PROJECT_DIR$/gestionProjet/settings.py" />
-        <option value="$PROJECT_DIR$/frontend/src/components/account/Register.js" />
-        <option value="$PROJECT_DIR$/projectManagement/admin.py" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/actions/messages.js" />
-        <option value="$PROJECT_DIR$/projectManagement/faker.py" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/MyHeader.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/auth.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/actions/entities.js" />
-        <option value="$PROJECT_DIR$/frontend/src/common/PrivateRoute.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/projectManagement/factories.py" />
-        <option value="$PROJECT_DIR$/frontend/src/components/account/Login.js" />
-        <option value="$PROJECT_DIR$/frontend/src/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/utils.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTable.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintDeleteDialog.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/Tache/Tache.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/Task/Task.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/Task/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/layout/Sidebar.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/actions/auth.js" />
-        <option value="$PROJECT_DIR$/projectManagement/models.py" />
-        <option value="$PROJECT_DIR$/frontend/src/components/layout/Alerts.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxClassification.js" />
-        <option value="$PROJECT_DIR$/frontend/src/services/api.js" />
+        <option value="$PROJECT_DIR$/accounts/urls.py" />
+        <option value="$PROJECT_DIR$/accounts/api.py" />
         <option value="$PROJECT_DIR$/frontend/src/utils/index.js" />
-        <option value="$PROJECT_DIR$/projectManagement/serializers.py" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actions/user.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/entities.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actionTypes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/EnhancedTable.js" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/common/Loading.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/selectors.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/account/Login.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actions/auth.js" />
+        <option value="$PROJECT_DIR$/projectManagement/admin.py" />
+        <option value="$PROJECT_DIR$/projectManagement/models.py" />
+        <option value="$PROJECT_DIR$/gestionProjet/settings.py" />
+        <option value="$PROJECT_DIR$/gestionProjet/urls.py" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js" />
+        <option value="$PROJECT_DIR$/projectManagement/urls.py" />
+        <option value="$PROJECT_DIR$/projectManagement/api.py" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Project.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/Task.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete2.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/actions/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/actionTypes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/entities.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxUser.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectItem.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/selectors.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Markdown.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Project-detail.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js" />
-        <option value="$PROJECT_DIR$/frontend/src/App.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/reducers/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/redux/store.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Project.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/actions/project.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actions/sprint.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actions/task.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/layout/Alerts.js" />
+        <option value="$PROJECT_DIR$/frontend/src/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxUser.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js" />
+        <option value="$PROJECT_DIR$/projectManagement/serializers.py" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="97" />
+    <option name="y" value="181" />
+    <option name="width" value="1620" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -308,6 +427,11 @@
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -322,6 +446,14 @@
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -330,6 +462,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -339,6 +480,32 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="entities" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="sprint" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -392,22 +559,27 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/entities/project" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/account" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PyCharm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python project\gestionProjet\frontend\src\components\account" />
+      <recent name="D:\python project\gestionProjet\frontend\src\components\entities" />
       <recent name="D:\python project\gestionProjet\frontend\src\components\entities\project" />
       <recent name="D:\python project\gestionProjet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\python project\gestionProjet\frontend\src\utils" />
+      <recent name="D:\python project\gestionProjet\frontend\src\components\entities\common" />
+      <recent name="D:\python project\gestionProjet\frontend\src\components\entities\sprint" />
+      <recent name="D:\python project\gestionProjet\frontend\src\components\entities\UserList" />
       <recent name="D:\python project\gestionProjet\frontend\src\components\layout" />
-      <recent name="D:\python project\gestionProjet\frontend\src\components\account" />
+      <recent name="D:\python project\gestionProjet\frontend\src\components\entities" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -422,7 +594,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django tests.Test: frontend.src.utils">
+    <configuration name="Test: frontend.src.utils" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="gestionProjet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="frontend.src.utils" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gestionProjet" type="Python.DjangoServer" factoryName="Django server">
       <module name="gestionProjet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -446,6 +638,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: frontend.src.utils" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -487,12 +684,59 @@
       <workItem from="1593894009457" duration="984000" />
       <workItem from="1593895091760" duration="1598000" />
       <workItem from="1593922689115" duration="20716000" />
-      <workItem from="1594012264097" duration="20457000" />
+      <workItem from="1594012264097" duration="21996000" />
+      <workItem from="1594096549226" duration="26568000" />
+      <workItem from="1594186666323" duration="20129000" />
+      <workItem from="1594270511446" duration="702000" />
+      <workItem from="1594298178952" duration="8831000" />
+      <workItem from="1594360386307" duration="9304000" />
+      <workItem from="1594381453996" duration="4174000" />
+      <workItem from="1594445113134" duration="14056000" />
+      <workItem from="1594532889182" duration="24296000" />
+      <workItem from="1594617599205" duration="2981000" />
+      <workItem from="1594704483713" duration="25911000" />
+      <workItem from="1594792893928" duration="15988000" />
+      <workItem from="1594884697549" duration="19257000" />
+      <workItem from="1594962504005" duration="25249000" />
+      <workItem from="1595020563960" duration="802000" />
+      <workItem from="1595051415072" duration="151000" />
+      <workItem from="1595051905890" duration="2348000" />
+      <workItem from="1595061557437" duration="17101000" />
+      <workItem from="1595141113768" duration="19118000" />
+      <workItem from="1595224516730" duration="24367000" />
+      <workItem from="1595305899362" duration="13605000" />
+      <workItem from="1595399804462" duration="9724000" />
+      <workItem from="1595485975535" duration="16590000" />
+      <workItem from="1595664263265" duration="1780000" />
+      <workItem from="1595754678138" duration="9813000" />
+      <workItem from="1595774928321" duration="7414000" />
+      <workItem from="1595828475398" duration="7707000" />
+      <workItem from="1595919603000" duration="5758000" />
+      <workItem from="1595930564675" duration="8671000" />
+      <workItem from="1596010772722" duration="3087000" />
+      <workItem from="1596087182309" duration="13427000" />
+      <workItem from="1596174231587" duration="8496000" />
+      <workItem from="1596283175024" duration="3150000" />
+      <workItem from="1596346905468" duration="11499000" />
+      <workItem from="1596436773452" duration="4019000" />
+      <workItem from="1596518074345" duration="11625000" />
+      <workItem from="1596568507521" duration="718000" />
+      <workItem from="1596607867776" duration="27386000" />
+      <workItem from="1596688488066" duration="6694000" />
+      <workItem from="1596720463391" duration="4950000" />
+      <workItem from="1596816966600" duration="3587000" />
+      <workItem from="1596963365674" duration="865000" />
+      <workItem from="1596965880809" duration="19712000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Test__frontend_src_utils - 2020.07.17 at 17h 15m 47s.xml">
+      <configuration name="Test: frontend.src.utils" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="461606000" />
+    <option name="totallyTimeSpent" value="924755000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,7 +751,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.22184986" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.18297587" />
       <window_info id="Structure" order="1" sideWeight="0.501938" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -516,14 +760,15 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.28995755" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.28854313" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32956153" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5033512" side_tool="true" weight="0.17963225" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4966488" visible="true" weight="0.4002829" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053619" side_tool="true" weight="0.16690241" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49463806" visible="true" weight="0.15275814" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32956153" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -534,285 +779,254 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/gestionProjet$Test__frontend_src_utils.coverage" NAME="Test: frontend.src.utils Coverage Results" MODIFIED="1595002543740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/PrivateRoute.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/selectors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1518">
+          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/apps.py">
+    <entry file="file://$PROJECT_DIR$/frontend/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/apps.py">
+    <entry file="file://$PROJECT_DIR$/projectManagement/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/factories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="28" />
+        <state relative-caret-position="506">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Register.js">
+    <entry file="file://$PROJECT_DIR$/gestionProjet/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="84" column="81" selection-start-line="84" selection-start-column="52" selection-end-line="84" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="141">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Login.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="88">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/rest_framework/serializers.py">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="467" selection-start-line="467" selection-end-line="467" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/rest_framework/validators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/rest_framework/fields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11550">
-          <caret line="587" selection-start-line="587" selection-end-line="587" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/rest_framework/permissions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8127">
-          <caret line="397" column="12" selection-start-line="397" selection-start-column="4" selection-end-line="397" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/layout/Header.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="421">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/layout/MyHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="142" column="2" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/errors.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/messages.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/layout/Sidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+        <state relative-caret-position="289">
+          <caret line="131" column="22" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/auth.js">
+    <entry file="file://$PROJECT_DIR$/frontend/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxClassification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/layout/Alerts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2650">
-          <caret line="402" column="6" selection-start-line="402" selection-start-column="6" selection-end-line="402" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-546">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        <state>
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/utils/index.js">
+    <entry file="file://$PROJECT_DIR$/gestionProjet/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
+        <state relative-caret-position="202">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#637#669#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/index.js">
+    <entry file="file://$PROJECT_DIR$/projectManagement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="220">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
           <folding>
-            <element signature="e#0#59#0" expanded="true" />
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="183">
+          <caret line="9" column="81" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="81" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/entities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        <state relative-caret-position="264">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/services/api.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="68" column="75" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/CalendarSprint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="134" column="10" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/Task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="64" column="55" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/sprint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2398">
+          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3278">
+          <caret line="169" column="2" selection-start-line="169" selection-start-column="2" selection-end-line="173" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="180" column="55" selection-start-line="180" selection-start-column="55" selection-end-line="180" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -821,147 +1035,202 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1029">
-          <caret line="5" column="66" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+        <state relative-caret-position="242">
+          <caret line="87" column="31" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="73" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project-delete-dialog.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="53" column="50" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Markdown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project-detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="20" column="6" selection-start-line="18" selection-start-column="3" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project-update.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="215" column="36" selection-start-line="215" selection-start-column="36" selection-end-line="215" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/Project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-653">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/project.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+        <state relative-caret-position="292">
+          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxClassification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/layout/Alerts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/PrivateRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
+          <folding>
+            <element signature="e#72#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+          <folding>
+            <element signature="e#72#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-724">
+          <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="133" column="50" selection-start-line="133" selection-start-column="50" selection-end-line="133" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="166" column="98" selection-start-line="166" selection-start-column="47" selection-end-line="166" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/utils/dateUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2595">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1121">
+          <caret line="312" column="44" selection-start-line="312" selection-start-column="44" selection-end-line="312" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -15,7 +15,7 @@ export default function ComboBoxClassification({register, name, errors, defaultV
             renderInput={(params) => <TextField {...params} name={name} error={!!errors[name]}
                                                 helperText={getMessageError(errors, name)}
                                                 inputRef={register} label="User Classification"
-                                                variant="outlined"/>}
+                                                variant="standard"/>}
         />
     );
 }
@@ -30,7 +30,7 @@ Scrum Master
 
 const classifications2 = [
     'Scrum Master',
-    'Project Owner',
+    'Product Owner',
     'Team Leader',
     'Responsible Development',
     'Responsible',

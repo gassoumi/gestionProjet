@@ -7,7 +7,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {getMessageError} from "../../account/Login";
 import {connect} from "react-redux";
 import {returnErrors} from "../index";
-import {tokenConfig} from "../index";
 
 export function sleep(delay = 0) {
     return new Promise((resolve) => {
@@ -38,7 +37,7 @@ function ComboBoxUser(props) {
                 setLoading(true);
                 await sleep(1e3); // For demo purposes.
                 const url = `${URL}?${PARAM_SEARCH}${inputValue}`;
-                const response = await axios.get(url, tokenConfig());
+                const response = await axios.get(url);
                 if (active && response.data && response.data.results) {
                     setOptions(response.data.results);
                 }
@@ -85,7 +84,7 @@ function ComboBoxUser(props) {
                 <TextField
                     {...params}
                     label="Username"
-                    variant="outlined"
+                    variant="standard"
                     name={name}
                     inputRef={register}
                     error={!!errors[name]}

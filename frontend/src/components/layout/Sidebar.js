@@ -16,6 +16,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ListIcon from '@material-ui/icons/List';
+import {connect} from "react-redux";
 
 const drawerWidth = 240;
 
@@ -49,6 +50,18 @@ function CollapseListItemLink(props) {
         setOpen(!open);
     };
 
+    const getItem = (item, index) => {
+        if (item.show) {
+            return (
+                <ListItem key={index} button component={renderLink(item.to)} className={classes.nested}>
+                    {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
+                    <ListItemText primary={item.text}/>
+                </ListItem>
+            );
+        }
+        return null;
+    };
+
     return (
         <li>
             <ListItem button onClick={handleClick}>
@@ -57,12 +70,7 @@ function CollapseListItemLink(props) {
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    {listTo.map((item, index) => (
-                        <ListItem key={index} button component={renderLink(item.to)} className={classes.nested}>
-                            {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
-                            <ListItemText primary={item.text}/>
-                        </ListItem>
-                    ))}
+                    {listTo.map((item, index) => getItem(item, index))}
                 </List>
             </Collapse>
         </li>
@@ -98,15 +106,36 @@ function Sidebar(props) {
     const projectLink = [
         {
             to: "/project",
-            text: 'Projects',
-            icon: <ListIcon/>
+            text: 'Projets',
+            icon: <ListIcon/>,
+            show: true,
         },
         {
             to: "/project/create",
-            text: 'Create New',
-            icon: <AddCircleIcon/>
+            text: 'Ajouter un projet',
+            icon: <AddCircleIcon/>,
+            show: props.showCreateProject,
         }
     ];
+
+    const sprintLink = [
+        {
+            to: "/sprint",
+            text: 'Sprints',
+            icon: <ListIcon/>,
+            show: true,
+        },
+    ];
+
+     const taskLink = [
+        {
+            to: "/task",
+            text: 'Taches',
+            icon: <ListIcon/>,
+            show: true,
+        },
+    ];
+
     return (
         <Drawer
             className={classes.drawer}
@@ -122,12 +151,20 @@ function Sidebar(props) {
                 </List>
                 <Divider/>
                 <List>
-                    <ListItemLink to="#" primary="Sprint"/>
+                    <CollapseListItemLink primary="Sprint" listTo={sprintLink}/>
+                </List>
+                <Divider/>
+                <List>
+                    <CollapseListItemLink primary="Tache" listTo={taskLink}/>
                 </List>
             </div>
         </Drawer>
     );
 }
 
+const mapStateToProps = state => ({
+    showCreateProject: state.auth.user.is_staff || false
+});
 
-export default Sidebar;
+
+export default connect(mapStateToProps)(Sidebar);
