@@ -7,8 +7,8 @@ import Login from './components/account/Login';
 export default function Routes() {
     return (
         <Switch>
-            <PrivateRoute path="/" component={Entities}/>
             <Route exact path="/login" component={Login}/>
+            <PrivateRoute path="/" component={Entities}/>
             <Redirect from="/" to="/project"/>
             <Redirect to="/project"/>
         </Switch>

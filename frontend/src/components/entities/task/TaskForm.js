@@ -47,7 +47,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // https://codesandbox.io/s/react-hook-form-master-detail-cmklr?file=/src/App.tsx
-//    "react-hook-form": "^6.0.0",
+// "react-hook-form": "^6.0.0",
+// https://react-hook-form.com/migrate-v5-to-v6/
+// "react-hook-form": "5.5.1",
 // https://stackoverflow.com/questions/61393994/how-to-set-a-conditional-default-value-for-a-keyboarddatepicker-with-react-hook
 function TaskForm(props) {
 

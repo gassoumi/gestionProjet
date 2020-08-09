@@ -24,9 +24,11 @@ function ComboBoxUser(props) {
     const {control, name, errors, defaultValue} = props;
     const [open, setOpen] = React.useState(false);
 
-    const [loading, setLoading] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState(defaultValue ? [{...defaultValue}] : []);
+
+    const loading = open && options.length === 0;
+    console.log(loading);
 
     React.useEffect(() => {
         let active = true;
@@ -37,25 +39,22 @@ function ComboBoxUser(props) {
 
         (async () => {
             try {
-                setLoading(true);
                 await sleep(1e3); // For demo purposes.
                 const url = `${URL}?${PARAM_SEARCH}${inputValue}&page_size=${DEFAULT_PAGE_SIZE}`;
                 const response = await axios.get(url);
                 if (active && response.data && response.data.results) {
                     setOptions(response.data.results);
+
                 }
             } catch (err) {
-                // returnErrors(err.response.data, err.response.status);
                 console.log(err);
-            } finally {
-                setLoading(false);
             }
         })();
 
         return () => {
             active = false;
         };
-    }, [inputValue, open]);
+    }, [inputValue, loading]);
 
     React.useEffect(() => {
         if (!open) {

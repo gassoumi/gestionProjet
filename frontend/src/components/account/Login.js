@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 function Login(props) {
 
     // TODO 1 create a custom loading component later
-
+    // TODO 2 change redirect to the url from the text field of url of the browser
 
     if (props.auth.isAuthenticated) {
         return <Redirect to="/project"/>;
