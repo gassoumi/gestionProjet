@@ -19,11 +19,13 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
-import ComboBoxSprint from './ComboBoxSprint';
-import ComboBoxUser from './ComboBoxUser';
 import moment from 'moment';
 import {connect} from "react-redux";
 import {createTask, updateTask} from "../../../redux";
+import AsyncComboBox from '../common/AsyncComboBox';
+
+const URL_SPRINT = '/api/activeSprints/';
+const URL_USER = '/api/auth/users';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -70,7 +72,7 @@ function TaskForm(props) {
     };
 
     // you can use setError when start_at date change and it is great than end_at date
-    const {register, handleSubmit, errors, control, getValues, clearError,triggerValidation, watch} = useForm({
+    const {register, handleSubmit, errors, control, getValues, clearError, triggerValidation, watch} = useForm({
         mode: "onChange",
         defaultValues: defaultValue,
     });
@@ -89,8 +91,8 @@ function TaskForm(props) {
         // if (watchStartAt && endAtValue && isGreatOrEqualThan(endAtValue)) {
         //     clearError("end_at");
         // }
-        if(watchStartAt && endAtValue){
-             triggerValidation("end_at");
+        if (watchStartAt && endAtValue) {
+            triggerValidation("end_at");
         }
     }, [watchStartAt]);
 
@@ -100,12 +102,6 @@ function TaskForm(props) {
         }
     }, [updateSuccess]);
 
-    // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2018-08-18T21:11:54'));
-
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
 
     const onSubmit = data => {
         const {description, state, start_at, end_at, user, sprint} = data;
@@ -153,9 +149,6 @@ function TaskForm(props) {
                             name="start_at"
                             control={control}
                             rules={{required: 'this field is required'}}
-                            // here the magic happens
-                            // initialFocusedDate={null}
-                            // defaultValue={null}
                             as={
                                 <KeyboardDatePicker
                                     fullWidth
@@ -163,7 +156,7 @@ function TaskForm(props) {
                                     error={!!errors.start_at}
                                     helperText={errors.start_at && errors.start_at.message}
                                     margin="normal"
-                                    label="Date de debut"
+                                    label="Date début"
                                     format="DD/MM/YYYY"
                                     KeyboardButtonProps={{
                                         'aria-label': 'change date',
@@ -193,7 +186,7 @@ function TaskForm(props) {
                                     error={!!errors.end_at}
                                     helperText={errors.end_at && errors.end_at.message}
                                     margin="normal"
-                                    label="Date de fin"
+                                    label="Date fin"
                                     format="DD/MM/YYYY"
                                     KeyboardButtonProps={{
                                         'aria-label': 'change date',
@@ -206,11 +199,14 @@ function TaskForm(props) {
                             fullWidth
                             margin="normal"
                         >
-                            <ComboBoxSprint
+                            <AsyncComboBox
                                 control={control}
                                 // defaultValue={task.sprint || null}
                                 errors={errors}
                                 name="sprint"
+                                label="Coisir un sprint"
+                                optionLabel="name"
+                                url={URL_SPRINT}
                             />
                         </FormControl>
                     </Grid>
@@ -219,11 +215,14 @@ function TaskForm(props) {
                             fullWidth
                             margin="normal"
                         >
-                            <ComboBoxUser
+                             <AsyncComboBox
                                 control={control}
-                                // defaultValue={task.user || null}
+                                // defaultValue={task.sprint || null}
                                 errors={errors}
                                 name="user"
+                                label="Coisir un responsable"
+                                optionLabel="username"
+                                url={URL_USER}
                             />
                         </FormControl>
                     </Grid>
@@ -234,7 +233,7 @@ function TaskForm(props) {
                             fullWidth
                             margin="normal"
                         >
-                            <InputLabel id="task-select-label">Status</InputLabel>
+                            <InputLabel id="task-select-label">Statut</InputLabel>
                             <Controller
                                 name="state"
                                 // defaultValue={""}
@@ -243,13 +242,13 @@ function TaskForm(props) {
                                         labelId="task-select-label"
                                     >
                                         <MenuItem value="">
-                                            <em>Choisir un statue</em>
+                                            <em>Choisir un statut</em>
                                         </MenuItem>
+                                        <MenuItem value={"Backlog"}>Backlog</MenuItem>
                                         <MenuItem value="A Faire">A Faire</MenuItem>
                                         <MenuItem value="En Cours">En Cours</MenuItem>
-                                        <MenuItem value={"A Verifier"}>Cloturé</MenuItem>
+                                        <MenuItem value={"A Verifier"}>A Vérifier</MenuItem>
                                         <MenuItem value={"Termine"}>Termine</MenuItem>
-                                        <MenuItem value={"Backlog"}>Backlog</MenuItem>
                                     </Select>
                                 }
                                 control={control}

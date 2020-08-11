@@ -56,7 +56,7 @@ function getHeadCells(canEdit) {
         {id: 'name', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
         {id: 'projectDesignation', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Project'},
         {id: 'desired_at', numeric: false, align: 'left', disablePadding: false, label: 'Date souhaité'},
-        {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'State'},
+        {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'Statut'},
 
     ];
     if (canEdit) {
@@ -202,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function EnhancedTable(props) {
+function SprintTable(props) {
     const {
         rows, count, handleEdit, handleDelete, page, canEdit,
         pageSize: rowsPerPage, fetchSprints
@@ -379,4 +379,4 @@ function EnhancedTable(props) {
     );
 }
 
-export default EnhancedTable;
+export default SprintTable;

@@ -51,21 +51,21 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
-function SprintDeleteDialog({open = false, handleClose, deleteSprintById, sprint}) {
+function DeleteDialog({open = false, handleClose, deleteObject, object, children}) {
 
     const handleDelete = () => {
-        deleteSprintById(sprint);
+        deleteObject(object);
         handleClose();
     };
 
     return (
-        <Dialog onClose={handleClose} aria-labelledby="customized-dialog-delete-sprint" open={open}>
-            <DialogTitle id="customized-dialog-delete-sprint" onClose={handleClose}>
+        <Dialog onClose={handleClose} aria-labelledby="customized-dialog-delete" open={open}>
+            <DialogTitle id="customized-dialog-delete" onClose={handleClose}>
                 Confirm delete operation
             </DialogTitle>
             <DialogContent dividers>
                 <Typography gutterBottom>
-                    Are you sure you want to delete the Sprint {sprint.name} ?
+                    {children}
                 </Typography>
             </DialogContent>
             <DialogActions>
@@ -81,6 +81,6 @@ function SprintDeleteDialog({open = false, handleClose, deleteSprintById, sprint
 }
 
 
-SprintDeleteDialog.propTypes = {};
+DeleteDialog.propTypes = {};
 
-export default SprintDeleteDialog;
+export default DeleteDialog;

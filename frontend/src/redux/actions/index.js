@@ -15,7 +15,7 @@ import {
     deleteProjectById,
 } from './project';
 
-import {fetchTasks,createTask,updateTask} from "./task";
+import {fetchTasks,createTask,updateTask,deleteTaskById} from "./task";
 
 import {
     fetchSprints,
@@ -27,6 +27,7 @@ import {
 
 
 export {
+    deleteTaskById,
     updateTask,
     fetchTasks,
     clearAuthToken,

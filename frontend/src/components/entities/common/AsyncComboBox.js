@@ -5,10 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Controller} from "react-hook-form";
-// import {connect} from "react-redux";
-// import {returnErrors} from "../index";
 
-// https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/MuiAutoComplete.js
+
 function sleep(delay = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
@@ -16,19 +14,19 @@ function sleep(delay = 0) {
 }
 
 
-const URL = '/api/auth/users';
+// const URL = '/api/projects';
 const PARAM_SEARCH = "search=";
 const DEFAULT_PAGE_SIZE = 100;
 
-function ComboBoxUser(props) {
-    const {control, name, errors, defaultValue} = props;
+// https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/MuiAutoComplete.js
+function AsyncComboBox(props) {
+    const {name, errors, defaultValue, control, label, url, optionLabel} = props;
     const [open, setOpen] = React.useState(false);
 
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState(defaultValue ? [{...defaultValue}] : []);
 
     const loading = open && options.length === 0;
-    console.log(loading);
 
     React.useEffect(() => {
         let active = true;
@@ -40,11 +38,10 @@ function ComboBoxUser(props) {
         (async () => {
             try {
                 await sleep(1e3); // For demo purposes.
-                const url = `${URL}?${PARAM_SEARCH}${inputValue}&page_size=${DEFAULT_PAGE_SIZE}`;
-                const response = await axios.get(url);
+                const finalUrl = `${url}?${PARAM_SEARCH}${inputValue}&page_size=${DEFAULT_PAGE_SIZE}`;
+                const response = await axios.get(finalUrl);
                 if (active && response.data && response.data.results) {
                     setOptions(response.data.results);
-
                 }
             } catch (err) {
                 console.log(err);
@@ -75,9 +72,6 @@ function ComboBoxUser(props) {
             onChange={([, data]) => data}
             as={
                 <Autocomplete
-                    // onChange={(event, value) => {
-                    //     setSelectedSprint(value);
-                    // }}
                     onInputChange={(event, newInputValue) => handleInputChange(event, newInputValue)}
                     inputValue={inputValue}
                     open={open}
@@ -88,10 +82,10 @@ function ComboBoxUser(props) {
                         setOpen(false);
                     }}
                     getOptionSelected={(option, value) => {
-                        return option.username === value.username
+                        return option[optionLabel] === value[optionLabel]
                     }}
                     getOptionLabel={(option) => {
-                        return option.username;
+                        return option[optionLabel];
                     }}
                     options={options}
                     loading={loading}
@@ -99,11 +93,14 @@ function ComboBoxUser(props) {
                         return (
                             <TextField
                                 {...params}
-                                label="Choisir un utilisateur"
+                                label={label}
                                 required
+                                autoComplete='off'
+                                // name={"sprintTextField"}
                                 error={!!errors[name]}
                                 helperText={errors[name] && errors[name].message}
                                 InputProps={{
+                                    // autoComplete: "off",
                                     ...params.InputProps,
                                     endAdornment: (
                                         <React.Fragment>
@@ -120,6 +117,5 @@ function ComboBoxUser(props) {
     );
 }
 
-// export default connect(null, {returnErrors})(ComboBoxUser);
 
-export default ComboBoxUser
+export default AsyncComboBox;

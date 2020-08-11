@@ -13,6 +13,8 @@ const paginate = ({types}) => {
     const [requestType, successType,
         failureType, logout, updateSuccessType, updateFailureType, clearCache] = types;
 
+    // updateSuccess for manage create or update or delete
+    // only one action at the same time so we use the same variable for all those action
     const initialState = {
         updating: false,
         isFetching: false,

@@ -120,11 +120,11 @@ class Sprint(models.Model):
 
 class Task(models.Model):
     class State(models.TextChoices):
+        BACKLOG = 'Backlog', _('Backlog')
         A_FAIRE = 'A Faire', _('A Faire')
         EN_COURS = 'En Cours', _('En Cours')
         A_VERIFIER = 'A Verifier', _('A Verifier')
         TERMINEE = 'Termine', _('Termine')
-        BACKLOG = 'Backlog', _('Backlog')
 
     description = models.CharField(max_length=200, unique=True)
     start_at = models.DateTimeField()

@@ -165,4 +165,6 @@ class TaskSerializer(serializers.ModelSerializer):
         """
         if data['start_at'] > data['end_at']:
             raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
+        if data['sprint'].state not in ['Planifiè', 'En Cours']:
+            raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
         return data

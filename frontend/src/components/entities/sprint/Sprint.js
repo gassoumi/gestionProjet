@@ -2,41 +2,32 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import SaveIcon from "@material-ui/core/SvgIcon/SvgIcon";
-import InputBase from "@material-ui/core/InputBase/InputBase";
 import {fade, makeStyles} from "@material-ui/core/styles";
-import SearchIcon from '@material-ui/icons/Search';
-import CustomizedInputBase from '../common/CustomizedInputBase';
-import AddIcon from '@material-ui/icons/Add';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
-import ReactTable from './ReactTable';
 import {connect} from "react-redux";
 import {Selector} from '../index';
 import {fetchSprints, deleteSprintById} from "../../../redux/actions";
 
-
 import SprintUpdate from './SprintUpdate';
-
 import axios from 'axios';
-import EnhancedTable from './EnhancedTable';
-import SprintDeleteDialog from './SprintDeleteDialog';
+import SprintTable from './SprintTable';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 import CalendarSprint from './CalendarSprint';
 
-//import BasicCalender2 from './BasicCalender2';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import FolderIcon from '@material-ui/icons/Folder';
+
 import Paper from '@material-ui/core/Paper';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import {css} from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
-import MoonLoader from "react-spinners/MoonLoader";
+
 import Loading from '../common/Loading';
+import DeleteDialog from '../common/DeleteDialog';
+
 
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
@@ -116,9 +107,6 @@ function Sprint(props) {
     const [sprint, setSprint] = React.useState({});
     const [isNew, setIsNew] = React.useState(true);
     const [idSprint, setIdSprint] = React.useState(-1);
-    // const [data, setData] = React.useState([]);
-    // const [pageCount, setPageCount] = React.useState(0);
-    // const [pageTable, setPageTable] = React.useState(0);
 
     const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
     const [sprintToDelete, setSprintToDelete] = React.useState({});
@@ -150,19 +138,9 @@ function Sprint(props) {
     const handleEdit = idSprint => {
         setIsNew(false);
         setIdSprint(idSprint);
-        /*
-        axios.get(`/api/sprints/${idSprint}`)
-            .then(response => {
-                console.log(response.data);
-                setSprint(response.data);
-                handleClickOpen();
-            })
-            .catch(error => console.log(error));
-         */
     };
 
     const handleDelete = sprint => {
-        //deleteSprintById(sprint);
         setSprintToDelete(sprint);
         setOpenDeleteDialog(true);
     };
@@ -197,31 +175,16 @@ function Sprint(props) {
         }
     }, [idSprint]);
 
-
-    // useEffect(() => {
-    //     if (sprints.length > 0) {
-    //         //console.log(idStartRow);
-    //         //const startRow = pageSize * (page - 1);
-    //         // const endRow = startRow + pageSize;
-    //         // console.log(startRow);
-    //         // console.log(endRow);
-    //         // console.log(sprints.slice(startRow, endRow));
-    //
-    //         setData(sprints);
-    //         setPageTable(page - 1);
-    //         setPageCount(Math.ceil(count / pageSize));
-    //     }
-    // }, [sprints]);
-
-
     return (
-        <div>
-            <SprintDeleteDialog
-                sprint={sprintToDelete}
+        <>
+            <DeleteDialog
+                object={sprintToDelete}
                 open={openDeleteDialog}
                 handleClose={handleCloseDeleteDialog}
-                deleteSprintById={deleteSprintById}
-            />
+                deleteObject={deleteSprintById}
+            >
+                  Are you sure you want to delete the Sprint {sprintToDelete.name} ?
+            </DeleteDialog>
             <SprintUpdate
                 fetchSprints={fetchSprints}
                 isNew={isNew}
@@ -254,7 +217,7 @@ function Sprint(props) {
                     : (
                         <>
                             < Grid container item xs={12} spacing={2}>
-                                <EnhancedTable
+                                <SprintTable
                                     canEdit={canEdit}
                                     rows={sprints}
                                     count={count}
@@ -314,33 +277,11 @@ function Sprint(props) {
                                     </Paper>
                                 </Grid>
                             </Grid>
-                            {/*< Grid container item xs={12} spacing={1}>*/}
-                            {/*    <BasicCalender/>*/}
-                            {/*</Grid>*/}
-
                         </>
                     )
                 }
-                {/*<Grid container item xs={12} spacing={2}>*/}
-                {/*    <ReactTable*/}
-                {/*        handleEdit={handleEdit}*/}
-                {/*        handleDelete={handleDelete}*/}
-                {/*    />*/}
-                {/*</Grid>*/}
-                {/*<Grid container item xs={12} spacing={2}>*/}
-                {/*    <EnhancedTable/>*/}
-                {/*</Grid>*/}
-                {/*<Grid item xs={12}>*/}
-                {/*    <SprintList fetchSprints={props.fetchSprints} currentPage={props.page} count={props.count}*/}
-                {/*                sprints={props.sprints}/>*/}
-                {/*</Grid>*/}
-                {/*<Grid item xs={12}>*/}
-                {/*    <ReactTablePaginationServer/>*/}
-                {/*</Grid>*/}
-
-
             </Grid>
-        </div>
+        </>
     );
 }
 

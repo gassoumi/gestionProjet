@@ -17,13 +17,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import moment from 'moment';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
-import Grid from "@material-ui/core/Grid";
+
 import {useForm, Controller} from "react-hook-form";
 import {connect} from "react-redux";
-import {updateSprint, createSprint, fetchSprints} from "../../../redux/actions";
-import ComboBoxProject, {sleep} from './ComboBoxProject';
-import axios from "axios";
-import {returnErrors} from "../index";
+import {updateSprint, createSprint} from "../../../redux/actions";
+import AsyncComboBox from '../common/AsyncComboBox';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const styles = (theme) => ({
     root: {
@@ -65,39 +64,49 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
+const URL_PROJECT = '/api/projects';
 
 function SprintUpdate({
                           open = false, handleClose, sprint,
                           createSprint, updateSprint, isNew, updateSuccess, fetchSprints
                       }) {
 
-    const [selectedProject, setSelectedProject] = React.useState(sprint.project || {});
+    const defaultValue = {
+        name: sprint.name || "",
+        project: sprint.project || null,
+        id: sprint.id || "",
+        state: sprint.state || "",
+        desired_at: moment(sprint.desired_at).format('YYYY-MM-DD') ||
+            moment().format('YYYY-MM-DD')
+    };
 
-    const {register, handleSubmit, errors, control} = useForm({
+    const {register, handleSubmit, errors, control, reset} = useForm({
         mode: "onChange",
+        defaultValues: defaultValue,
     });
 
+    // https://react-hook-form.com/v5/api/#reset
+    useEffect(() => {
+        reset(defaultValue);
+    }, [sprint]);
+
+
     const onSubmit = data => {
-        // console.log(data);
 
         const {name, project, desired_at: date, state} = data;
 
-        const idProject = selectedProject.designation === project ? selectedProject.code_project :
-            sprint.project.designation === project ? sprint.project.code_project : null;
-
         const newSprint = {
             name,
-            project: idProject,
+            project: project.code_project,
             state,
             desired_at: moment(date, "YYYY-MM-DDTHH:mm Z").toDate()
         };
+
         if (isNew) {
             createSprint(newSprint);
         } else {
             updateSprint(sprint.id, newSprint)
         }
-        // console.log(newSprint);
-        //handleClose();
     };
 
     useEffect(() => {
@@ -121,7 +130,7 @@ function SprintUpdate({
                         false && <TextField
                             disabled
                             fullWidth
-                            defaultValue={sprint.id || ""}
+                            // defaultValue={sprint.id || ""}
                             name="id"
                             inputRef={register}
                             margin="dense"
@@ -131,11 +140,11 @@ function SprintUpdate({
                     }
                     <TextField
                         fullWidth
-                        defaultValue={sprint.name || ""}
+                        // defaultValue={sprint.name || ""}
                         name="name"
                         required
                         inputRef={register({
-                            required: 'this field is a required',
+                            required: 'this field is required',
                             minLength: {
                                 value: 2,
                                 message: 'Max length is 2',
@@ -151,13 +160,14 @@ function SprintUpdate({
                     />
                     <FormControl
                         fullWidth
-                        margin="dense">
-                        <ComboBoxProject
-                            setSelectedProject={setSelectedProject}
-                            register={register}
-                            name={"project"}
+                        margin={"dense"}>
+                        <AsyncComboBox
+                            control={control}
                             errors={errors}
-                            defaultValue={sprint.project || null}
+                            name="project"
+                            label="Choisir un projet"
+                            optionLabel="designation"
+                            url={URL_PROJECT}
                         />
                     </FormControl>
                     <FormControl
@@ -166,25 +176,30 @@ function SprintUpdate({
                         required
                         error={!!errors.state}
                     >
-                        <InputLabel id="demo-simple-select-label">Status</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Statut</InputLabel>
                         <Controller
                             name="state"
-                            defaultValue={sprint.state || ""}
+                            // defaultValue={sprint.state || ""}
+                            control={control}
+                            rules={{required: 'this field is required'}}
                             as={
                                 <Select
-                                    required
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                 >
+                                    <MenuItem value="">
+                                        <em>Choisir un statut</em>
+                                    </MenuItem>
                                     <MenuItem value="Planifiè">Planifiè</MenuItem>
                                     <MenuItem value="En Cours">En Cours</MenuItem>
                                     <MenuItem value={"Cloturé"}>Cloturé</MenuItem>
                                     <MenuItem value={"Archivé"}>Archivé</MenuItem>
                                 </Select>
                             }
-                            control={control}
-                            rules={{required: 'this field is required'}}
                         />
+                        {errors.state &&
+                        <FormHelperText>{errors.state.message}</FormHelperText>
+                        }
                     </FormControl>
                     <TextField
                         required
@@ -197,10 +212,8 @@ function SprintUpdate({
                         label="Date souhaité"
                         // type="datetime-local"
                         type="date"
-                        // defaultValue={moment(sprint.desired_at).format('YYYY-MM-DDTHH:mm') ||
-                        // moment().format('YYYY-MM-DDTHH:mm')}
-                        defaultValue={moment(sprint.desired_at).format('YYYY-MM-DD') ||
-                        moment().format('YYYY-MM-DD')}
+                        // defaultValue={moment(sprint.desired_at).format('YYYY-MM-DD') ||
+                        // moment().format('YYYY-MM-DD')}
                         InputLabelProps={{
                             shrink: true,
                         }}

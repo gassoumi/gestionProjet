@@ -8,6 +8,7 @@ import {Controller} from "react-hook-form";
 // import {connect} from "react-redux";
 // import {returnErrors} from "../index";
 
+// https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/MuiAutoComplete.js
 function sleep(delay = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
@@ -15,19 +16,19 @@ function sleep(delay = 0) {
 }
 
 
-const URL = '/api/activeSprints/';
+// const URL = '/api/auth/users';
 const PARAM_SEARCH = "search=";
 const DEFAULT_PAGE_SIZE = 100;
 
-// https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/MuiAutoComplete.js
-function ComboBoxSprint(props) {
-    const {name, errors, defaultValue, control} = props;
+// https://www.robinwieruch.de/react-hooks-fetch-data
+function ComboBoxUser(props) {
+    const {control, name, errors, defaultValue,label} = props;
     const [open, setOpen] = React.useState(false);
 
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState(defaultValue ? [{...defaultValue}] : []);
 
-    const loading = open && options.length === 0;
+    const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
         let active = true;
@@ -37,6 +38,7 @@ function ComboBoxSprint(props) {
         }
 
         (async () => {
+            setLoading(true);
             try {
                 await sleep(1e3); // For demo purposes.
                 const url = `${URL}?${PARAM_SEARCH}${inputValue}&page_size=${DEFAULT_PAGE_SIZE}`;
@@ -45,19 +47,24 @@ function ComboBoxSprint(props) {
                     setOptions(response.data.results);
                 }
             } catch (err) {
-                // returnErrors(err.response.data, err.response.status);
                 console.log(err);
+            }
+            if (active) {
+                // you should check if active is true
+                // console.log("we still here");
+                setLoading(false);
             }
         })();
 
         return () => {
             active = false;
         };
-    }, [inputValue, loading]);
+    }, [inputValue, open]);
 
     React.useEffect(() => {
         if (!open) {
             setOptions([]);
+            setLoading(false);
         }
     }, [open]);
 
@@ -77,7 +84,6 @@ function ComboBoxSprint(props) {
                     // onChange={(event, value) => {
                     //     setSelectedSprint(value);
                     // }}
-                    // id={"sprintTextField"}
                     onInputChange={(event, newInputValue) => handleInputChange(event, newInputValue)}
                     inputValue={inputValue}
                     open={open}
@@ -88,10 +94,10 @@ function ComboBoxSprint(props) {
                         setOpen(false);
                     }}
                     getOptionSelected={(option, value) => {
-                        return option.name === value.name
+                        return option.username === value.username
                     }}
                     getOptionLabel={(option) => {
-                        return option.name;
+                        return option.username;
                     }}
                     options={options}
                     loading={loading}
@@ -99,14 +105,11 @@ function ComboBoxSprint(props) {
                         return (
                             <TextField
                                 {...params}
-                                label="Choisir un sprint"
+                                label={label}
                                 required
-                                autoComplete='off'
-                                // name={"sprintTextField"}
                                 error={!!errors[name]}
                                 helperText={errors[name] && errors[name].message}
                                 InputProps={{
-                                    // autoComplete: "off",
                                     ...params.InputProps,
                                     endAdornment: (
                                         <React.Fragment>
@@ -123,6 +126,6 @@ function ComboBoxSprint(props) {
     );
 }
 
-// export default connect(null, {returnErrors})(ComboBoxSprint);
+// export default connect(null, {returnErrors})(ComboBoxUser);
 
-export default ComboBoxSprint;
+export default ComboBoxUser

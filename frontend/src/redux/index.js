@@ -13,9 +13,13 @@ import {
     fetchTasks,
     createTask,
     updateTask,
+    deleteTaskById,
+    deleteSprintById,
 } from './actions';
 
 export {
+    deleteTaskById,
+    deleteSprintById,
     updateTask,
     createTask,
     clearAuthentication,

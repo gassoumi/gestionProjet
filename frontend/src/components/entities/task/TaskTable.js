@@ -13,20 +13,12 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import {Selector} from "../index";
 import moment from 'moment';
-import {Link as RouterLink} from 'react-router-dom';
-import Button from "@material-ui/core/Button";
-import AddCircleOutlineIcon from "@material-ui/core/SvgIcon/SvgIcon";
-
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -55,14 +47,14 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-    {id: 'description', numeric: false, align: 'left', disablePadding: false, label: 'Description'},
-    {id: 'project', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Project'},
-    {id: 'sprint', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
-    {id: 'user', numeric: false, align: 'left', disablePadding: false, label: 'Realisé Par'},
-    {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'State'},
-    {id: 'start_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Debut'},
+    {id: 'project', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Projet'},
+    {id: 'description', numeric: false, align: 'left', disablePadding: false, label: 'Tache'},
+    // {id: 'sprint', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
+    {id: 'user', numeric: false, align: 'left', disablePadding: false, label: 'Responsable'},
+    {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'Statut'},
+    {id: 'start_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Début'},
     {id: 'end_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Fin'},
-    {id: 'action', numeric: true, align: 'right', disablePadding: false, label: 'Action'},
+    {id: 'action', numeric: true, align: 'right', disablePadding: false, label: ''},
 ];
 
 
@@ -260,16 +252,16 @@ function TaskTable(props) {
         let classes = "badge badge-pill badge-";
         switch (value) {
             case "A Faire":
-                classes += "success";
+                classes += "primary";
                 break;
             case "En Cours":
                 classes += "secondary";
                 break;
             case "A Verifier":
-                classes += "primary";
+                classes += "warning";
                 break;
             case "Termine":
-                classes += "warning";
+                classes += "success";
                 break;
             case "Backlog":
                 classes += "danger";
@@ -317,11 +309,11 @@ function TaskTable(props) {
                                             tabIndex={-1}
                                             key={row.description}
                                         >
+                                            <TableCell align="left">{row.sprint.project.designation}</TableCell>
                                             <TableCell component="th" id={labelId} scope="row" padding="default">
                                                 {row.description}
                                             </TableCell>
-                                            <TableCell align="left">{row.sprint.project.designation}</TableCell>
-                                            <TableCell align="left">{row.sprint.name}</TableCell>
+                                            {/*<TableCell align="left">{row.sprint.name}</TableCell>*/}
                                             <TableCell align="left">{row.user.username}</TableCell>
                                             <TableCell align="left">{getStateElement(row.state)}</TableCell>
                                             <TableCell
@@ -349,13 +341,6 @@ function TaskTable(props) {
                                                             size={"small"} color="primary">
                                                             <EditIcon fontSize={"small"}/>
                                                         </IconButton>
-                                                        {/*<Button startIcon={<EditIcon/>}*/}
-                                                        {/*    // onClick={createNewTask}*/}
-                                                        {/*        color={"primary"}*/}
-                                                        {/*        component={RouterLink}*/}
-                                                        {/*        to={`/task/${row.id}/edit`}*/}
-                                                        {/*        aria-label="editer"*/}
-                                                        {/*/>*/}
 
                                                     </Tooltip>
                                                 </div>

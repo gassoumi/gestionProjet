@@ -34,8 +34,8 @@ function ComboBoxProject(props) {
         }
 
         (async () => {
+            setLoading(true);
             try {
-                setLoading(true);
                 await sleep(1e3); // For demo purposes.
                 const url = `${URL}?${PARAM_SEARCH}${inputValue}&page_size=${DEFAULT_PAGE_SIZE}`;
                 const response = await axios.get(url);

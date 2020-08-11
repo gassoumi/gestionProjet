@@ -7,13 +7,25 @@ import {loadingBarMiddleware} from 'react-redux-loading-bar'
 
 const initialState = {};
 
+const composeEnhancers = composeWithDevTools({
+    trace: true
+});
+
 const middleware = [thunk, promiseMiddleware,
     loadingBarMiddleware(),];
 
 const store = createStore(
     rootReducer,
     initialState,
+    composeEnhancers(applyMiddleware(...middleware))
+);
+
+/*
+const store = createStore(
+    rootReducer,
+    initialState,
     composeWithDevTools(applyMiddleware(...middleware))
 );
+ */
 
 export default store;

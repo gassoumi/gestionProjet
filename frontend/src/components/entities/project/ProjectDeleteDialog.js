@@ -52,7 +52,7 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
-function ProjectDeleteDialog({open = false, handleClickOpen, handleClose, deleteProjectById, project}) {
+function ProjectDeleteDialog({open = false, handleClose, deleteProjectById, project}) {
     /*
     const [open, setOpen] = React.useState(false);
 

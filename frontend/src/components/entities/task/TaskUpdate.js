@@ -8,7 +8,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import axios from 'axios';
 import Loading from '../common/Loading';
 
-TaskUpdate.propTypes = {};
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -77,16 +76,15 @@ function TaskUpdate(props) {
                         <Grid item container spacing={2}>
                             <Grid item xs={12}>
                                 <Typography className={classes.formTitle} variant="h5" gutterBottom>
-                                    {isNewTask ? "Creer une nouvelle " : "Editer la "} tache
+                                    {isNewTask ? "Ajouter une nouvelle " : "Modifier la "} tache
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-
                                 <TaskForm
                                     isNewTask={isNewTask}
                                     task={task}
-                                    handleCancel={handleCancel}/>
-
+                                    handleCancel={handleCancel}
+                                />
                             </Grid>
                         </Grid>
                     </Paper>
@@ -95,5 +93,8 @@ function TaskUpdate(props) {
         </>
     );
 }
+
+
+TaskUpdate.propTypes = {};
 
 export default TaskUpdate;
