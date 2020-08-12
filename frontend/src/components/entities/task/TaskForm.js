@@ -53,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
 // https://react-hook-form.com/migrate-v5-to-v6/
 // "react-hook-form": "5.5.1",
 // https://stackoverflow.com/questions/61393994/how-to-set-a-conditional-default-value-for-a-keyboarddatepicker-with-react-hook
+
+// https://material-ui-pickers.dev/demo/datepicker
 function TaskForm(props) {
 
     const classes = useStyles();
@@ -84,6 +86,11 @@ function TaskForm(props) {
             .toDate();
         const end_at_date = moment(value).toDate();
         return end_at_date >= start_at_date;
+    };
+
+    // https://stackoverflow.com/questions/7445328/check-if-a-string-is-a-date-value/30870755
+    const isDate = value => {
+        return moment(value).isValid();
     };
 
     useEffect(() => {
@@ -148,9 +155,17 @@ function TaskForm(props) {
                         <Controller
                             name="start_at"
                             control={control}
-                            rules={{required: 'this field is required'}}
+                            rules={{
+                                required: 'this field is required',
+                                validate: {
+                                    date: value => isDate(value) || "Format de date non valide"
+                                }
+                            }}
                             as={
                                 <KeyboardDatePicker
+                                    clearLabel="vider"
+                                    cancelLabel="annuler"
+                                    clearable
                                     fullWidth
                                     required
                                     error={!!errors.start_at}
@@ -171,6 +186,7 @@ function TaskForm(props) {
                             rules={{
                                 required: 'this field is required',
                                 validate: {
+                                    date: value => isDate(value) || "Format de date non valide",
                                     greatOrEqualThan: value => {
                                         return isGreatOrEqualThan(value) || "La date de fin doit etre superieur au date de debut";
                                     },
@@ -181,6 +197,9 @@ function TaskForm(props) {
                             // defaultValue={null}
                             as={
                                 <KeyboardDatePicker
+                                    clearLabel="vider"
+                                    cancelLabel="annuler"
+                                    clearable
                                     fullWidth
                                     required
                                     error={!!errors.end_at}
@@ -215,7 +234,7 @@ function TaskForm(props) {
                             fullWidth
                             margin="normal"
                         >
-                             <AsyncComboBox
+                            <AsyncComboBox
                                 control={control}
                                 // defaultValue={task.sprint || null}
                                 errors={errors}

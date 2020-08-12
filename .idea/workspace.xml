@@ -2,34 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46d7f5e5-25ca-40d5-a879-96d62fcc6269" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/AsyncComboBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/document.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/EnhancedTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTablePaginationServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintDeleteDialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintsToolbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete2.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/MuiAutoComplete2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/OldComboxUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/common/ComboBoxUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/Task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectManagement/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,13 +41,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
+            <state relative-caret-position="-784">
+              <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/document.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/project.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="39" selection-start-line="39" selection-end-line="62" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-422">
+              <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="174" column="24" selection-start-line="174" selection-start-column="24" selection-end-line="174" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+            <state relative-caret-position="3542">
+              <caret line="182" column="47" selection-start-line="182" selection-start-column="47" selection-end-line="182" selection-end-column="47" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -81,72 +138,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="84" column="41" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/Task.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2728">
-              <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4909">
-              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/AsyncComboBox.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-460">
-              <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-              <folding>
-                <element signature="e#72#98#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Loading.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="154">
+              <caret line="145" column="22" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -155,9 +150,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/Loading.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-201">
+            <state relative-caret-position="242">
+              <caret line="152" column="23" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -211,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/accounts/api.py" />
         <option value="$PROJECT_DIR$/frontend/src/utils/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/actions/user.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/reducers/entities.js" />
@@ -224,8 +219,6 @@
         <option value="$PROJECT_DIR$/projectManagement/admin.py" />
         <option value="$PROJECT_DIR$/gestionProjet/settings.py" />
         <option value="$PROJECT_DIR$/gestionProjet/urls.py" />
-        <option value="$PROJECT_DIR$/projectManagement/urls.py" />
-        <option value="$PROJECT_DIR$/projectManagement/api.py" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/project/Project.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/MuiAutoComplete2.js" />
@@ -244,28 +237,31 @@
         <option value="$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/actions/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/redux/reducers/paginate.js" />
         <option value="$PROJECT_DIR$/projectManagement/models.py" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/EnhancedTable.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js" />
-        <option value="$PROJECT_DIR$/projectManagement/serializers.py" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/common/ComboxProject.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/common/ComboBoxProject.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxUser.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/common/AsyncComboBox.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/Task.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js" />
+        <option value="$PROJECT_DIR$/projectManagement/serializers.py" />
+        <option value="$PROJECT_DIR$/projectManagement/api.py" />
+        <option value="$PROJECT_DIR$/projectManagement/urls.py" />
+        <option value="$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js" />
+        <option value="$PROJECT_DIR$/frontend/src/redux/actions/document.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -588,7 +584,8 @@
       <workItem from="1596963365674" duration="865000" />
       <workItem from="1596965880809" duration="24406000" />
       <workItem from="1597043855272" duration="19797000" />
-      <workItem from="1597131182851" duration="12118000" />
+      <workItem from="1597131182851" duration="16590000" />
+      <workItem from="1597222185617" duration="6364000" />
     </task>
     <servers />
   </component>
@@ -598,7 +595,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="961364000" />
+    <option name="totallyTimeSpent" value="972200000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,9 +608,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.27815014" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.28217158" />
       <window_info id="Structure" order="1" sideWeight="0.501938" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -627,7 +623,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053619" side_tool="true" weight="0.16690241" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49463806" visible="true" weight="0.31400284" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49463806" visible="true" weight="0.32107496" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32956153" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32956153" />
@@ -645,42 +641,6 @@
     <SUITE FILE_PATH="coverage/gestionProjet$Test__frontend_src_utils.coverage" NAME="Test: frontend.src.utils Coverage Results" MODIFIED="1595002543740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3278">
-          <caret line="169" column="2" selection-start-line="169" selection-start-column="2" selection-end-line="173" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ComboBoxUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="87" column="31" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/messages.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -762,23 +722,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/OldComboxUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
-          <folding>
-            <element signature="e#72#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/OldComboxUser.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/project/ProjectDeleteDialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -861,56 +805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectManagement/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1012">
-          <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="e#72#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/ComboBoxSprint.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/ComboBoxUser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -921,34 +819,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4752">
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTablePaginationServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3102">
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintDeleteDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="67" column="78" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTable.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ReactTablePaginationServer.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintDeleteDialog.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/sprint.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -986,16 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6672">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1006,32 +869,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/Task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2728">
-          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintsToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintsToolbar.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/components/account/Loading.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1041,35 +879,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/Loading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/AsyncComboBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
-          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-          <folding>
-            <element signature="e#72#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/ComboBoxProject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="1694">
           <caret line="84" column="41" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
+        <state relative-caret-position="1606">
           <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
@@ -1077,29 +906,148 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/AsyncComboBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+          <folding>
+            <element signature="e#72#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/Loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/common/DeleteDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/Task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="108" column="48" selection-start-line="108" selection-start-column="48" selection-end-line="108" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="145" column="22" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/Sprint.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+        <state relative-caret-position="3542">
+          <caret line="182" column="47" selection-start-line="182" selection-start-column="47" selection-end-line="182" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintUpdate.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/sprint/SprintTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4909">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        <state relative-caret-position="242">
+          <caret line="152" column="23" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="174" column="24" selection-start-line="174" selection-start-column="24" selection-end-line="174" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/entities/task/TaskForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="93" column="41" lean-forward="true" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
+        <state relative-caret-position="-784">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" selection-start-line="39" selection-end-line="62" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/redux/actions/document.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

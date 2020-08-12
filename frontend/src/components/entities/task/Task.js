@@ -19,7 +19,12 @@ import DeleteDialog from '../common/DeleteDialog';
 // https://falcon.technext.it/plugins/plyr
 
 // https://stackoverflow.com/questions/53464595/how-to-use-componentwillmount-in-react-hooks
+// TODO 4 side Effect and react hooks
+// https://reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns
 
+// TODO 5 add event listener
+// https://forum.freecodecamp.org/t/react-add-event-listener/201983
+// https://stackoverflow.com/questions/36180414/reactjs-add-custom-event-listener-to-component
 function Task(props) {
 
     const {
@@ -64,7 +69,7 @@ function Task(props) {
                     handleClose={() => setOpen(false)}
                     deleteObject={deleteTaskById}
                 >
-                    Are you sure you want to delete the Task {task.description} ?
+                    Êtes-vous sûr de vouloir supprimer la tâche <b> {task.description}</b> ?
                 </DeleteDialog>
                 <Grid item xs={12} container spacing={2}>
                     <Grid xs={6} item container justify={"flex-start"}>
@@ -101,6 +106,7 @@ function Task(props) {
                     (
                         < Grid container item xs={12} spacing={2}>
                             <TaskTable
+                                canEdit={canEdit}
                                 rows={tasks}
                                 count={count}
                                 handleEdit={handleEdit}

@@ -29,7 +29,6 @@ import Loading from '../common/Loading';
 import DeleteDialog from '../common/DeleteDialog';
 
 
-
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 // const override = css`
 //   display: block;
@@ -183,7 +182,7 @@ function Sprint(props) {
                 handleClose={handleCloseDeleteDialog}
                 deleteObject={deleteSprintById}
             >
-                  Are you sure you want to delete the Sprint {sprintToDelete.name} ?
+                Êtes-vous sûr de vouloir supprimer le Sprint <b> {sprintToDelete.name} </b>?
             </DeleteDialog>
             <SprintUpdate
                 fetchSprints={fetchSprints}

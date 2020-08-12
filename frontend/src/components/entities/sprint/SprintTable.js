@@ -150,6 +150,7 @@ const EnhancedTableToolbar = (props) => {
                 {/*    control={<Switch checked={dense} onChange={handleChangeDense}/>}*/}
                 {/*    label="rembourrage dense"*/}
                 {/*/>*/}
+                Sprints
             </Typography>
 
             {numSelected > 0 ? (

@@ -61,7 +61,7 @@ function DeleteDialog({open = false, handleClose, deleteObject, object, children
     return (
         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-delete" open={open}>
             <DialogTitle id="customized-dialog-delete" onClose={handleClose}>
-                Confirm delete operation
+                Confirmer l'opération de suppression
             </DialogTitle>
             <DialogContent dividers>
                 <Typography gutterBottom>

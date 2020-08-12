@@ -46,20 +46,28 @@ function stableSort(array, comparator) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-    {id: 'project', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Projet'},
-    {id: 'description', numeric: false, align: 'left', disablePadding: false, label: 'Tache'},
-    // {id: 'sprint', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
-    {id: 'user', numeric: false, align: 'left', disablePadding: false, label: 'Responsable'},
-    {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'Statut'},
-    {id: 'start_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Début'},
-    {id: 'end_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Fin'},
-    {id: 'action', numeric: true, align: 'right', disablePadding: false, label: ''},
-];
+
+function getHeadCells(canEdit) {
+    const headCells = [
+        {id: 'project', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Projet'},
+        {id: 'description', numeric: false, align: 'left', disablePadding: false, label: 'Tache'},
+        // {id: 'sprint', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
+        {id: 'user', numeric: false, align: 'left', disablePadding: false, label: 'Responsable'},
+        {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'Statut'},
+        {id: 'start_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Début'},
+        {id: 'end_at', numeric: false, align: 'left', disablePadding: false, label: 'Date Fin'},
+    ];
+    if (canEdit) {
+        headCells.push(
+            {id: 'action', numeric: true, align: 'right', disablePadding: false, label: ''}
+        )
+    }
+    return headCells;
+}
 
 
 function EnhancedTableHead(props) {
-    const {classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props;
+    const {classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, canEdit} = props;
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };
@@ -67,7 +75,7 @@ function EnhancedTableHead(props) {
     return (
         <TableHead>
             <TableRow>
-                {headCells.map((headCell) => (
+                {getHeadCells(canEdit).map((headCell) => (
                     <TableCell
                         key={headCell.id}
                         // align={headCell.numeric ? 'right' : 'left'}
@@ -135,7 +143,7 @@ const EnhancedTableToolbar = (props) => {
             })}
         >
             <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-
+                Taches
             </Typography>
 
             {numSelected > 0 ? (
@@ -189,7 +197,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TaskTable(props) {
-    const {rows, count, handleEdit, handleDelete, page, pageSize: rowsPerPage, fetchTasks} = props;
+    const {
+        rows, count, handleEdit, handleDelete, page, pageSize: rowsPerPage, canEdit,
+        fetchTasks
+    } = props;
     const classes = useStyles();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('name');
@@ -289,6 +300,7 @@ function TaskTable(props) {
                         aria-label="enhanced table"
                     >
                         <EnhancedTableHead
+                            canEdit={canEdit}
                             classes={classes}
                             numSelected={selected.length}
                             order={order}
@@ -322,6 +334,7 @@ function TaskTable(props) {
                                             <TableCell
                                                 align="left">{moment(row.end_at).format(' DD MMMM YYYY')}
                                             </TableCell>
+                                            {canEdit &&
                                             <TableCell align="right">
                                                 <div className={classes.buttons}>
                                                     <Tooltip title="supprimer">
@@ -345,6 +358,7 @@ function TaskTable(props) {
                                                     </Tooltip>
                                                 </div>
                                             </TableCell>
+                                            }
                                         </TableRow>
                                     );
                                 })}

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Project, UserProject, Sprint, Task
+from .models import Project, UserProject, Sprint, Task, Document
 from django.contrib.auth.models import User
 
 """
@@ -168,3 +168,9 @@ class TaskSerializer(serializers.ModelSerializer):
         if data['sprint'].state not in ['Planifiè', 'En Cours']:
             raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
         return data
+
+
+class DoumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = "__all__"

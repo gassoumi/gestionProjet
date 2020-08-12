@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
-from .models import Project, UserProject, Sprint, Task
-from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer
+from .models import Project, UserProject, Sprint, Task, Document
+from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer, DoumentSerializer
 from django.contrib.auth.models import User
 from rest_framework import filters
 
@@ -82,6 +82,12 @@ class TaskViewSet(viewsets.ModelViewSet):
         # so check the permission first
         self.check_object_permissions(request, None)
         return super().create(request, args, kwargs)
+
+
+class DocumentViewSet(viewsets.ModelViewSet):
+    serializer_class = DoumentSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Document.objects.all()
 
 
 # see also https://www.django-rest-framework.org/tutorial/3-class-based-views/
