@@ -1,10 +1,9 @@
 import * as ActionTypes from "../actionTypes";
 import {returnErrors} from "./messages";
-import {LOGIN_FAIL} from "../actionTypes";
 import axios from 'axios';
 import {createMessage} from "./messages";
 import {normalize} from "normalizr";
-import {projectSchema, projectListSchema, sprintListSchema, sprintSchema} from "../../utils";
+import {sprintListSchema, sprintSchema} from "../../utils";
 import {showLoading, hideLoading} from 'react-redux-loading-bar';
 import {fetchProjectById} from "./project";
 import _ from 'lodash';
@@ -23,8 +22,8 @@ export const fetchSprints = (page = 1, pageSize) => async (dispatch, getState) =
     });
 
     const pageSizeToUse = pageSize ||
-        (getState().pagination && getState().pagination.sprint &&
-            getState().pagination.sprint.pageSize) || 5;
+        (getState().pagination && getState().pagination.sprints &&
+            getState().pagination.sprints.pageSize) || 5;
 
     try {
         await sleep(1e2); // For demo purposes.
@@ -48,12 +47,14 @@ export const fetchSprints = (page = 1, pageSize) => async (dispatch, getState) =
             pageSize: pageSizeToUse,
             count
         });
-    } catch (err) {
-        const {data, status} = err.response;
-        dispatch(returnErrors(data, status));
+    } catch (error) {
         dispatch({
             type: ActionTypes.STARRED_FAILURE_SPRINTS,
         });
+        if (error.response) {
+            const {data, status} = error.response;
+            dispatch(returnErrors(data, status));
+        }
     } finally {
         dispatch(hideLoading());
     }
@@ -72,16 +73,18 @@ export const createSprint = (sprint) => (dispatch) => {
                 type: ActionTypes.CLEAR_CACHE_SPRINT
             });
             dispatch({
-                type: ActionTypes.ACTION_SUCCESS_SPRINT
+                type: ActionTypes.UPDATE_SUCCESS_SPRINT
             })
         })
         // .then(() => fetchSprints()(dispatch))
         .catch(error => {
-            const {data, status} = error.response;
-            dispatch(returnErrors(data, status));
-            dispatch({
-                type: ActionTypes.ACTION_FAILURE_SPRINT
-            })
+            if (error.response) {
+                const {data, status} = error.response;
+                dispatch(returnErrors(data, status));
+            }
+            // dispatch({
+            //     type: ActionTypes.ACTION_FAILURE_SPRINT
+            // })
         }).finally(() => dispatch(hideLoading()))
 };
 
@@ -98,16 +101,18 @@ export const updateSprint = (idSprint, sprint) => dispatch => {
                 type: ActionTypes.CLEAR_CACHE_SPRINT
             });
             dispatch({
-                type: ActionTypes.ACTION_SUCCESS_SPRINT
+                type: ActionTypes.UPDATE_SUCCESS_SPRINT
             })
         })
         // .then(() => fetchSprints()(dispatch))
         .catch(error => {
-            const {data, status} = error.response;
-            dispatch(returnErrors(data, status));
-            dispatch({
-                type: ActionTypes.ACTION_FAILURE_SPRINT
-            })
+            if (error.response) {
+                const {data, status} = error.response;
+                dispatch(returnErrors(data, status));
+            }
+            // dispatch({
+            //     type: ActionTypes.ACTION_FAILURE_SPRINT
+            // })
         }).finally(() => dispatch(hideLoading()))
 };
 
@@ -124,18 +129,26 @@ export const deleteSprintById = sprint => (dispatch) => {
                     type: ActionTypes.CLEAR_CACHE_SPRINT
                 });
                 dispatch({
-                    type: ActionTypes.ACTION_SUCCESS_SPRINT
+                    type: ActionTypes.REMOVE_SUCCESS_SPRINT
                 })
             })
             // .then(() => fetchSprints()(dispatch))
             .catch(error => {
-                const {data, status} = error.response;
-                dispatch(returnErrors(data, status));
+                if (error.response) {
+                    const {data, status} = error.response;
+                    dispatch(returnErrors(data, status));
+                }
             }).finally(() => dispatch(hideLoading()));
     }
 ;
 
-//get Project
+export const clearCacheSprint = () => dispatch => {
+    dispatch({
+        type: ActionTypes.CLEAR_CACHE_SPRINT
+    });
+};
+
+//get Sprint
 export const fetchSprintById = id => async dispatch => {
     dispatch(showLoading());
     try {
@@ -148,77 +161,12 @@ export const fetchSprintById = id => async dispatch => {
             response: normalizedData,
         });
     } catch (error) {
-        const {data, status} = error.response;
-        dispatch(returnErrors(data, status));
+        if (error.response) {
+            const {data, status} = error.response;
+            dispatch(returnErrors(data, status));
+        }
     } finally {
         dispatch(hideLoading());
     }
 };
 
-
-//get Project
-// old one
-/*
-export const fetchSprintById = id => dispatch => {
-    dispatch(showLoading());
-    axios.get(`/api/sprints/${id}/`)
-        .then(response => {
-            const result = response.data;
-            fetchProjectById(result.project)(dispatch);
-            const normalizedData = normalize(result, sprintSchema);
-            dispatch({
-                type: ActionTypes.FETCH_SUCCESS_SPRINT,
-                response: normalizedData,
-            });
-        })
-        .catch(error => {
-            const {data, status} = error.response;
-            dispatch(returnErrors(data, status));
-        }).finally(() => dispatch(hideLoading()))
-};
- */
-
-
-//get list of project projects
-// old one
-/*
-export const fetchSprints = (page = 1, pageSize) => (dispatch, getState) => {
-    dispatch(showLoading());
-    dispatch({
-        type: ActionTypes.STARRED_REQUEST_SPRINTS,
-    });
-
-    const pageSizeToUse = pageSize ||
-        (getState().pagination && getState().pagination.sprint &&
-            getState().pagination.sprint.pageSize) || 5;
-
-    axios.get(`/api/sprints/?page=${page}&page_size=${pageSizeToUse}`)
-        .then(res => {
-            const {data: {results, next, count}} = res;
-            const listProject = results.map(sprint => sprint.project);
-            const filteredProject = _.uniq(listProject);
-            filteredProject.forEach(id => {
-                fetchProjectById(id)(dispatch);
-            });
-            const normalizedData = normalize(results, sprintListSchema);
-
-            dispatch({
-                type: ActionTypes.STARRED_SUCCESS_SPRINTS,
-                response: normalizedData,
-                nextPageUrl: next,
-                page,
-                pageSize: pageSizeToUse,
-                count
-            });
-        })
-        .catch(err => {
-            const {data, status} = err.response;
-            dispatch(returnErrors(data, status));
-            dispatch({
-                type: ActionTypes.STARRED_FAILURE_SPRINTS,
-            });
-        })
-        .finally(() => dispatch(hideLoading()))
-
-};
- */

@@ -29,6 +29,7 @@ import Loading from '../common/Loading';
 import DeleteDialog from '../common/DeleteDialog';
 
 
+
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 // const override = css`
 //   display: block;
@@ -97,9 +98,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 function Sprint(props) {
 
     const classes = useStyles();
+
+    const {
+        pageSize, sprints, page, count, isFetching,
+        fetchSprints, canEdit, deleteSprintById,
+    } = props;
 
     const [open, setOpen] = React.useState(false);
 
@@ -110,10 +117,7 @@ function Sprint(props) {
     const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
     const [sprintToDelete, setSprintToDelete] = React.useState({});
 
-    const {
-        pageSize, sprints, page, count, isFetching,
-        fetchSprints, canEdit, deleteSprintById,
-    } = props;
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -176,6 +180,13 @@ function Sprint(props) {
 
     return (
         <>
+
+            <SprintUpdate
+                fetchSprints={fetchSprints}
+                isNew={isNew}
+                sprint={sprint}
+                open={open}
+                handleClose={handleClose}/>
             <DeleteDialog
                 object={sprintToDelete}
                 open={openDeleteDialog}
@@ -184,12 +195,6 @@ function Sprint(props) {
             >
                 Êtes-vous sûr de vouloir supprimer le Sprint <b> {sprintToDelete.name} </b>?
             </DeleteDialog>
-            <SprintUpdate
-                fetchSprints={fetchSprints}
-                isNew={isNew}
-                sprint={sprint}
-                open={open}
-                handleClose={handleClose}/>
             <Grid container spacing={3}>
                 <Grid item xs={12} container spacing={2}>
                     <Grid xs={6} item container justify={"flex-start"}>
@@ -215,6 +220,7 @@ function Sprint(props) {
                     </>
                     : (
                         <>
+
                             < Grid container item xs={12} spacing={2}>
                                 <SprintTable
                                     canEdit={canEdit}
@@ -288,19 +294,19 @@ Sprint.propTypes = {};
 
 const mapStateToProps = (state) => {
     const {
-        pagination: {sprint},
+        pagination: {sprints},
     } = state;
     //const listProjectIds = project.ids || [];
     const listSprint = Selector.getSprintsPage(state);
 
     return {
         sprints: listSprint || [],
-        nextPageUrl: sprint.nextPageUrl,
-        page: sprint.page,
-        isFetching: sprint.isFetching,
+        nextPageUrl: sprints.nextPageUrl,
+        page: sprints.page,
+        isFetching: sprints.isFetching,
         canEdit: state.auth.user.is_staff || false,
-        count: sprint.count,
-        pageSize: sprint.pageSize,
+        count: sprints.count,
+        pageSize: sprints.pageSize,
     };
 };
 

@@ -7,7 +7,7 @@ from .models import Project, Task, Sprint, Discussion, \
 
 class ProjectAdmin(admin.ModelAdmin):
     # fields = ['objective', 'designation', 'created_at']
-    list_display = ['code_project', 'designation', 'objective', 'created_at']
+    list_display = ['id','code', 'designation', 'objective', 'created_at']
 
 
 class ProjectUsersAdmin(admin.ModelAdmin):
@@ -23,7 +23,7 @@ class TaskAdmin(admin.ModelAdmin):
 
 
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'description', 'version', 'task', 'created_at',
+    list_display = ['id', 'code', 'description', 'version', 'task', 'created_at', 'state',
                     'get_doc_file_name', 'get_doc_file_path']
 
 

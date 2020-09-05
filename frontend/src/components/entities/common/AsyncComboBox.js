@@ -20,7 +20,7 @@ const DEFAULT_PAGE_SIZE = 100;
 
 // https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/MuiAutoComplete.js
 function AsyncComboBox(props) {
-    const {name, errors, defaultValue, control, label, url, optionLabel} = props;
+    const {name, errors, defaultValue, control, label, url, optionLabel, rules} = props;
     const [open, setOpen] = React.useState(false);
 
     const [inputValue, setInputValue] = React.useState('');
@@ -67,7 +67,7 @@ function AsyncComboBox(props) {
         <Controller
             name={name}
             control={control}
-            rules={{required: 'this field is required'}}
+            rules={rules}
             // defaultValue={options[0]}
             onChange={([, data]) => data}
             as={

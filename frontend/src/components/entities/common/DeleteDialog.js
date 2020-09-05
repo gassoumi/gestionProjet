@@ -51,7 +51,10 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
-function DeleteDialog({open = false, handleClose, deleteObject, object, children}) {
+function DeleteDialog({
+                          open , title = "Confirmer l'opération de suppression",
+                          handleClose, deleteObject, object, children
+                      }) {
 
     const handleDelete = () => {
         deleteObject(object);
@@ -61,7 +64,7 @@ function DeleteDialog({open = false, handleClose, deleteObject, object, children
     return (
         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-delete" open={open}>
             <DialogTitle id="customized-dialog-delete" onClose={handleClose}>
-                Confirmer l'opération de suppression
+                {title}
             </DialogTitle>
             <DialogContent dividers>
                 <Typography gutterBottom>

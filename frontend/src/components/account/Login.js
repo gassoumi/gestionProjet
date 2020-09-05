@@ -10,12 +10,12 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {connect} from "react-redux";
-import {login} from "../../redux/actions";
-import {useForm} from "react-hook-form";
-import {Link as RouterLink, Redirect} from "react-router-dom";
+import { connect } from "react-redux";
+import { login } from "../../redux/actions";
+import { useForm } from "react-hook-form";
+import { Link as RouterLink, Redirect } from "react-router-dom";
 import CachedIcon from '@material-ui/icons/Cached';
 import Loader from 'react-loader-spinner';
 import Loading from './Loading';
@@ -77,42 +77,49 @@ function Login(props) {
     // TODO 1 create a custom loading component later
     // TODO 2 change redirect to the url from the text field of url of the browser
 
+
+    // get the redirect from props.location.state or define a default one
+    const { from } = (props.location.state) || {
+        from: { pathname: '/project', search: props.location.search }
+    };
+
+    const classes = useStyles();
+    const { register, handleSubmit, errors } = useForm();
+
+
+
+
+    const onSubmit = (data) => {
+        const { username, password } = data;
+        props.login(username, password);
+    };
+
     if (props.auth.isAuthenticated) {
-        return <Redirect to="/project"/>;
+        return <Redirect to={from} />;
     } else if (props.auth.isLoading) {
         return (
             <>
-            {/*<div*/}
-            {/*    style={{*/}
-            {/*        width: "100%",*/}
-            {/*        height: "100%",*/}
-            {/*        display: "flex",*/}
-            {/*        justifyContent: "center",*/}
-            {/*        alignItems: "center",*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    <Loader timeout={5000} type="Circles"  height="100" width="100"/></div>*/}
-            <Loading/>
+                {/*<div*/}
+                {/*    style={{*/}
+                {/*        width: "100%",*/}
+                {/*        height: "100%",*/}
+                {/*        display: "flex",*/}
+                {/*        justifyContent: "center",*/}
+                {/*        alignItems: "center",*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    <Loader timeout={5000} type="Circles"  height="100" width="100"/></div>*/}
+                <Loading />
             </>
         );
     }
 
-
-    const classes = useStyles();
-    const {register, handleSubmit, errors} = useForm();
-
-    const onSubmit = (data) => {
-        const {username, password} = data;
-        props.login(username, password);
-    };
-
-
     return (
         <Container component="main" maxWidth="xs">
-            <CssBaseline/>
+            <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon/>
+                    <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
@@ -120,7 +127,7 @@ function Login(props) {
                 <form onSubmit={handleSubmit(onSubmit)} className={classes.form} noValidate>
                     <TextField
                         required
-                        inputRef={register({required: true, maxLength: 50})}
+                        inputRef={register({ required: true, maxLength: 50 })}
                         variant="outlined"
                         margin="normal"
                         fullWidth
@@ -133,7 +140,7 @@ function Login(props) {
                     />
                     <TextField
                         required
-                        inputRef={register({required: true})}
+                        inputRef={register({ required: true })}
                         variant="outlined"
                         margin="normal"
                         fullWidth
@@ -156,7 +163,7 @@ function Login(props) {
                 </form>
             </div>
             <Box mt={8}>
-                <Copyright/>
+                <Copyright />
             </Box>
         </Container>
     );
@@ -166,4 +173,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth,
 });
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect(mapStateToProps, { login })(Login);

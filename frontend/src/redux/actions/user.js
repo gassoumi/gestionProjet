@@ -1,7 +1,6 @@
 import {hideLoading, showLoading} from "react-redux-loading-bar";
 import * as ActionTypes from "../actionTypes";
 import axios from "axios";
-import _ from "lodash";
 import {normalize} from "normalizr";
 import {userSchema, usersListSchema} from "../../utils";
 import {returnErrors} from "./messages";
@@ -13,8 +12,8 @@ export const fetchUsers = (page = 1, pageSize) => async (dispatch, getState) => 
     });
 
     const pageSizeToUse = pageSize ||
-        (getState().pagination && getState().pagination.user &&
-            getState().pagination.user.pageSize) || 5;
+        (getState().pagination && getState().pagination.users &&
+            getState().pagination.users.pageSize) || 5;
 
     try {
         const res = await axios.get(`/api/auth/users/?page=${page}&page_size=${pageSizeToUse}`);
@@ -30,18 +29,26 @@ export const fetchUsers = (page = 1, pageSize) => async (dispatch, getState) => 
             pageSize: pageSizeToUse,
             count
         });
-    } catch (err) {
-        const {data, status} = err.response;
-        dispatch(returnErrors(data, status));
+    } catch (error) {
         dispatch({
             type: ActionTypes.STARRED_FAILURE_USERS,
         });
+        if (error.response) {
+            const {data, status} = error.response;
+            dispatch(returnErrors(data, status));
+        }
     } finally {
         dispatch(hideLoading());
     }
 };
 
-//get Project
+export const clearCacheUser = () => dispatch => {
+    dispatch({
+        type: ActionTypes.CLEAR_CACHE_USER
+    });
+};
+
+//get User by id
 export const fetchUserById = (id) => async dispatch => {
     dispatch(showLoading());
     try {
@@ -53,8 +60,10 @@ export const fetchUserById = (id) => async dispatch => {
             response: normalizedData,
         });
     } catch (error) {
-        const {data, status} = error.response;
-        dispatch(returnErrors(data, status));
+        if (error.response) {
+            const {data, status} = error.response;
+            dispatch(returnErrors(data, status));
+        }
     } finally {
         dispatch(hideLoading());
     }

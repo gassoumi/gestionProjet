@@ -51,7 +51,6 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-
                 <Alerts/>
                 <ToastContainer autoClose={2000}/>
                 <Router>

@@ -54,14 +54,14 @@ function stableSort(array, comparator) {
 function getHeadCells(canEdit) {
     const headCells = [
         {id: 'name', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Sprint'},
-        {id: 'projectDesignation', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Project'},
+        {id: 'projectDesignation', numeric: false, align: 'left', disablePadding: false, label: 'Nom du Projet'},
         {id: 'desired_at', numeric: false, align: 'left', disablePadding: false, label: 'Date souhaité'},
         {id: 'state', numeric: false, align: 'left', disablePadding: false, label: 'Statut'},
 
     ];
     if (canEdit) {
         headCells.push(
-            {id: 'action', numeric: true, align: 'right', disablePadding: false, label: 'Action'},
+            {id: 'action', numeric: true, align: 'right', disablePadding: false, label: ''},
         );
     }
     return headCells;

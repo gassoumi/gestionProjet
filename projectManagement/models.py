@@ -2,22 +2,10 @@ from django.db import models
 from .apps import ProjectmanagementConfig
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-
 from django.utils.timezone import now
-import ntpath
-import os
 
 
 # models representing database of the current app
-
-def get_file_name2(path):
-    head, tail = ntpath.split(path)
-    return tail or ntpath.basename(head)
-
-
-def get_file_name(path):
-    return os.path.basename(path)
-
 
 class Discussion(models.Model):
     user = models.ForeignKey(User, related_name="discussions", on_delete=models.CASCADE)
@@ -37,16 +25,18 @@ class Comment(models.Model):
     discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(default=now)
 
+    # - reverse order
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-modified_at']
 
     def __str__(self):
         return self.description
 
 
 class Project(models.Model):
-    code_project = models.CharField(max_length=200, primary_key=True)
+    code = models.CharField(max_length=200, unique=True)
     designation = models.CharField(max_length=200, unique=True)
     objective = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -89,14 +79,15 @@ class UserProject(models.Model):
 
 
 class Video(models.Model):
-    path = models.CharField(max_length=500)
+    # TODO remove the default param later
+    docFile = models.FileField(upload_to='videos/%Y/%m/%d', default=None)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['created_at']
 
     def __str__(self):
-        return get_file_name(self.path)
+        return self.docFile.name
 
 
 class Sprint(models.Model):
@@ -145,11 +136,21 @@ class Task(models.Model):
 # https://docs.djangoproject.com/en/3.0/ref/forms/api/#binding-uploaded-files
 # https://stackoverflow.com/questions/5871730/how-to-upload-a-file-in-django
 class Document(models.Model):
+    # Actuel  et Périmé
+    class State(models.TextChoices):
+        ACTUAL = 'AC', _('Actuel')
+        EXPIRED = 'EX', _('Périmé')
+
+    code = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=200)
     version = models.CharField(max_length=20)
-    task = models.ForeignKey(Task, related_name="documents", on_delete=models.CASCADE)
+    # https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.on_delete
+    task = models.ForeignKey(Task, related_name="documents", on_delete=models.SET_NULL, null=True, blank=True,
+                             default=None)
+    # task = models.ForeignKey(Task, related_name="documents", on_delete=models.CASCADE, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
-    docFile = models.FileField(upload_to='documents/%Y/%m/%d', default=None)
+    docFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    state = models.CharField(choices=State.choices, max_length=2, default=State.ACTUAL)
 
     class Meta:
         ordering = ['created_at']
@@ -161,4 +162,4 @@ class Document(models.Model):
         return self.docFile.path
 
     def __str__(self):
-        return get_file_name(self.docFile.name)
+        return self.docFile.name

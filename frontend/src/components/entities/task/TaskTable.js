@@ -20,6 +20,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import moment from 'moment';
 
+
+// TODO 7
+// https://github.com/gregnb/mui-datatables#remote-data
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
         return -1;

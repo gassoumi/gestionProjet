@@ -9,8 +9,8 @@ export default function Routes() {
         <Switch>
             <Route exact path="/login" component={Login}/>
             <PrivateRoute path="/" component={Entities}/>
-            <Redirect from="/" to="/project"/>
-            <Redirect to="/project"/>
+            {/*<Redirect from="/" to="/project"/>*/}
+            {/*<Redirect to="/project"/>*/}
         </Switch>
     );
 }

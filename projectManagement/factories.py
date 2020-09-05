@@ -1,7 +1,16 @@
 import factory
-from .models import Project, UserProject
+from .models import Project, UserProject, Discussion
 from django.contrib.auth.models import User
 from Lib import random
+
+
+class DiscussionFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Discussion
+
+    object = factory.Faker('sentence', nb_words=4)
+    description = factory.Faker('text')
+    user = User.objects.get(username="achref")
 
 
 # factory for the model project
@@ -11,7 +20,7 @@ class ProjectFactory(factory.django.DjangoModelFactory):
 
     designation = factory.Faker('sentence', nb_words=3)
     objective = factory.Faker('text')
-    code_project = factory.Faker('date_time')
+    code = factory.Faker('date_time')
 
 
 classifications = [
@@ -33,7 +42,6 @@ class ProjectUsersFactory(factory.django.DjangoModelFactory):
     user = User.objects.get(username="achref")
     project = factory.SubFactory(ProjectFactory)
     classification = random.choice(classifications)
-
 
 # factory for create user with a project
 # see https://factoryboy.readthedocs.io/en/latest/recipes.html

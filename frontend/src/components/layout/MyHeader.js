@@ -1,7 +1,7 @@
 import React from 'react';
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import {makeStyles, fade} from "@material-ui/core/styles";
+import { makeStyles, fade } from "@material-ui/core/styles";
 import AppBar from '@material-ui/core/AppBar';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -9,8 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import {connect} from "react-redux";
-import {logout} from "../../redux/actions";
+import { connect } from "react-redux";
+import { logout } from "../../redux/actions";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
@@ -66,10 +66,6 @@ const useStyles = makeStyles((theme) => ({
 
 function MyHeader(props) {
 
-    if (!props.auth.isAuthenticated) {
-        return <React.Fragment/>
-    }
-
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -82,15 +78,19 @@ function MyHeader(props) {
         setAnchorEl(null);
     };
 
+    if (!props.auth.isAuthenticated) {
+        return <React.Fragment />
+    }
+
     return (
         <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
                 <Typography variant="h6" className={classes.title}>
-                    Project Manager
+                    Gestion de projets
                 </Typography>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
-                        <SearchIcon/>
+                        <SearchIcon />
                     </div>
                     <InputBase
                         placeholder="Search…"
@@ -98,7 +98,7 @@ function MyHeader(props) {
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
-                        inputProps={{'aria-label': 'search'}}
+                        inputProps={{ 'aria-label': 'search' }}
                     />
                 </div>
                 <div>
@@ -109,7 +109,7 @@ function MyHeader(props) {
                         onClick={handleMenu}
                         color="inherit"
                     >
-                        <AccountCircle/>
+                        <AccountCircle />
                     </IconButton>
                     <Menu
 
@@ -146,4 +146,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, {logout})(MyHeader);
+export default connect(mapStateToProps, { logout })(MyHeader);

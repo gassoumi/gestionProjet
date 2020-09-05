@@ -13,11 +13,13 @@ import {
     updateProject,
     createProject,
     deleteProjectById,
+    clearCacheProject,
 } from './project';
 
-import {fetchTasks,createTask,updateTask,deleteTaskById} from "./task";
+import {fetchTasks,clearCacheTask, createTask, updateTask, deleteTaskById} from "./task";
 
 import {
+    clearCacheSprint,
     fetchSprints,
     deleteSprintById,
     updateSprint,
@@ -25,8 +27,48 @@ import {
     fetchSprintById,
 } from './sprint';
 
+import {
+    clearCacheDocument,
+    createDocument,
+    updateDocument,
+    fetchDocuments,
+    deleteDocumentById,
+} from "./document";
+
+import {
+    clearCacheDiscussion,
+    fetchDiscussions,
+    fetchDiscussion,
+    createDiscussion,
+    updateDiscussion,
+} from "./discussion"
+
+import {
+    clearCacheComment,
+    fetchCommentsByDiscussion,
+    createComment,
+    updateComment,
+    deleteCommentById,
+} from "./comment"
 
 export {
+    deleteCommentById,
+    updateComment,
+    clearCacheComment,
+    clearCacheDiscussion,
+    clearCacheDocument,
+    clearCacheSprint,
+    clearCacheTask,
+    updateDiscussion,
+    createDiscussion,
+    createComment,
+    fetchCommentsByDiscussion,
+    fetchDiscussion,
+    fetchDiscussions,
+    deleteDocumentById,
+    updateDocument,
+    fetchDocuments,
+    createDocument,
     deleteTaskById,
     updateTask,
     fetchTasks,
@@ -37,6 +79,7 @@ export {
     logout,
     register,
     deleteProjectById,
+    clearCacheProject,
     createProject,
     updateProject,
     fetchProjectById,

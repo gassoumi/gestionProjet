@@ -13,6 +13,9 @@ import Button from "@material-ui/core/Button";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import DeleteDialog from '../common/DeleteDialog';
 
+
+
+
 // TODO file plugin
 // https://github.com/react-dropzone/react-dropzone/
 // plugins
@@ -29,22 +32,23 @@ function Task(props) {
 
     const {
         canEdit, tasks, count,
-        fetchTasks, isFetching, pageSize, page, deleteTaskById, updateSuccess,
+        fetchTasks, isFetching, pageSize, page, deleteTaskById, deleteSuccess,
     } = props;
 
     const [open, setOpen] = useState(false);
     const [task, setTask] = useState({});
-    const [isMount, setIsMount] = useState(false);
+
 
 
     useEffect(() => {
-        // After delete success we fetch data again
-        // here we use updateSuccess for delete
-        if (!isMount || updateSuccess) {
+        fetchTasks();
+    }, []);
+
+    useEffect(() => {
+        if (deleteSuccess) {
             fetchTasks();
         }
-        setIsMount(true);
-    }, [updateSuccess]);
+    }, [deleteSuccess]);
 
 
     const handleEdit = (id) => {
@@ -77,16 +81,6 @@ function Task(props) {
                     <Grid xs={6} item container justify={"flex-end"}>
                         {canEdit &&
                         <>
-                            {/*<Button startIcon={<AddCircleOutlineIcon/>}*/}
-                            {/*    // onClick={createNewTask}*/}
-                            {/*        type="button"*/}
-                            {/*        variant="contained"*/}
-                            {/*        color={"secondary"}*/}
-                            {/*        component={RouterLink}*/}
-                            {/*        to="/task/create"*/}
-                            {/*>*/}
-                            {/*    Ajouter une tache*/}
-                            {/*</Button>*/}
                             <Button startIcon={<AddCircleOutlineIcon/>}
                                     onClick={createNew}
                                     type="button"
@@ -127,19 +121,20 @@ Task.propTypes = {};
 
 const mapStateToProps = (state) => {
     const {
-        pagination: {task},
+        pagination: {tasks},
+        entity: {task}
     } = state;
     const listTask = Selector.getTasksPage(state);
 
     return {
         tasks: listTask || [],
-        nextPageUrl: task.nextPageUrl,
-        page: task.page,
-        isFetching: task.isFetching,
+        nextPageUrl: tasks.nextPageUrl,
+        page: tasks.page,
+        isFetching: tasks.isFetching,
         canEdit: state.auth.user.is_staff || false,
-        count: task.count,
-        pageSize: task.pageSize,
-        updateSuccess: task.updateSuccess,
+        count: tasks.count,
+        pageSize: tasks.pageSize,
+        deleteSuccess: task.deleteSuccess,
     };
 };
 

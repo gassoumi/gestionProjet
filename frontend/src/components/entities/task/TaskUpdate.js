@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 function TaskUpdate(props) {
 
-    const isNewTask = !props.match.params || !props.match.params.id;
     const classes = useStyles();
+    const isNewTask = !props.match.params || !props.match.params.id;
     const [task, setTask] = useState({});
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -44,10 +44,12 @@ function TaskUpdate(props) {
                         sprint: responseSprint.data, user: responseUser.data
                     };
                     setTask(newTask);
-                    setIsLoaded(true);
                 }
             } catch (e) {
                 console.log(e);
+            }
+            if (active) {
+                setIsLoaded(true);
             }
         };
 
@@ -64,7 +66,8 @@ function TaskUpdate(props) {
     }, [isNewTask]);
 
     const handleCancel = () => {
-        props.history.push("/task");
+        // props.history.push("/task");
+        props.history.goBack();
     };
 
     return (

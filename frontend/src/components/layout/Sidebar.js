@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Drawer from "@material-ui/core/Drawer/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -6,17 +6,17 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import {makeStyles} from '@material-ui/core/styles';
-import MailIcon from '@material-ui/icons/Mail';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import {Link as RouterLink} from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import MailIcon from "@material-ui/icons/Mail";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import Collapse from '@material-ui/core/Collapse';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import ListIcon from '@material-ui/icons/List';
-import {connect} from "react-redux";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import Collapse from "@material-ui/core/Collapse";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import ListIcon from "@material-ui/icons/List";
+import { connect } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -29,20 +29,22 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
     },
     drawerContainer: {
-        overflow: 'auto',
+        overflow: "auto",
     },
     nested: {
         paddingLeft: theme.spacing(4),
     },
 }));
 
-const renderLink = (to) => React.useMemo(
+const RenderLink = (to) => React.useMemo(
     () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
     [to],
 );
 
 function CollapseListItemLink(props) {
-    const {primary, listTo} = props;
+    const { primary, listTo } = props;
+
+
     const [open, setOpen] = React.useState(true);
     const classes = useStyles();
 
@@ -53,9 +55,14 @@ function CollapseListItemLink(props) {
     const getItem = (item, index) => {
         if (item.show) {
             return (
-                <ListItem key={index} button component={renderLink(item.to)} className={classes.nested}>
+                <ListItem
+                    key={index}
+                    button
+                    component={RenderLink(item.to)}
+                    className={classes.nested}
+                >
                     {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
-                    <ListItemText primary={item.text}/>
+                    <ListItemText primary={item.text} />
                 </ListItem>
             );
         }
@@ -65,8 +72,8 @@ function CollapseListItemLink(props) {
     return (
         <li>
             <ListItem button onClick={handleClick}>
-                <ListItemText primary={primary}/>
-                {open ? <ExpandLess/> : <ExpandMore/>}
+                <ListItemText primary={primary} />
+                {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -78,18 +85,21 @@ function CollapseListItemLink(props) {
 }
 
 function ListItemLink(props) {
-    const {icon, primary, to} = props;
+    const { icon, primary, to } = props;
 
     const renderLink = React.useMemo(
-        () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
-        [to],
+        () =>
+            React.forwardRef((itemProps, ref) => (
+                <RouterLink to={to} ref={ref} {...itemProps} />
+            )),
+        [to]
     );
 
     return (
         <li>
             <ListItem button component={renderLink}>
                 {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-                <ListItemText primary={primary}/>
+                <ListItemText primary={primary} />
             </ListItem>
         </li>
     );
@@ -106,32 +116,56 @@ function Sidebar(props) {
     const projectLink = [
         {
             to: "/project",
-            text: 'Projets',
-            icon: <ListIcon/>,
+            text: "Projets",
+            icon: <ListIcon />,
             show: true,
         },
         {
             to: "/project/create",
-            text: 'Ajouter un projet',
-            icon: <AddCircleIcon/>,
+            text: "Ajouter un projet",
+            icon: <AddCircleIcon />,
             show: props.showCreateProject,
-        }
+        },
     ];
 
     const sprintLink = [
         {
             to: "/sprint",
-            text: 'Sprints',
-            icon: <ListIcon/>,
+            text: "Sprints",
+            icon: <ListIcon />,
             show: true,
         },
     ];
 
-     const taskLink = [
+    const taskLink = [
         {
             to: "/task",
-            text: 'Taches',
-            icon: <ListIcon/>,
+            text: "Taches",
+            icon: <ListIcon />,
+            show: true,
+        },
+    ];
+
+    const discussionLink = [
+        {
+            to: "/discussion",
+            text: "Discussions",
+            icon: <ListIcon />,
+            show: true,
+        },
+    ];
+
+    const documentLink = [
+        {
+            to: "/document?state=AC",
+            text: "Acuels",
+            icon: <ListIcon />,
+            show: true,
+        },
+        {
+            to: "/document?state=EX",
+            text: "Périmes",
+            icon: <ListIcon />,
             show: true,
         },
     ];
@@ -144,27 +178,32 @@ function Sidebar(props) {
                 paper: classes.drawerPaper,
             }}
         >
-            <Toolbar/>
+            <Toolbar />
             <div className={classes.drawerContainer}>
                 <List>
-                    <CollapseListItemLink primary="Project" listTo={projectLink}/>
+                    <CollapseListItemLink primary="Project" listTo={projectLink} />
                 </List>
-                <Divider/>
+                <Divider />
                 <List>
-                    <CollapseListItemLink primary="Sprint" listTo={sprintLink}/>
+                    <CollapseListItemLink primary="Sprint" listTo={sprintLink} />
                 </List>
-                <Divider/>
+                <Divider />
                 <List>
-                    <CollapseListItemLink primary="Tache" listTo={taskLink}/>
+                    <CollapseListItemLink primary="Tache" listTo={taskLink} />
+                </List>
+                <List>
+                    <CollapseListItemLink primary="Document" listTo={documentLink} />
+                </List>
+                <List>
+                    <CollapseListItemLink primary="Discussion" listTo={discussionLink} />
                 </List>
             </div>
         </Drawer>
     );
 }
 
-const mapStateToProps = state => ({
-    showCreateProject: state.auth.user.is_staff || false
+const mapStateToProps = (state) => ({
+    showCreateProject: state.auth.user.is_staff || false,
 });
-
 
 export default connect(mapStateToProps)(Sidebar);

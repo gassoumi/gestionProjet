@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {useForm, Controller} from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField/TextField";
+import TextField from '@material-ui/core/TextField';
 import MomentUtils from '@date-io/moment';
 import {
     MuiPickersUtilsProvider,
@@ -10,7 +10,7 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-import {makeStyles} from '@material-ui/core/styles';
+
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -19,6 +19,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
+import {makeStyles} from '@material-ui/core/styles';
 import moment from 'moment';
 import {connect} from "react-redux";
 import {createTask, updateTask} from "../../../redux";
@@ -73,8 +74,10 @@ function TaskForm(props) {
         state: task.state || "",
     };
 
-    // you can use setError when start_at date change and it is great than end_at date
-    const {register, handleSubmit, errors, control, getValues, clearError, triggerValidation, watch} = useForm({
+    const {
+        register, handleSubmit, errors, control, getValues,
+        triggerValidation, reset, watch
+    } = useForm({
         mode: "onChange",
         defaultValues: defaultValue,
     });
@@ -94,10 +97,11 @@ function TaskForm(props) {
     };
 
     useEffect(() => {
+        reset(defaultValue);
+    }, [task]);
+
+    useEffect(() => {
         const endAtValue = getValues().end_at;
-        // if (watchStartAt && endAtValue && isGreatOrEqualThan(endAtValue)) {
-        //     clearError("end_at");
-        // }
         if (watchStartAt && endAtValue) {
             triggerValidation("end_at");
         }
@@ -140,7 +144,7 @@ function TaskForm(props) {
                             label="Description"
                             name="description"
                             inputRef={register({
-                                required: 'this field is a required',
+                                required: 'this field is required',
                                 minLength: {
                                     value: 2,
                                     message: 'Max length is 2',
@@ -226,6 +230,7 @@ function TaskForm(props) {
                                 label="Coisir un sprint"
                                 optionLabel="name"
                                 url={URL_SPRINT}
+                                rules={{required: 'this field is required'}}
                             />
                         </FormControl>
                     </Grid>
@@ -242,6 +247,7 @@ function TaskForm(props) {
                                 label="Coisir un responsable"
                                 optionLabel="username"
                                 url={URL_USER}
+                                rules={{required: 'this field is required'}}
                             />
                         </FormControl>
                     </Grid>
@@ -306,7 +312,7 @@ function TaskForm(props) {
 TaskForm.propTypes = {};
 
 const mapStateToProps = state => ({
-    updateSuccess: state.pagination.task.updateSuccess
+    updateSuccess: state.entity.task.updateSuccess
 });
 
 export default connect(mapStateToProps, {createTask, updateTask})(TaskForm);

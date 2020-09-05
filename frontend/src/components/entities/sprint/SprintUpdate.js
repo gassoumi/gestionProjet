@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -18,9 +18,9 @@ import moment from 'moment';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
 
-import {useForm, Controller} from "react-hook-form";
-import {connect} from "react-redux";
-import {updateSprint, createSprint} from "../../../redux/actions";
+import { useForm, Controller } from "react-hook-form";
+import { connect } from "react-redux";
+import { updateSprint, createSprint } from "../../../redux/actions";
 import AsyncComboBox from '../common/AsyncComboBox';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
@@ -37,19 +37,22 @@ const styles = (theme) => ({
     },
 });
 
+const URL_PROJECT = '/api/projects';
+
 const DialogTitle = withStyles(styles)((props) => {
-    const {children, classes, onClose, ...other} = props;
+    const { children, classes, onClose, ...other } = props;
     return (
         <MuiDialogTitle disableTypography className={classes.root} {...other}>
             <Typography variant="h6">{children}</Typography>
             {onClose ? (
                 <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-                    <CloseIcon/>
+                    <CloseIcon />
                 </IconButton>
             ) : null}
         </MuiDialogTitle>
     );
 });
+
 
 const DialogContent = withStyles((theme) => ({
     root: {
@@ -64,12 +67,11 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
-const URL_PROJECT = '/api/projects';
 
 function SprintUpdate({
-                          open = false, handleClose, sprint,
-                          createSprint, updateSprint, isNew, updateSuccess, fetchSprints
-                      }) {
+    open = false, handleClose, sprint,
+    createSprint, updateSprint, isNew, updateSuccess, fetchSprints, deleteSuccess
+}) {
 
     const defaultValue = {
         name: sprint.name || "",
@@ -80,7 +82,7 @@ function SprintUpdate({
             moment().format('YYYY-MM-DD')
     };
 
-    const {register, handleSubmit, errors, control, reset} = useForm({
+    const { register, handleSubmit, errors, control, reset } = useForm({
         mode: "onChange",
         defaultValues: defaultValue,
     });
@@ -93,11 +95,11 @@ function SprintUpdate({
 
     const onSubmit = data => {
 
-        const {name, project, desired_at: date, state} = data;
+        const { name, project, desired_at: date, state } = data;
 
         const newSprint = {
             name,
-            project: project.code_project,
+            project: project.id,
             state,
             desired_at: moment(date, "YYYY-MM-DDTHH:mm Z").toDate()
         };
@@ -110,11 +112,11 @@ function SprintUpdate({
     };
 
     useEffect(() => {
-        if (updateSuccess) {
+        if (updateSuccess || deleteSuccess) {
             handleClose();
             fetchSprints();
         }
-    }, [updateSuccess]);
+    }, [deleteSuccess, handleClose]);
 
     // get the current date
     //moment().format('YYYY-MM-DDTHH:mm')
@@ -125,7 +127,7 @@ function SprintUpdate({
                 {isNew ? "Ajouter un " : "Modifier le "} sprint
             </DialogTitle>
             <form id="form-sprint" onSubmit={handleSubmit(onSubmit)} noValidate>
-                <DialogContent>
+                <DialogContent >
                     {
                         false && <TextField
                             disabled
@@ -168,6 +170,7 @@ function SprintUpdate({
                             label="Choisir un projet"
                             optionLabel="designation"
                             url={URL_PROJECT}
+                            rules={{ required: 'this field is required' }}
                         />
                     </FormControl>
                     <FormControl
@@ -181,7 +184,7 @@ function SprintUpdate({
                             name="state"
                             // defaultValue={sprint.state || ""}
                             control={control}
-                            rules={{required: 'this field is required'}}
+                            rules={{ required: 'this field is required' }}
                             as={
                                 <Select
                                     labelId="demo-simple-select-label"
@@ -198,12 +201,12 @@ function SprintUpdate({
                             }
                         />
                         {errors.state &&
-                        <FormHelperText>{errors.state.message}</FormHelperText>
+                            <FormHelperText>{errors.state.message}</FormHelperText>
                         }
                     </FormControl>
                     <TextField
                         required
-                        inputRef={register({required: 'this field is required'})}
+                        inputRef={register({ required: 'this field is required' })}
                         error={!!errors.desired_at}
                         helperText={errors.desired_at && errors.desired_at.message}
                         fullWidth
@@ -223,13 +226,18 @@ function SprintUpdate({
                     <Button
                         form="form-sprint"
                         type="submit"
-                        startIcon={<SaveIcon/>}
-                        variant="contained" color="primary">
+                        // startIcon={<SaveIcon/>}
+                        variant="contained"
+                        color="primary"
+                    >
                         Enregistrer
                     </Button>
-                    <Button startIcon={<CancelIcon/>}
-                            onClick={handleClose}
-                            variant="contained" color="default">
+                    <Button
+                        // startIcon={<CancelIcon/>}
+                        onClick={handleClose}
+                        variant="contained"
+                        color="default"
+                    >
                         Annuler
                     </Button>
                 </DialogActions>
@@ -243,7 +251,8 @@ function SprintUpdate({
 SprintUpdate.propTypes = {};
 
 const mapStateToProps = state => ({
-    updateSuccess: state.pagination.sprint.updateSuccess
+    updateSuccess: state.entity.sprint.updateSuccess,
+    deleteSuccess: state.entity.sprint.deleteSuccess,
 });
 
-export default connect(mapStateToProps, {createSprint, updateSprint})(SprintUpdate);
+export default connect(mapStateToProps, { createSprint, updateSprint })(SprintUpdate);

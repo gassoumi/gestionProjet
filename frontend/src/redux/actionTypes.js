@@ -9,41 +9,50 @@ export const GET_ERRORS = "GET_ERRORS";
 export const CREATE_MESSAGE = "CREATE_MESSAGE";
 export const AUTH_ERROR = "AUTH_ERROR";
 
+
 // fetch many entity of projects
 export const STARRED_REQUEST_PROJECTS = "STARRED_REQUEST_PROJECTS";
 export const STARRED_SUCCESS_PROJECTS = "STARRED_SUCCESS_PROJECTS";
 export const STARRED_FAILURE_PROJECTS = "STARRED_FAILURE_PROJECTS";
-// action can be create or update or delete for project
-export const ACTION_FAILURE_PROJECT = "ACTION_FAILURE_PROJECT";
-export const ACTION_SUCCESS_PROJECT = "ACTION_SUCCESS_PROJECT";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_PROJECT = "UPDATE_SUCCESS_PROJECT";
+export const REMOVE_SUCCESS_PROJECT = "REMOVE_SUCCESS_PROJECT";
 // fetch one entity
 export const FETCH_SUCCESS_PROJECT = "FETCH_SUCCESS_PROJECT";
-// for clear cache of projects
+export const STARRED_FETCH_PROJECT = "STARRED_FETCH_PROJECT";
+export const FETCH_FAILURE_PROJECT = "FETCH_FAILURE_PROJECT";
+// clear cache project
 export const CLEAR_CACHE_PROJECT = "CLEAR_CACHE_PROJECT";
+
 
 // fetch many entity of sprints
 export const STARRED_REQUEST_SPRINTS = "STARRED_REQUEST_SPRINTS";
 export const STARRED_SUCCESS_SPRINTS = "STARRED_SUCCESS_SPRINTS";
 export const STARRED_FAILURE_SPRINTS = "STARRED_FAILURE_SPRINTS";
-// action can be create or update or delete for a sprint entity
-export const ACTION_FAILURE_SPRINT = "ACTION_FAILURE_SPRINT";
-export const ACTION_SUCCESS_SPRINT = "ACTION_SUCCESS_SPRINT";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_SPRINT = "UPDATE_SUCCESS_SPRINT";
+export const REMOVE_SUCCESS_SPRINT = "REMOVE_SUCCESS_SPRINT";
 // fetch one sprint
 export const FETCH_SUCCESS_SPRINT = "FETCH_SUCCESS_SPRINT";
-// for clear cache of sprint
+export const STARRED_FETCH_SPRINT = "STARRED_FETCH_SPRINT";
+export const FETCH_FAILURE_SPRINT = "FETCH_FAILURE_SPRINT";
+// clear cache sprint
 export const CLEAR_CACHE_SPRINT = "CLEAR_CACHE_SPRINT";
+
 
 // fetch many entity of tasks
 export const STARRED_REQUEST_TASKS = "STARRED_REQUEST_TASKS";
 export const STARRED_SUCCESS_TASKS = "STARRED_SUCCESS_TASKS";
 export const STARRED_FAILURE_TASKS = "STARRED_FAILURE_TASKS";
-// for action like post or delete or update
-export const ACTION_SUCCESS_TASK = "ACTION_SUCCESS_TASK";
-export const ACTION_FAILURE_TASK = "ACTION_FAILURE_TASK";
-// for cleat cache of tasks
-export const CLEAR_CACHE_TASK = "CLEAR_CACHE_TASK";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_TASK = "UPDATE_SUCCESS_TASK";
+export const REMOVE_SUCCESS_TASK = "REMOVE_SUCCESS_TASK";
 // fetch one entity
 export const FETCH_SUCCESS_TASK = "FETCH_SUCCESS_TASK";
+export const STARRED_FETCH_TASK = "STARRED_FETCH_TASK";
+export const FETCH_FAILURE_TASK = "FETCH_FAILURE_TASK";
+// clear cache task
+export const CLEAR_CACHE_TASK = "CLEAR_CACHE_TASK";
 
 // fetch many entity of users
 export const STARRED_REQUEST_USERS = "STARRED_REQUEST_USERS";
@@ -51,8 +60,54 @@ export const STARRED_SUCCESS_USERS = "STARRED_SUCCESS_USERS";
 export const STARRED_FAILURE_USERS = "STARRED_FAILURE_USERS";
 // fetch one entity
 export const FETCH_SUCCESS_USER = "FETCH_SUCCESS_USER";
-// for cleat cache of tasks
+export const STARRED_FETCH_USER = "STARRED_FETCH_USER";
+export const FETCH_FAILURE_USER = "FETCH_FAILURE_USER";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_USER = "UPDATE_SUCCESS_USER";
+export const REMOVE_SUCCESS_USER = "REMOVE_SUCCESS_USER";
+// clear cache user
 export const CLEAR_CACHE_USER = "CLEAR_CACHE_USER";
-// for action like post or delete or update
-export const ACTION_SUCCESS_USER = "ACTION_SUCCESS_USER";
-export const ACTION_FAILURE_USER = "ACTION_FAILURE_USER";
+
+
+// fetch many entity of documents
+export const STARRED_REQUEST_DOCUMENTS = "STARRED_REQUEST_DOCUMENTS";
+export const STARRED_SUCCESS_DOCUMENTS = "STARRED_SUCCESS_DOCUMENTS";
+export const STARRED_FAILURE_DOCUMENTS = "STARRED_FAILURE_DOCUMENTS";
+// fetch one entity
+export const FETCH_SUCCESS_DOCUMENT = "FETCH_SUCCESS_DOCUMENT";
+export const STARRED_FETCH_DOCUMENT = "STARRED_FETCH_DOCUMENT";
+export const FETCH_FAILURE_DOCUMENT = "FETCH_FAILURE_DOCUMENT";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_DOCUMENT = "UPDATE_SUCCESS_DOCUMENT";
+export const REMOVE_SUCCESS_DOCUMENT = "REMOVE_SUCCESS_DOCUMENT";
+// clear cache document
+export const CLEAR_CACHE_DOCUMENT = "CLEAR_CACHE_DOCUMENT";
+
+// fetch many entity of discussion
+export const STARRED_REQUEST_DISCUSSIONS = "STARRED_REQUEST_DISCUSSIONS";
+export const STARRED_SUCCESS_DISCUSSIONS = "STARRED_SUCCESS_DISCUSSIONS";
+export const STARRED_FAILURE_DISCUSSIONS = "STARRED_FAILURE_DISCUSSIONS";
+// fetch one entity
+export const FETCH_SUCCESS_DISCUSSION = "FETCH_SUCCESS_DISCUSSION";
+export const STARRED_FETCH_DISCUSSION = "STARRED_FETCH_DISCUSSION";
+export const FETCH_FAILURE_DISCUSSION = "FETCH_FAILURE_DISCUSSION";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_DISCUSSION = "UPDATE_SUCCESS_DISCUSSION";
+export const REMOVE_SUCCESS_DISCUSSION = "REMOVE_SUCCESS_DISCUSSION";
+// clear cache discussion
+export const CLEAR_CACHE_DISCUSSION = "CLEAR_CACHE_DISCUSSION";
+
+
+// fetch many entity of comments
+export const STARRED_REQUEST_COMMENTS = "STARRED_REQUEST_COMMENTS";
+export const STARRED_SUCCESS_COMMENTS = "STARRED_SUCCESS_COMMENTS";
+export const STARRED_FAILURE_COMMENTS = "STARRED_FAILURE_COMMENTS";
+// fetch one entity
+export const FETCH_SUCCESS_COMMENT = "FETCH_SUCCESS_COMMENT";
+export const STARRED_FETCH_COMMENT = "STARRED_FETCH_COMMENT";
+export const FETCH_FAILURE_COMMENT = "FETCH_FAILURE_COMMENT";
+// action for update or create or delete one entity
+export const UPDATE_SUCCESS_COMMENT = "UPDATE_SUCCESS_COMMENT";
+export const REMOVE_SUCCESS_COMMENT = "REMOVE_SUCCESS_COMMENT";
+// clear cache comment
+export const CLEAR_CACHE_COMMENT = "CLEAR_CACHE_COMMENT";

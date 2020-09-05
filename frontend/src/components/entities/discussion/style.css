@@ -1,0 +1,7 @@
+.buttonEdit {
+  display: none;
+}
+
+.comment:hover + .buttonEdit {
+  display: block;
+}

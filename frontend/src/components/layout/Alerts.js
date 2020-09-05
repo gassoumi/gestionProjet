@@ -35,8 +35,8 @@ class Alerts extends Component {
             if (Object.keys(error.msg).length > 0) {
                 const key = Object.keys(error.msg)[0];
                 if (Array.isArray(error.msg[key])) {
-                    // toast.error(`${key} : ${error.msg[key].join()}`);
-                    toast.error(`${error.msg[key].join()}`);
+                    toast.error(`${key} : ${error.msg[key].join()}`);
+                    // toast.error(`${error.msg[key].join()}`);
                 }
             }
         }

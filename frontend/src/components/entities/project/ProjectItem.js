@@ -8,9 +8,6 @@ import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import {Link as RouterLink} from 'react-router-dom';
-import moment from 'moment';
-import {connect} from "react-redux";
-import {Selector} from '../index';
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
@@ -21,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        minWidth: '33.333333%',
+        wordWrap: 'break-word',
+        wordBreak: 'break-word',
+        // wordBreak: 'break-all',
+        // wordWrap: 'break-word',
     },
     cardContent: {
         flexGrow: 1,
@@ -60,15 +62,15 @@ const ProjectItem = ({project, length, canEdit}) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button startIcon={<VisibilityIcon/>} component={RouterLink} to={`project/${project.code_project}`}
+                    <Button startIcon={<VisibilityIcon/>} component={RouterLink} to={`project/${project.id}`}
                             size="small" color="primary">
-                        View
+                        Consulter
                     </Button>
                     {canEdit && (
                         <Button startIcon={<EditIcon/>} component={RouterLink}
-                                to={`project/${project.code_project}/edit`} size="small"
+                                to={`project/${project.id}/edit`} size="small"
                                 color="primary">
-                            Edit
+                            Modifier
                         </Button>
                     )}
                 </CardActions>
@@ -80,15 +82,6 @@ const ProjectItem = ({project, length, canEdit}) => {
 
 ProjectItem.propTypes = {
     project: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state, ownProps) => {
-    const username = state.auth.user.username || null;
-    const idProject = ownProps.project.code_project || null;
-    const canEdit = Selector.canEditProject(state, username, idProject);
-    return {
-        canEdit
-    }
 };
 
 export default ProjectItem;

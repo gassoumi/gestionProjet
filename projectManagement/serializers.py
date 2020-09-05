@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Project, UserProject, Sprint, Task, Document
+from .models import Project, UserProject, Sprint, Task, Document, Comment, Discussion
 from django.contrib.auth.models import User
 
 """
@@ -45,7 +45,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ['code_project', 'designation', 'objective', 'created_at', 'projectUsers']
+        fields = ['id', 'code', 'designation', 'objective', 'created_at', 'projectUsers']
         # fields = "__all__"
 
     # check at least if user exist and have a scrum master classification in projectUsers field
@@ -173,4 +173,23 @@ class TaskSerializer(serializers.ModelSerializer):
 class DoumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
+        fields = "__all__"
+
+    def update(self, instance, validated_data):
+        state = instance.state
+        # only update the document that their state are ACTUAL
+        if state == 'EX':
+            raise serializers.ValidationError('impossible de modifier ce document')
+        return super().update(instance, validated_data)
+
+
+class DiscussionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Discussion
+        fields = "__all__"
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
         fields = "__all__"

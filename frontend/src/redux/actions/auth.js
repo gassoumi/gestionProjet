@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
     returnErrors
 } from './messages';
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 import {
     AUTH_ERROR,
@@ -35,8 +35,11 @@ export const loadUser = () => async (dispatch, getState) => {
             type: USER_LOADED,
             payload: res.data
         });
-    } catch (err) {
-        dispatch(returnErrors(err.response.data, err.response.status));
+    } catch (error) {
+        if (error.response) {
+            const { data, status } = error.response;
+            dispatch(returnErrors(data, status));
+        }
         dispatch({
             type: AUTH_ERROR
         })
@@ -69,8 +72,11 @@ export const login = (username, password) => async dispatch => {
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-    } catch (e) {
-        dispatch(returnErrors(e.response.data, e.response.status));
+    } catch (error) {
+        if (error.response) {
+            const { data, status } = error.response;
+            dispatch(returnErrors(data, status));
+        }
         dispatch({
             type: LOGIN_FAIL
         });
@@ -92,7 +98,7 @@ export const login = (username, password) => async dispatch => {
 };
 
 // register user
-export const register = ({username, password, email}) => dispatch => {
+export const register = ({ username, password, email }) => dispatch => {
 
     //Header
     /*
@@ -117,8 +123,11 @@ export const register = ({username, password, email}) => dispatch => {
                 payload: res.data
             });
         })
-        .catch(err => {
-            dispatch(returnErrors(err.response.data, err.response.status));
+        .catch(error => {
+            if (error.response) {
+                const { data, status } = error.response;
+                dispatch(returnErrors(data, status));
+            }
             dispatch({
                 type: REGISTER_FAIL
             })
@@ -134,8 +143,11 @@ export const logout = () => (dispatch, getState) => {
                 type: LOGOUT_SUCCESS,
             });
         })
-        .catch(err => {
-            dispatch(returnErrors(err.response.data, err.response.status));
+        .catch(error => {
+            if (error.response) {
+                const { data, status } = error.response;
+                dispatch(returnErrors(data, status));
+            }
         })
 };
 

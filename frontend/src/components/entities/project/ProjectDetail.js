@@ -1,19 +1,23 @@
-import React, {useEffect, useState, Fragment} from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import Paper from '@material-ui/core/Paper';
-import {Selector} from '../index'
-import {fetchProjectById} from "../../../redux";
-import {makeStyles} from '@material-ui/core/styles';
+import { Selector } from '../index'
+import { fetchProjectById } from "../../../redux";
+import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import moment from 'moment';
 import PeopleIcon from '@material-ui/icons/People';
-import {green,yellow,purple} from "@material-ui/core/colors";
+import { green, yellow, purple } from "@material-ui/core/colors";
 
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        wordWrap: 'break-word',
+        wordBreak: 'break-word',
+    },
     markdown: {
         ...theme.typography.body2,
         padding: theme.spacing(3, 0),
@@ -39,7 +43,6 @@ function ProjectDetail(props) {
     const project = props.project;
 
     useEffect(() => {
-        console.log("use effect is called");
         props.fetchProjectById(id);
     }, []);
 
@@ -47,13 +50,13 @@ function ProjectDetail(props) {
     if (project != null) {
         return (
             <Fragment>
-                <Grid container spacing={5}>
+                <Grid className={classes.root} container spacing={5}>
                     <Grid className={classes.markdown} item xs={12} md={8}>
-                        <Typography gutterBottom variant="h5">{project.designation}</Typography>
+                        <Typography color={"error"} gutterBottom variant="h5">{project.designation}</Typography>
                         <Typography gutterBottom variant='caption' paragraph>
-                            Creé en {moment(project.created_at).format('MMMM Do YYYY')}
+                            {moment(project.created_at).format('LL')}
                         </Typography>
-                        <Typography gutterBottom variant="h6">Objective</Typography>
+                        <Typography color={"textPrimary"} gutterBottom variant="h6">Objective</Typography>
                         <Typography paragraph>
                             {project.objective}
                         </Typography>
@@ -61,7 +64,7 @@ function ProjectDetail(props) {
                     <Grid item xs={12} md={4}>
                         <Paper elevation={0} className={classes.sidebarAboutBox}>
                             <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                                <PeopleIcon style={{color: purple[500]}} fontSize={"default"} />
+                                <PeopleIcon style={{ color: purple[500] }} fontSize={"default"} />
                                 Team Scrum
                             </Typography>
                             {project.projectUsers.map((projectUser) => (
@@ -93,4 +96,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, {fetchProjectById})(ProjectDetail);
+export default connect(mapStateToProps, { fetchProjectById })(ProjectDetail);

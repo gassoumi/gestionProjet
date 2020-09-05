@@ -8,7 +8,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import {useForm, Controller} from "react-hook-form";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField/TextField";
+import TextField from '@material-ui/core/TextField';
 import {getMessageError} from "../../account/Login";
 import Button from "@material-ui/core/Button";
 import SaveIcon from '@material-ui/icons/Save';
@@ -113,7 +113,7 @@ const UserInput = ({user, register, addUser, removeUser, errors, displayMinus}) 
     )
 };
 
-const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, updateSuccess, deleteProjectById}) => {
+const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, updateSuccess, deleteSuccess, deleteProjectById}) => {
 
     const classes = useStyles();
     const [users, setUsers] = useState([]);
@@ -152,7 +152,7 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
             }
             // set the value for the input fields
             reset({
-                code_project: project.code_project,
+                code: project.code,
                 designation: project.designation,
                 objective: project.objective
             });
@@ -168,10 +168,10 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
     }, [project, isNew]);
 
     useEffect(() => {
-        if (updateSuccess) {
+        if (updateSuccess || deleteSuccess) {
             cancel();
         }
-    }, [updateSuccess]);
+    }, [updateSuccess, deleteSuccess]);
 
 
     const addUser = () => {
@@ -188,7 +188,7 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
 
 
     const onSubmit = (data) => {
-        const {code_project, designation, objective} = data;
+        const {code, designation, objective} = data;
         const projectUsers = users.map(user => {
             const username = data[`user-${user.user_id}`];
             const classification = data[`class-${user.user_id}`];
@@ -199,16 +199,16 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
                 };
             }
         }).filter(project => project != null);
-        const project = {
-            code_project,
+        const newProject = {
+            code,
             designation,
             objective,
             projectUsers
         };
         if (isNew) {
-            createProject(project)
+            createProject(newProject)
         } else {
-            updateProject(project.code_project, project);
+            updateProject(project.id, newProject);
         }
     };
 
@@ -221,7 +221,7 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
                 <Paper className={classes.paper}>
                     <React.Fragment>
                         <Typography variant="h5" gutterBottom>
-                            {isNew ? "Creer un nouveau " : "Editer le "} project
+                            {isNew ? "Ajouter un nouveau " : "Modifier le "} project
                         </Typography>
                         <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
                             <Grid container spacing={3}>
@@ -232,15 +232,13 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
                                             variant="standard"
                                             label="Code Project"
                                             fullWidth
-                                            error={!!errors.code_project}
-                                            helperText={getMessageError(errors, "code_project")}
-                                            disabled={!isNew}
+                                            error={!!errors.code}
+                                            helperText={getMessageError(errors, "code")}
                                         />}
                                         rules={{required: true, maxLength: 200}}
-                                        name="code_project"
+                                        name="code"
                                         control={control}
                                         defaultValue=""
-
                                     />
 
                                 </Grid>
@@ -332,7 +330,8 @@ const ProjectEditor = ({project, isNew, createProject, updateProject, cancel, up
 };
 
 const mapStateToProps = state => ({
-    updateSuccess: state.pagination.project.updateSuccess
+    updateSuccess: state.entity.project.updateSuccess,
+    deleteSuccess: state.entity.project.deleteSuccess,
 });
 
 export default connect(mapStateToProps, {createProject, updateProject, deleteProjectById})(ProjectEditor);

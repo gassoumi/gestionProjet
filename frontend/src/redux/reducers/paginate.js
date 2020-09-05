@@ -3,26 +3,25 @@ import union from "lodash/union";
 // Creates a reducer managing pagination, given the action types to handle,
 // and a function telling how to extract the key from an action.
 const paginate = ({types}) => {
-    if (!Array.isArray(types) || types.length !== 7) {
+    if (!Array.isArray(types) || types.length !== 5) {
         throw new Error("Expected types to be an array of three elements.");
     }
     if (!types.every((t) => typeof t === "string")) {
         throw new Error("Expected types to be strings.");
     }
 
+
     const [requestType, successType,
-        failureType, logout, updateSuccessType, updateFailureType, clearCache] = types;
+        failureType, logout, clearCacheType] = types;
 
     // updateSuccess for manage create or update or delete
     // only one action at the same time so we use the same variable for all those action
     const initialState = {
-        updating: false,
         isFetching: false,
         nextPageUrl: null,
         page: 1,
         ids: [],
         pageIds: [],
-        updateSuccess: false,
         count: 0,
         pageSize: 10,
     };
@@ -36,13 +35,11 @@ const paginate = ({types}) => {
                 return {
                     ...state,
                     isFetching: true,
-                    updateSuccess: false,
                 };
             case successType:
                 return {
                     ...state,
                     isFetching: false,
-                    startRow: action.response.result[0],
                     ids: union(state.ids, action.response.result),
                     pageIds: action.response.result,
                     nextPageUrl: action.nextPageUrl,
@@ -55,23 +52,13 @@ const paginate = ({types}) => {
                     ...state,
                     isFetching: false,
                 };
-            case updateSuccessType:
-                return {
-                    ...state,
-                    updateSuccess: true,
-                };
-            case updateFailureType:
-                return {
-                    ...state,
-                    updateSuccess: false
-                };
-            case logout:
-                return initialState;
-            case clearCache:
+            case clearCacheType:
                 return {
                     ...initialState,
                     pageSize: state.pageSize,
                 };
+            case logout:
+                return initialState;
             default:
                 return state;
         }

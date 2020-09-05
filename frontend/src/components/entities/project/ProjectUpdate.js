@@ -13,7 +13,7 @@ function ProjectUpdate(props) {
         //console.log(isNewProject);
         if (!isNewProject) {
             const id = props.match.params.id;
-            axios.get(`/api/projects/${id}`, tokenConfig())
+            axios.get(`/api/projects/${id}/`, tokenConfig())
                 .then(response => setProject(response.data))
                 .catch(error => console.log(error));
         } else {
@@ -22,6 +22,7 @@ function ProjectUpdate(props) {
     }, [isNewProject]);
 
     const cancel = () => {
+        //props.history.goBack();
         props.history.push("/project")
     };
 

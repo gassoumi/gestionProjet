@@ -5,7 +5,7 @@ import Sprint from './Sprint';
 const Routes = ({match}) => (
     <>
         <Switch>
-            <Route path={match.url} component={Sprint}/>
+            <Route exact path={match.url} component={Sprint}/>
         </Switch>
     </>
 );
