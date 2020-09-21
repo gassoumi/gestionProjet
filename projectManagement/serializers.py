@@ -1,13 +1,15 @@
 from rest_framework import serializers
 
-from .models import Project, UserProject, Sprint, Task, Document, Comment, Discussion
+from .models import Project, UserProject, Sprint, Task, Document, Comment, Discussion, Note, Problem
 from django.contrib.auth.models import User
+from accounts.models import UserProfile
+from accounts.serializers import UserSerializer
 
 """
   name = models.CharField(max_length=500, unique=True)
     desired_at = models.DateTimeField()
     project = models.ForeignKey(Project, related_name="sprints", on_delete=models.CASCADE)
-    state = models.CharField(choices=State.choices, max_length=50)
+    status = models.CharField(choices=Status.choices, max_length=50)
 """
 
 """
@@ -17,10 +19,16 @@ user = UserSerializer(many=False, read_only=True)
 
 
 # User Serializer
-class UserSerializer(serializers.ModelSerializer):
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('id', 'username', 'is_staff')
+
+
+class NoteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'is_staff')
+        model = Note
+        fields = "__all__"
 
 
 # UserProject Serializer
@@ -30,10 +38,11 @@ class UserProjectSerializer(serializers.ModelSerializer):
     # is_responsible = serializers.BooleanField()
     username = serializers.CharField(source='user.username')
     classification = serializers.ChoiceField(choices=UserProject.Classification)
-    code_project = serializers.CharField(source='project.code_project', read_only=True)
+
+    # code = serializers.CharField(source='project.code', read_only=True)
 
     class Meta:
-        fields = ('id', 'code_project', 'username', 'classification',)
+        fields = ('id', 'username', 'classification',)
         model = UserProject
 
 
@@ -77,6 +86,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         authenticated_user = self.get_authenticated_user()
         project_users_data = validated_data.pop('projectUsers')
 
+        instance.code = validated_data.get('code', instance.code)
         instance.designation = validated_data.get('designation', instance.designation)
         instance.objective = validated_data.get('objective', instance.objective)
         instance.save()
@@ -165,7 +175,7 @@ class TaskSerializer(serializers.ModelSerializer):
         """
         if data['start_at'] > data['end_at']:
             raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
-        if data['sprint'].state not in ['Planifiè', 'En Cours']:
+        if data['sprint'].status not in ['Planifiè', 'En Cours']:
             raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
         return data
 
@@ -176,9 +186,9 @@ class DoumentSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def update(self, instance, validated_data):
-        state = instance.state
-        # only update the document that their state are ACTUAL
-        if state == 'EX':
+        status = instance.status
+        # only update the document that their status are ACTUAL
+        if status == 'EX':
             raise serializers.ValidationError('impossible de modifier ce document')
         return super().update(instance, validated_data)
 
@@ -192,4 +202,10 @@ class DiscussionSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
+        fields = "__all__"
+
+
+class ProblemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Problem
         fields = "__all__"

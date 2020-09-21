@@ -1,12 +1,14 @@
 from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
-from .models import Project, UserProject, Sprint, Task, Document, Discussion, Comment
+from .models import Project, UserProject, Sprint, Task, Document, Discussion, Comment, Note, Problem
 from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer, \
-    DoumentSerializer, CommentSerializer, DiscussionSerializer
+    DoumentSerializer, CommentSerializer, DiscussionSerializer, NoteSerializer, ProblemSerializer
 from django.contrib.auth.models import User
 from rest_framework import filters
 from .customViewSet import CreateListRetrieveUpdateViewSet
 from django.utils.timezone import now
+from django.db.models import Count
+from rest_framework.decorators import action
 
 
 class IsResponsibleOrNot(permissions.BasePermission):
@@ -17,11 +19,12 @@ class IsResponsibleOrNot(permissions.BasePermission):
 
     def has_permission(self, request, view):
         # Read permissions are allowed to any request,
-        if permissions.IsAuthenticated().has_permission(
-                request, view):
-            return True
-
-        return False
+        # if permissions.IsAuthenticated().has_permission(
+        #         request, view):
+        #     return True
+        #
+        # return False
+        return bool(request.user and request.user.is_authenticated)
 
     def has_object_permission(self, request, view, obj):
         # so we'll always allow GET, HEAD or OPTIONS or POST requests.
@@ -53,6 +56,9 @@ class UserIsOwnerOrAdmin(permissions.BasePermission):
 class SprintViewSet(viewsets.ModelViewSet):
     serializer_class = SprintSerializer
     permission_classes = [IsResponsibleOrNot]
+    filterset_fields = {
+        'desired_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
+    }
 
     def get_queryset(self):
         user = self.request.user
@@ -64,6 +70,13 @@ class SprintViewSet(viewsets.ModelViewSet):
         # so check the permission first
         self.check_object_permissions(request, None)
         return super().create(request, args, kwargs)
+
+
+# https://docs.djangoproject.com/en/3.1/topics/db/aggregation/
+class TopDiscussionList(generics.ListAPIView):
+    serializer_class = DiscussionSerializer
+    permissions = {IsResponsibleOrNot}
+    queryset = Discussion.objects.annotate(num_comments=Count('comment')).order_by('-num_comments')
 
 
 class ActiveSprintList(generics.ListAPIView):
@@ -81,12 +94,18 @@ class ActiveSprintList(generics.ListAPIView):
         """
         user = self.request.user
         projects = Project.objects.filter(projectUsers__user=user)
-        return Sprint.objects.filter(project__in=projects, state__in=['Planifiè', 'En Cours'])
+        return Sprint.objects.filter(project__in=projects, status__in=['Planifiè', 'En Cours'])
 
 
+# https://stackoverflow.com/questions/50524040/how-to-filter-the-data-use-equal-or-greater-than-condition-in-the-url
+# https://stackoverflow.com/questions/58837940/django-rest-framework-filter-by-date-range
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsResponsibleOrNot]
+    filterset_fields = {
+        'start_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
+        'end_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
+        'description': ['exact']}
 
     def get_queryset(self):
         user = self.request.user
@@ -112,15 +131,30 @@ class DocumentViewSet(CreateListRetrieveUpdateViewSet):
     # https://www.django-rest-framework.org/api-guide/filtering/
     def get_queryset(self):
         queryset = Document.objects.all()
-        state = self.request.query_params.get('state', None)
-        if state is not None:
-            queryset = queryset.filter(state=state)
+        status_document = self.request.query_params.get('status', None)
+        if status_document is not None:
+            queryset = queryset.filter(status=status_document)
         return queryset
+
+
+class NoteViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = NoteSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Note.objects.filter(user=user)
 
 
 class DiscussionViewSet(viewsets.ModelViewSet):
     queryset = Discussion.objects.all()
     serializer_class = DiscussionSerializer
+    permission_classes = [UserIsOwnerOrAdmin]
+
+
+class ProblemViewSet(viewsets.ModelViewSet):
+    queryset = Problem.objects.all()
+    serializer_class = ProblemSerializer
     permission_classes = [UserIsOwnerOrAdmin]
 
 
@@ -145,15 +179,44 @@ class CommentViewSet(viewsets.ModelViewSet):
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = [IsResponsibleOrNot]
-    filter_backends = [filters.SearchFilter]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter)
     search_fields = ['designation', 'code']
-    ordering = ['designation']
+    ordering_fields = ['created_at']
     http_method_names = ['get', 'post', 'head', 'put', 'delete', 'options']
 
     def get_queryset(self):
         # show only projects of specific authenticated user
         # or return a list of all the project for the currently authenticated user.
         return self.request.user.project_set.all()
+
+    @action(detail=True, methods=['get'])
+    def tasks(self, request, pk=None):
+        project = self.get_object()
+        sprints = project.sprints.all()
+        tasks = Task.objects.filter(sprint__in=sprints).order_by('-end_at')
+        page = self.paginate_queryset(tasks)
+        if page is not None:
+            serializer = TaskSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'])
+    def stat(self, request, pk=None):
+        project = self.get_object()
+        sprints = project.sprints.all()
+        tasks = Task.objects.filter(sprint__in=sprints)
+        count_tasks = tasks.count()
+        # annotate = group by
+        # https://stackoverflow.com/questions/629551/how-to-query-as-group-by-in-django
+        # https://simpleisbetterthancomplex.com/tutorial/2016/12/06/how-to-create-group-by-queries.html
+        all_status = tasks.values('status').annotate(count=Count('status'))
+        # return Response({
+        #     # 'count': count_tasks,
+        #     'status': all_status
+        # })
+        return Response(all_status)
 
     def create(self, request, *args, **kwargs):
         self.check_object_permissions(request, None)

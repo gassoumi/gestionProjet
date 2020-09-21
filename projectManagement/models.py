@@ -14,7 +14,7 @@ class Discussion(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.object
@@ -33,6 +33,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.description
+
+
+class Note(models.Model):
+    note = models.CharField(max_length=300, unique=True)
+    ok = models.BooleanField(default=True)
+    date = models.DateTimeField(default=now)
+    user = models.ForeignKey(User, related_name="notes", on_delete=models.CASCADE)
+    comment = models.TextField(blank=True)
 
 
 class Project(models.Model):
@@ -91,7 +99,7 @@ class Video(models.Model):
 
 
 class Sprint(models.Model):
-    class State(models.TextChoices):
+    class Status(models.TextChoices):
         PLANIFIE = 'Planifiè', _('Planifiè')
         EN_COURS = 'En Cours', _('En Cours')
         CLOTURE = 'Cloturé', _('Cloturé')
@@ -100,7 +108,7 @@ class Sprint(models.Model):
     name = models.CharField(max_length=500, unique=True)
     desired_at = models.DateTimeField()
     project = models.ForeignKey(Project, related_name="sprints", on_delete=models.CASCADE)
-    state = models.CharField(choices=State.choices, max_length=50)
+    status = models.CharField(choices=Status.choices, max_length=50)
 
     class Meta:
         ordering = ['desired_at']
@@ -110,7 +118,7 @@ class Sprint(models.Model):
 
 
 class Task(models.Model):
-    class State(models.TextChoices):
+    class Status(models.TextChoices):
         BACKLOG = 'Backlog', _('Backlog')
         A_FAIRE = 'A Faire', _('A Faire')
         EN_COURS = 'En Cours', _('En Cours')
@@ -123,10 +131,24 @@ class Task(models.Model):
     sprint = models.ForeignKey(Sprint, on_delete=models.CASCADE)
     videos = models.ManyToManyField(Video, blank=True)
     user = models.ForeignKey(User, related_name="tasks", on_delete=models.CASCADE)
-    state = models.CharField(choices=State.choices, max_length=50)
+    status = models.CharField(choices=Status.choices, max_length=50)
 
     def __str__(self):
         return self.description
+
+
+class Problem(models.Model):
+    description = models.CharField(max_length=200)
+    start_at = models.DateTimeField()
+    end_at = models.DateTimeField()
+    task = models.ForeignKey(Task, related_name="problems", on_delete=models.CASCADE)
+    resolutionTools = models.TextField()
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        ordering = ['-start_at']
 
 
 # https://docs.djangoproject.com/en/3.0/topics/files/#file-storage
@@ -137,7 +159,7 @@ class Task(models.Model):
 # https://stackoverflow.com/questions/5871730/how-to-upload-a-file-in-django
 class Document(models.Model):
     # Actuel  et Périmé
-    class State(models.TextChoices):
+    class Status(models.TextChoices):
         ACTUAL = 'AC', _('Actuel')
         EXPIRED = 'EX', _('Périmé')
 
@@ -150,7 +172,7 @@ class Document(models.Model):
     # task = models.ForeignKey(Task, related_name="documents", on_delete=models.CASCADE, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     docFile = models.FileField(upload_to='documents/%Y/%m/%d')
-    state = models.CharField(choices=State.choices, max_length=2, default=State.ACTUAL)
+    status = models.CharField(choices=Status.choices, max_length=2, default=Status.ACTUAL)
 
     class Meta:
         ordering = ['created_at']
