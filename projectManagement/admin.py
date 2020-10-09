@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Project, Task, Sprint, Discussion, \
-    Comment, Document, Video, UserProject, Note
+    Comment, Document, Video, UserProject, Note, Problem
 
 
 # Register your models here.
@@ -27,6 +27,10 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = ['id', 'description', 'start_at', 'end_at', 'sprint', 'user', 'status']
 
 
+class ProblemAdmin(admin.ModelAdmin):
+    list_display = ['id', 'description', 'start_at', 'end_at', 'task', 'resolutionTools', 'cause', 'status']
+
+
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ['id', 'code', 'description', 'version', 'task', 'created_at', 'status',
                     'get_doc_file_name', 'get_doc_file_path']
@@ -35,6 +39,7 @@ class DocumentAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Note, NoteAdmin)
 admin.site.register(Task, TaskAdmin)
+admin.site.register(Problem, ProblemAdmin)
 admin.site.register(Sprint, SprintAdmin)
 admin.site.register(Discussion)
 admin.site.register(Comment)

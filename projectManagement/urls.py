@@ -1,7 +1,7 @@
 from rest_framework import routers
 from .api import ProjectViewSet, SprintViewSet, TaskViewSet, \
     ActiveSprintList, DocumentViewSet, CommentViewSet, DiscussionViewSet, \
-    NoteViewSet, TopDiscussionList, ProblemViewSet
+    NoteViewSet, TopDiscussionList, ProblemViewSet, TaskCacheViewSet, UserTaskList
 from django.urls import path, include
 
 # https://www.django-rest-framework.org/api-guide/routers/
@@ -18,6 +18,8 @@ router.register('problems', ProblemViewSet, 'problems')
 urlpatterns = [
     path('activeSprints/', ActiveSprintList.as_view()),
     path('topDiscussion/', TopDiscussionList.as_view()),
+    path('userTasks/', UserTaskList.as_view()),
+    # path('cacheTask/', TaskCacheViewSet.as_view({'get': 'list'})),
 ]
 
 urlpatterns += router.urls

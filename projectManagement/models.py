@@ -36,7 +36,7 @@ class Comment(models.Model):
 
 
 class Note(models.Model):
-    note = models.CharField(max_length=300, unique=True)
+    note = models.CharField(max_length=300)
     ok = models.BooleanField(default=True)
     date = models.DateTimeField(default=now)
     user = models.ForeignKey(User, related_name="notes", on_delete=models.CASCADE)
@@ -51,7 +51,7 @@ class Project(models.Model):
     users = models.ManyToManyField(User, through='UserProject')
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['designation']
 
     def __str__(self):
         return self.designation
@@ -111,7 +111,7 @@ class Sprint(models.Model):
     status = models.CharField(choices=Status.choices, max_length=50)
 
     class Meta:
-        ordering = ['desired_at']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -138,17 +138,24 @@ class Task(models.Model):
 
 
 class Problem(models.Model):
-    description = models.CharField(max_length=200)
+    class Status(models.TextChoices):
+        CLOTURE = 'CLOTURE', _('cloturé')
+        NON_CLOTURE = 'NON_CLOTURE', _('non cloturé')
+
+    description = models.TextField()
     start_at = models.DateTimeField()
     end_at = models.DateTimeField()
+    cause = models.TextField()
     task = models.ForeignKey(Task, related_name="problems", on_delete=models.CASCADE)
-    resolutionTools = models.TextField()
+    resolutionTools = models.CharField(max_length=200)
+    created_at = models.DateTimeField(default=now)
+    status = models.CharField(choices=Status.choices, max_length=50, default=Status.NON_CLOTURE)
 
     def __str__(self):
         return self.description
 
     class Meta:
-        ordering = ['-start_at']
+        ordering = ['-created_at']
 
 
 # https://docs.djangoproject.com/en/3.0/topics/files/#file-storage

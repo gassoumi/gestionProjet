@@ -19,6 +19,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="gestion-projet-frontend" />
+    <orderEntry type="module" module-name="carolina-react-admin-dashboard-pro" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

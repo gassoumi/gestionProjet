@@ -37,12 +37,16 @@ class UserProjectSerializer(serializers.ModelSerializer):
     # put it if it is required in json input for creating or updating the UserProjectModel
     # is_responsible = serializers.BooleanField()
     username = serializers.CharField(source='user.username')
-    classification = serializers.ChoiceField(choices=UserProject.Classification)
+    user = serializers.CharField(source='user.id', read_only=True)
+    # classification = serializers.ChoiceField(choices=UserProject.Classification)
 
     # code = serializers.CharField(source='project.code', read_only=True)
+    # user = UserSerializer(required=False, read_only=True)
+    project = serializers.IntegerField(read_only=True, source="project.id")
 
     class Meta:
-        fields = ('id', 'username', 'classification',)
+        fields = '__all__'
+        # fields = ('id', 'username', 'classification',)
         model = UserProject
 
 
@@ -180,7 +184,7 @@ class TaskSerializer(serializers.ModelSerializer):
         return data
 
 
-class DoumentSerializer(serializers.ModelSerializer):
+class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
         fields = "__all__"
@@ -209,3 +213,16 @@ class ProblemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Problem
         fields = "__all__"
+
+    def validate(self, data):
+        task = data['task']
+        if task.user != self.get_authenticated_user():
+            raise serializers.ValidationError("impossible d'ajouter ce problème ")
+        return data
+
+    def get_authenticated_user(self):
+        authenticated_user = None
+        request = self.context.get("request")
+        if request and hasattr(request, "user"):
+            authenticated_user = User.objects.get(username=request.user)
+        return authenticated_user

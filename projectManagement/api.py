@@ -2,13 +2,17 @@ from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
 from .models import Project, UserProject, Sprint, Task, Document, Discussion, Comment, Note, Problem
 from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer, \
-    DoumentSerializer, CommentSerializer, DiscussionSerializer, NoteSerializer, ProblemSerializer
+    DocumentSerializer, CommentSerializer, DiscussionSerializer, NoteSerializer, ProblemSerializer
 from django.contrib.auth.models import User
 from rest_framework import filters
 from .customViewSet import CreateListRetrieveUpdateViewSet
 from django.utils.timezone import now
 from django.db.models import Count
 from rest_framework.decorators import action
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
+import django_filters.rest_framework
 
 
 class IsResponsibleOrNot(permissions.BasePermission):
@@ -56,6 +60,9 @@ class UserIsOwnerOrAdmin(permissions.BasePermission):
 class SprintViewSet(viewsets.ModelViewSet):
     serializer_class = SprintSerializer
     permission_classes = [IsResponsibleOrNot]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+    search_fields = ['name', 'status', 'id', 'desired_at']
+    ordering_fields = ['name', 'status', 'id', 'project', 'desired_at']
     filterset_fields = {
         'desired_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
     }
@@ -79,9 +86,23 @@ class TopDiscussionList(generics.ListAPIView):
     queryset = Discussion.objects.annotate(num_comments=Count('comment')).order_by('-num_comments')
 
 
+# get list of tasks related to the authenticated user
+class UserTaskList(generics.ListAPIView):
+    serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['description', ]
+    ordering = ['description']
+
+    def get_queryset(self):
+        user = self.request.user
+        tasks = Task.objects.filter(user=user)
+        return tasks
+
+
 class ActiveSprintList(generics.ListAPIView):
     serializer_class = SprintSerializer
-    permission_classes = [IsResponsibleOrNot]
+    permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', ]
     ordering = ['name']
@@ -102,9 +123,13 @@ class ActiveSprintList(generics.ListAPIView):
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsResponsibleOrNot]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+    search_fields = ['status', 'id', 'start_at', 'end_at', 'description']
+    ordering_fields = ['status', 'id', 'start_at', 'end_at', 'user', 'sprint', 'description']
     filterset_fields = {
         'start_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
         'end_at': ['gte', 'lte', 'exact', 'gt', 'lt'],
+        'user': ['exact'],
         'description': ['exact']}
 
     def get_queryset(self):
@@ -124,13 +149,39 @@ class TaskViewSet(viewsets.ModelViewSet):
         return super().create(request, args, kwargs)
 
 
+class TaskCacheViewSet(viewsets.ViewSet):
+    permission_classes = [IsResponsibleOrNot]
+
+    # https://docs.djangoproject.com/en/dev/topics/cache/#the-per-view-cache
+    # Cache requested url for each user for 1 minutes
+    @method_decorator(cache_page(60 * 1))
+    @method_decorator(vary_on_cookie)
+    def list(self, request):
+        user = self.request.user
+        # get all projects of this user
+        projects = Project.objects.filter(projectUsers__user=user)
+        # get all sprints related to all of those projects
+        sprints = Sprint.objects.filter(project__in=projects)
+        # get all tasks related to all of those sprints
+        tasks = Task.objects.filter(sprint__in=sprints)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+
 class DocumentViewSet(CreateListRetrieveUpdateViewSet):
-    serializer_class = DoumentSerializer
+    serializer_class = DocumentSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     # https://www.django-rest-framework.org/api-guide/filtering/
     def get_queryset(self):
-        queryset = Document.objects.all()
+        user = self.request.user
+        # get all projects of this user
+        projects = Project.objects.filter(projectUsers__user=user)
+        # get all sprints related to all of those projects
+        sprints = Sprint.objects.filter(project__in=projects)
+        # get all tasks related to all of those sprints
+        tasks = Task.objects.filter(sprint__in=sprints)
+        queryset = Document.objects.filter(task__in=tasks)
         status_document = self.request.query_params.get('status', None)
         if status_document is not None:
             queryset = queryset.filter(status=status_document)
@@ -140,6 +191,9 @@ class DocumentViewSet(CreateListRetrieveUpdateViewSet):
 class NoteViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = NoteSerializer
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+    search_fields = ['note', 'ok', 'id', 'date', 'comment']
+    ordering_fields = ['note', 'ok', 'id', 'date', 'comment']
 
     def get_queryset(self):
         user = self.request.user
@@ -153,9 +207,21 @@ class DiscussionViewSet(viewsets.ModelViewSet):
 
 
 class ProblemViewSet(viewsets.ModelViewSet):
-    queryset = Problem.objects.all()
+    # queryset = Problem.objects.all()
     serializer_class = ProblemSerializer
-    permission_classes = [UserIsOwnerOrAdmin]
+    permission_classes = [permissions.IsAuthenticated]
+    filterset_fields = ['task', ]
+
+    def get_queryset(self):
+        user = self.request.user
+        # get all projects of this user
+        projects = Project.objects.filter(projectUsers__user=user)
+        # get all sprints related to all of those projects
+        sprints = Sprint.objects.filter(project__in=projects)
+        # get all tasks related to all of those sprints
+        tasks = Task.objects.filter(sprint__in=sprints)
+        problems = Problem.objects.filter(task__in=tasks)
+        return problems
 
 
 # https://www.django-rest-framework.org/api-guide/filtering/
@@ -180,8 +246,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = [IsResponsibleOrNot]
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ['designation', 'code']
-    ordering_fields = ['created_at']
+    search_fields = ['designation', 'code', 'id', 'objective']
+    ordering_fields = ['created_at', 'designation', 'code', 'id', 'objective']
     http_method_names = ['get', 'post', 'head', 'put', 'delete', 'options']
 
     def get_queryset(self):
