@@ -209,7 +209,14 @@ class DiscussionViewSet(viewsets.ModelViewSet):
 class ProblemViewSet(viewsets.ModelViewSet):
     # queryset = Problem.objects.all()
     serializer_class = ProblemSerializer
+
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+
+    search_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'task', 'resolutionTools',
+                     'created_at']
+    ordering_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'resolutionTools',
+                       'created_at']
     filterset_fields = ['task', ]
 
     def get_queryset(self):

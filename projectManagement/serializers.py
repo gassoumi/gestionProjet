@@ -181,6 +181,12 @@ class TaskSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
         if data['sprint'].status not in ['Planifiè', 'En Cours']:
             raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
+        user = data['user']
+        sprint = data['sprint']
+        project = sprint.project
+        users = project.users.all()
+        if user not in users:
+            raise serializers.ValidationError("Cet utilisateur n'apprtient pas à ce sprint ")
         return data
 
 
