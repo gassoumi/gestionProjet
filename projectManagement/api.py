@@ -1,9 +1,8 @@
 from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
-from .models import Project, UserProject, Sprint, Task, Document, Discussion, Comment, Note, Problem
+from .models import Project, Sprint, Task, Document, Discussion, Comment, Note, Problem
 from .serializers import ProjectSerializer, SprintSerializer, TaskSerializer, \
     DocumentSerializer, CommentSerializer, DiscussionSerializer, NoteSerializer, ProblemSerializer
-from django.contrib.auth.models import User
 from rest_framework import filters
 from .customViewSet import CreateListRetrieveUpdateViewSet
 from django.utils.timezone import now
@@ -171,12 +170,19 @@ class TaskCacheViewSet(viewsets.ViewSet):
 class DocumentViewSet(CreateListRetrieveUpdateViewSet):
     serializer_class = DocumentSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+    search_fields = ['status', 'id', 'code', 'version', 'created_at', 'docFile']
+    ordering_fields = ['status', 'id', 'code', 'version', 'created_at', 'task', 'docFile']
 
     # https://www.django-rest-framework.org/api-guide/filtering/
     def get_queryset(self):
+
         user = self.request.user
         # get all projects of this user
         projects = Project.objects.filter(projectUsers__user=user)
+        project_id = self.request.query_params.get('project', None)
+        if project_id is not None:
+            projects = projects.filter(pk=project_id)
         # get all sprints related to all of those projects
         sprints = Sprint.objects.filter(project__in=projects)
         # get all tasks related to all of those sprints
@@ -260,6 +266,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         # show only projects of specific authenticated user
         # or return a list of all the project for the currently authenticated user.
+        # https://hakibenita.com/django-group-by-sql
         return self.request.user.project_set.all()
 
     @action(detail=True, methods=['get'])

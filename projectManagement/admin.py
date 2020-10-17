@@ -32,7 +32,7 @@ class ProblemAdmin(admin.ModelAdmin):
 
 
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'code', 'description', 'version', 'task', 'created_at', 'status',
+    list_display = ['id', 'code', 'version', 'task', 'created_at', 'status',
                     'get_doc_file_name', 'get_doc_file_path']
 
 

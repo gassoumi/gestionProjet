@@ -171,7 +171,6 @@ class Document(models.Model):
         EXPIRED = 'EX', _('Périmé')
 
     code = models.CharField(max_length=200, unique=True)
-    description = models.CharField(max_length=200)
     version = models.CharField(max_length=20)
     # https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.on_delete
     task = models.ForeignKey(Task, related_name="documents", on_delete=models.SET_NULL, null=True, blank=True,
