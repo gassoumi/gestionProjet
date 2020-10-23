@@ -210,6 +210,9 @@ class DiscussionViewSet(viewsets.ModelViewSet):
     queryset = Discussion.objects.all()
     serializer_class = DiscussionSerializer
     permission_classes = [UserIsOwnerOrAdmin]
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
+    search_fields = ['object', 'description', 'id', 'created_at']
+    ordering_fields = ['object', 'description', 'id', 'created_at', 'user']
 
 
 class ProblemViewSet(viewsets.ModelViewSet):
