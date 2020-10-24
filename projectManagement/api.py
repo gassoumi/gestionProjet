@@ -148,25 +148,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         return super().create(request, args, kwargs)
 
 
-class TaskCacheViewSet(viewsets.ViewSet):
-    permission_classes = [IsResponsibleOrNot]
-
-    # https://docs.djangoproject.com/en/dev/topics/cache/#the-per-view-cache
-    # Cache requested url for each user for 1 minutes
-    @method_decorator(cache_page(60 * 1))
-    @method_decorator(vary_on_cookie)
-    def list(self, request):
-        user = self.request.user
-        # get all projects of this user
-        projects = Project.objects.filter(projectUsers__user=user)
-        # get all sprints related to all of those projects
-        sprints = Sprint.objects.filter(project__in=projects)
-        # get all tasks related to all of those sprints
-        tasks = Task.objects.filter(sprint__in=sprints)
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data)
-
-
 class DocumentViewSet(CreateListRetrieveUpdateViewSet):
     serializer_class = DocumentSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -302,26 +283,27 @@ class ProjectViewSet(viewsets.ModelViewSet):
         return Response(all_status)
 
     def create(self, request, *args, **kwargs):
+        # Call check_object_permission only is_staff can update a object
         self.check_object_permissions(request, None)
-        serializer = self.get_serializer(data=request.data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return super().create(request, args, kwargs)
 
-    def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        self.check_object_permissions(request, instance)
-        serializer = self.get_serializer(instance, data=request.data, partial=partial, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        instance = serializer.save()
 
-        self.perform_update(serializer)
+# useless for now
+# don't need it
+class TaskCacheViewSet(viewsets.ViewSet):
+    permission_classes = [IsResponsibleOrNot]
 
-        if getattr(instance, '_prefetched_objects_cache', None):
-            # If 'prefetch_related' has been applied to a queryset, we need to
-            # forcibly invalidate the prefetch cache on the instance.
-            instance._prefetched_objects_cache = {}
-
+    # https://docs.djangoproject.com/en/dev/topics/cache/#the-per-view-cache
+    # Cache requested url for each user for 1 minutes
+    @method_decorator(cache_page(60 * 1))
+    @method_decorator(vary_on_cookie)
+    def list(self, request):
+        user = self.request.user
+        # get all projects of this user
+        projects = Project.objects.filter(projectUsers__user=user)
+        # get all sprints related to all of those projects
+        sprints = Sprint.objects.filter(project__in=projects)
+        # get all tasks related to all of those sprints
+        tasks = Task.objects.filter(sprint__in=sprints)
+        serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)

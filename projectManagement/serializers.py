@@ -2,27 +2,11 @@ from rest_framework import serializers
 
 from .models import Project, UserProject, Sprint, Task, Document, Comment, Discussion, Note, Problem
 from django.contrib.auth.models import User
-from accounts.models import UserProfile
-from accounts.serializers import UserSerializer
 
 """
-  name = models.CharField(max_length=500, unique=True)
-    desired_at = models.DateTimeField()
-    project = models.ForeignKey(Project, related_name="sprints", on_delete=models.CASCADE)
-    status = models.CharField(choices=Status.choices, max_length=50)
-"""
-
-"""
-user = UserSerializer(many=False, read_only=True)
+    user = UserSerializer(many=False, read_only=True)
     user_id = serializers.IntegerField(write_only=True)
 """
-
-
-# User Serializer
-# class UserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ('id', 'username', 'is_staff')
 
 
 class NoteSerializer(serializers.ModelSerializer):
@@ -52,7 +36,7 @@ class UserProjectSerializer(serializers.ModelSerializer):
 
 # Project serializer
 class ProjectSerializer(serializers.ModelSerializer):
-    # if the name of the output is different
+    # If the name of the output is different
     # users = UserProjectSerializer(source='projectUsers', many=True)
     projectUsers = UserProjectSerializer(many=True, required=True, )
 
@@ -61,7 +45,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ['id', 'code', 'designation', 'objective', 'created_at', 'projectUsers']
         # fields = "__all__"
 
-    # check at least if user exist and have a scrum master classification in projectUsers field
+    # Check at least if user exist and have a scrum master classification in projectUsers field
     def validate(self, attrs):
         users = attrs.get('projectUsers')
         found_scrum_master = False
@@ -141,7 +125,6 @@ class SprintSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, attrs):
-        # raise Exception(attrs)
         project_to_found = attrs.get('project')
         authenticated_user = self.get_authenticated_user()
         try:
@@ -159,14 +142,6 @@ class SprintSerializer(serializers.ModelSerializer):
             authenticated_user = User.objects.get(username=request.user)
         return authenticated_user
 
-    """
-     def save_authenticed_user(self, authenticated_user, project):
-        if authenticated_user:
-            user_project = UserProject(user=authenticated_user, project=project,
-                                       classification=UserProject.Classification.PROJECT_OWNER)
-            user_project.save()
-    """
-
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
@@ -174,11 +149,10 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, data):
-        """
-        Check that start_at is before end_at.
-        """
+        # Check that start_at is before end_at.
         if data['start_at'] > data['end_at']:
             raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
+        # Check if the sprint is planifie ou en cours
         if data['sprint'].status not in ['Planifiè', 'En Cours']:
             raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
         user = data['user']
