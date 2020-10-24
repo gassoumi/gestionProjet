@@ -42,6 +42,9 @@ class Note(models.Model):
     user = models.ForeignKey(User, related_name="notes", on_delete=models.CASCADE)
     comment = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.note
+
 
 class Project(models.Model):
     code = models.CharField(max_length=200, unique=True)

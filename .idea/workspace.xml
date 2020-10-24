@@ -8,9 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d7f5e5-25ca-40d5-a879-96d62fcc6269" name="Default Changelist" comment="">
-      <change afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundary.js" afterDir="false" />
-      <change afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundaryRoute.js" afterDir="false" />
-      <change afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/ProblemDetail.js" afterDir="false" />
       <change afterPath="D:/react project/material ui react app example/gestion-projet-frontend/.idea/gestion-projet-frontend.iml" afterDir="false" />
       <change afterPath="D:/react project/material ui react app example/gestion-projet-frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="D:/react project/material ui react app example/gestion-projet-frontend/.idea/misc.xml" afterDir="false" />
@@ -41,58 +38,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectManagement/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/api.py" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/package-lock.json" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/package-lock.json" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/package.json" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/package.json" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/example-components/Cards5/Cards5Examples35/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/example-components/Cards5/Cards5Examples35/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Header/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Header/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarHeader/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarHeader/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PrivateRoute.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PrivateRoute.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/Dashboard.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/DiscussionList.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/DiscussionList.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/AddNew.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/AddNew.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/Alert.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/Alert.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Comments.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectManagement/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectManagement/serializers.py" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDetail.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDetail.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDialogForm.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDialogForm.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionItem.js" beforeDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionItem2.js" beforeDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionList.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionList.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionUpdate.js" beforeDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/NoteList.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/NoteList.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/ProblemTable.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/ProblemTable.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectDetail.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectDetail.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectList.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectList.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectTable.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectTable.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/index.js" afterDir="false" />
       <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskDetail.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskDetail.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskForm.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskForm.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskProblemsTable.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskProblemsTable.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskTable.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskTable.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskUpdate.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskUpdate.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/discussion.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/discussion.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/project.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/project.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/sprint.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/sprint.js" afterDir="false" />
-      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/task.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/task.js" afterDir="false" />
+      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Alerts.js" beforeDir="false" afterPath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Alerts.js" afterDir="false" />
+      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/MyHeader.js" beforeDir="false" />
+      <change beforePath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Sidebar2.js" beforeDir="false" />
       <change beforePath="D:/react project/material ui react app example/gestion-projet-frontend/package-lock.json" beforeDir="false" afterPath="D:/react project/material ui react app example/gestion-projet-frontend/package-lock.json" afterDir="false" />
       <change beforePath="D:/react project/material ui react app example/gestion-projet-frontend/package.json" beforeDir="false" afterPath="D:/react project/material ui react app example/gestion-projet-frontend/package.json" afterDir="false" />
       <change beforePath="D:/react project/material ui react app example/gestion-projet-frontend/public/index.html" beforeDir="false" afterPath="D:/react project/material ui react app example/gestion-projet-frontend/public/index.html" afterDir="false" />
@@ -127,67 +85,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+            <state relative-caret-position="173">
+              <caret line="124" selection-start-line="124" selection-end-line="124" selection-end-column="46" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/LeftSidebar/index.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="374">
+              <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="133" column="11" selection-start-line="133" selection-start-column="11" selection-end-line="133" selection-end-column="53" />
+            <state relative-caret-position="343">
+              <caret line="167" column="21" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
               <folding>
-                <element signature="e#3904#6279#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="240" column="25" selection-start-line="240" selection-start-column="25" selection-end-line="240" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/DiscussionList.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+            <state relative-caret-position="110">
+              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="65" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -196,35 +133,60 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/reducers/ThemeOptions.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3384" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/reducers/setting.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            <state relative-caret-position="233">
+              <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
-                <element signature="e#3012#23971#0" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarHeader/index.js">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Alerts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="93" column="15" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
+            <state relative-caret-position="880">
+              <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="226" column="92" selection-start-line="226" selection-start-column="92" selection-end-line="226" selection-end-column="92" />
+              <folding>
+                <element signature="e#0#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/NoteDetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -292,26 +254,13 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/NoteList.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskDetail.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskProblemsTable.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskTable.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskUpdate.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDialogForm.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectTable.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/Alert.js" />
-        <option value="$PROJECT_DIR$/projectManagement/api.py" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/common/AddNew.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/Dashboard.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectDetail.js" />
@@ -323,20 +272,14 @@
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/task.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/App.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundaryRoute.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/index.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/index.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundary.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/index.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PrivateRoute.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/discussion.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/ProblemTable.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionDetail.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js" />
@@ -346,8 +289,27 @@
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/DiscussionList.js" />
-        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js" />
         <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskForm.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PagesError404.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/LeftSidebar/index.js" />
+        <option value="$PROJECT_DIR$/projectManagement/models.py" />
+        <option value="$PROJECT_DIR$/projectManagement/serializers.py" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/MyHeader.js" />
+        <option value="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Alerts.js" />
+        <option value="$PROJECT_DIR$/projectManagement/api.py" />
       </list>
     </option>
   </component>
@@ -368,58 +330,34 @@
           <expand>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gestionProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="projectManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-blueprints" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-blueprints" type="462c0819:PsiDirectoryNode" />
-              <item name="CollapsedSidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-blueprints" type="462c0819:PsiDirectoryNode" />
-              <item name="LeftSidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-components" type="462c0819:PsiDirectoryNode" />
-              <item name="HeaderUserbox" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout-components" type="462c0819:PsiDirectoryNode" />
-              <item name="Sidebar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="my-components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="my-components" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -427,13 +365,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="my-components" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="my-components" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -502,6 +433,13 @@
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="my-components" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -510,13 +448,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
               <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carolina-react-admin-dashboard-pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gestionProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -566,19 +497,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PyCharm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\entities\task" />
-      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\entities\common" />
-      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components" />
-      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\redux" />
-      <recent name="D:\react project\material ui react app example\gestion-projet-frontend\src\components\entities\problems" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\react project\material ui react app example\gestion-projet-frontend\src\components\entities\task" />
       <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\entities\project" />
       <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\common" />
       <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\layout" />
       <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\entities\task" />
+      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components\entities\common" />
+      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\my-components" />
+      <recent name="D:\react project\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\carolina-react-admin-dashboard-pro\src\redux" />
+      <recent name="D:\react project\material ui react app example\gestion-projet-frontend\src\components\entities\problems" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -809,7 +740,8 @@
       <workItem from="1603259121510" duration="13881000" />
       <workItem from="1603352643855" duration="489000" />
       <workItem from="1603353623428" duration="14927000" />
-      <workItem from="1603436829604" duration="6114000" />
+      <workItem from="1603436829604" duration="6525000" />
+      <workItem from="1603522200275" duration="12500000" />
     </task>
     <servers />
   </component>
@@ -819,7 +751,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1954676000" />
+    <option name="totallyTimeSpent" value="1967587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,8 +764,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.21179625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498062" visible="true" weight="0.21447721" />
       <window_info id="Structure" order="1" sideWeight="0.501938" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -846,8 +779,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="9" sideWeight="0.49865952" weight="0.32956153" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013405" side_tool="true" weight="0.23903818" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4852547" visible="true" weight="0.21074964" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5087131" side_tool="true" weight="0.1980198" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49128687" visible="true" weight="0.1980198" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32956153" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32956153" />
@@ -870,225 +803,10 @@
     <SUITE FILE_PATH="coverage/gestionProjet$Test__frontend_src_utils.coverage" NAME="Test: frontend.src.utils Coverage Results" MODIFIED="1595002543740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="94" column="72" selection-start-line="94" selection-start-column="72" selection-end-line="94" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/dataTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-670">
-          <caret line="179" column="11" selection-start-line="179" selection-start-column="11" selection-end-line="179" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/sprint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="278" column="5" selection-start-line="278" selection-start-column="5" selection-end-line="278" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1254">
-          <caret line="286" column="9" selection-start-line="286" selection-start-column="9" selection-end-line="286" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/problem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3244">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/comment.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/document.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2816">
-          <caret line="135" column="82" selection-start-line="135" selection-start-column="82" selection-end-line="135" selection-end-column="104" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/note.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/ProjectDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3410">
-          <caret line="294" column="32" selection-start-line="294" selection-start-column="32" selection-end-line="294" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/messages.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="195" column="2" selection-start-line="195" selection-start-column="2" selection-end-line="198" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/DiscussionUpdate.js" />
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1100">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundaryRoute.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundary.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="102" column="2" selection-start-line="102" selection-start-column="2" selection-end-line="102" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="67" lean-forward="true" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="606" column="20" lean-forward="true" selection-start-line="606" selection-start-column="20" selection-end-line="606" selection-end-column="20" />
-          <folding>
-            <element signature="e#471#523#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PrivateRoute.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1017">
-          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1101,16 +819,6 @@
           <caret line="217" column="9" selection-start-line="217" selection-start-column="9" selection-end-line="217" selection-end-column="9" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-352">
-          <caret line="373" column="70" selection-start-line="373" selection-start-column="70" selection-end-line="373" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1166,20 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/CollapsedSidebar/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderDots/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3123">
@@ -1204,37 +898,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarHeader/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="93" column="15" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-            <element signature="e#3012#23971#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/dashboard/DiscussionList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
+        <state relative-caret-position="572">
           <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1242,47 +908,351 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/reducers/ThemeOptions.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/reducers/setting.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/reducers/ThemeOptions.js">
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/navItems.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3384" />
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/LeftSidebar/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="660">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="133" column="11" selection-start-line="133" selection-start-column="11" selection-end-line="133" selection-end-column="53" />
-          <folding>
-            <element signature="e#3904#6279#0" />
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/TaskForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="240" column="25" selection-start-line="240" selection-start-column="25" selection-end-line="240" selection-end-column="25" />
+        <state relative-caret-position="242">
+          <caret line="230" column="36" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="44" column="21" lean-forward="true" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/CollapsedSidebar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/PagesError404.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="51" column="72" selection-start-line="51" selection-start-column="72" selection-end-line="51" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarUserbox/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="907">
+          <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarCollapsed/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/SidebarHeader/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-638">
+          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/HeaderUserbox/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1239">
+          <caret line="134" column="48" selection-start-line="134" selection-start-column="48" selection-end-line="134" selection-end-column="48" />
+          <folding>
+            <element signature="e#4006#6381#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-components/Sidebar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-946">
+          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/layout-blueprints/LeftSidebar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2608">
+          <caret line="197" column="47" lean-forward="true" selection-start-line="197" selection-start-column="47" selection-end-line="197" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2402">
+          <caret line="132" column="10" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/redux/actions/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-110">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundaryRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/common/ErrorBoundary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="97" column="52" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/utils/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/discussion/Discussion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/document/Document.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="296" column="15" selection-start-line="296" selection-start-column="15" selection-end-line="296" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/NoteDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/note/Note.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/project/Project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="124" selection-start-line="124" selection-end-line="124" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/problem/Problem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/sprint/Sprint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="167" column="21" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/entities/task/Task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/MyHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Sidebar2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/src/my-components/layout/Alerts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectManagement/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="226" column="92" selection-start-line="226" selection-start-column="92" selection-end-line="226" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
           </folding>
         </state>
       </provider>

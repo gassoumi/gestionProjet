@@ -222,9 +222,9 @@ class ProblemViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = (filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend)
 
-    search_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'task', 'resolutionTools',
+    search_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'resolutionTools',
                      'created_at']
-    ordering_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'resolutionTools',
+    ordering_fields = ['description', 'status', 'id', 'start_at', 'end_at', 'cause', 'task', 'resolutionTools',
                        'created_at']
     filterset_fields = ['task', ]
 

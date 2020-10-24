@@ -221,9 +221,11 @@ class ProblemSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, data):
+        if data['start_at'] > data['end_at']:
+            raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
         task = data['task']
         if task.user != self.get_authenticated_user():
-            raise serializers.ValidationError("impossible d'ajouter ce problème ")
+            raise serializers.ValidationError("impossible d'ajouter ce problème")
         return data
 
     def get_authenticated_user(self):
