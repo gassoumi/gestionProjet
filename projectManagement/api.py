@@ -114,6 +114,9 @@ class ActiveSprintList(generics.ListAPIView):
         """
         user = self.request.user
         projects = Project.objects.filter(projectUsers__user=user)
+        chooser_user_id = self.request.query_params.get('user_id', None)
+        if chooser_user_id is not None and chooser_user_id.isnumeric():
+            projects = Project.objects.filter(projectUsers__user_id=chooser_user_id)
         return Sprint.objects.filter(project__in=projects, status__in=['Planifiè', 'En Cours'])
 
 

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/.idea/carolina-react-admin-dashboard-pro.iml" filepath="D:/react project/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/carolina-react-admin-dashboard-pro/.idea/carolina-react-admin-dashboard-pro.iml" />
-      <module fileurl="file://D:/react project/material ui react app example/gestion-projet-frontend/.idea/gestion-projet-frontend.iml" filepath="D:/react project/material ui react app example/gestion-projet-frontend/.idea/gestion-projet-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gestionProjet.iml" filepath="$PROJECT_DIR$/.idea/gestionProjet.iml" />
     </modules>
   </component>

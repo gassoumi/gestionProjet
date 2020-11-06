@@ -60,7 +60,8 @@ class ProjectSerializer(serializers.ModelSerializer):
             except:
                 pass
         if not found_scrum_master:
-            raise serializers.ValidationError("Please choice at least a exiting user with Scrum master classification")
+            raise serializers \
+                .ValidationError({'statut': "Please choice at least a exiting user with Scrum master classification"})
         return attrs
 
     def create(self, validated_data):
@@ -132,7 +133,7 @@ class SprintSerializer(serializers.ModelSerializer):
             user_project = UserProject.objects.filter(user=authenticated_user, project=project_to_found).get()
         except:
             # the authenticated user can't add sprint to this project so return not found
-            raise serializers.ValidationError("Project not found")
+            raise serializers.ValidationError({'projet': "Project not found"})
         return attrs
 
     def get_authenticated_user(self):
@@ -151,16 +152,17 @@ class TaskSerializer(serializers.ModelSerializer):
     def validate(self, data):
         # Check that start_at is before end_at.
         if data['start_at'] > data['end_at']:
-            raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
+            raise serializers.ValidationError({'date': "La date de fin doit etre superieur au date de debut"})
         # Check if the sprint is planifie ou en cours
         if data['sprint'].status not in ['Planifiè', 'En Cours']:
-            raise serializers.ValidationError("le statut du sprint doit etre Planifie ou En cours")
+            raise serializers \
+                .ValidationError({'sprint': "le statut du sprint doit etre Planifie ou En cours"})
         user = data['user']
         sprint = data['sprint']
         project = sprint.project
         users = project.users.all()
         if user not in users:
-            raise serializers.ValidationError("Cet utilisateur n'apprtient pas à ce sprint ")
+            raise serializers.ValidationError({'user': "Cet utilisateur n'apprtient pas à ce sprint "})
         return data
 
 
@@ -173,7 +175,8 @@ class DocumentSerializer(serializers.ModelSerializer):
         status = instance.status
         # only update the document that their status are ACTUAL
         if status == 'EX':
-            raise serializers.ValidationError('impossible de modifier ce document')
+            raise serializers \
+                .ValidationError({'document': 'impossible de modifier ce document car il est périmé'})
         return super().update(instance, validated_data)
 
 
@@ -196,10 +199,10 @@ class ProblemSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         if data['start_at'] > data['end_at']:
-            raise serializers.ValidationError("La date de fin doit etre superieur au date de debut")
+            raise serializers.ValidationError({'date': "La date de fin doit etre superieur au date de debut"})
         task = data['task']
         if task.user != self.get_authenticated_user():
-            raise serializers.ValidationError("impossible d'ajouter ce problème")
+            raise serializers.ValidationError({'tache': "impossible d'ajouter ce problème"})
         return data
 
     def get_authenticated_user(self):
